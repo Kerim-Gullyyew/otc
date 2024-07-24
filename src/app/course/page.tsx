@@ -18,8 +18,8 @@ const page: React.FC<pageProps> = ({ }) => {
       <div className='relative px-6 lg:px-8 pb-20'>
 
 
-        <div className='md:grid md:gap-6 lg:gap-8 md:grid-cols-3 '>
-          <div className='md:col-span-2 '>
+        <div className='md:flex md:gap-6 lg:gap-8  '>
+          <div className=''>
             <nav className="flex mt-5" aria-label="Breadcrumb">
               <ol role="list" className="flex space-x-2 rounded-md bg-gray-100 px-6 shadow-sm">
                 <li className="flex">
@@ -105,8 +105,8 @@ const page: React.FC<pageProps> = ({ }) => {
 
             </div>
           </div>
-          <div className='hidden relative md:flex md:col-span-1'>
-            <div className='border-l border-gray-400 overflow-auto no-scrollbar fixed w-auto h-[calc(100vh-90px)] px-6 pb-3 lg:px-8'>
+          <div className='hidden relative md:flex w-[300px] max-w-[300px] min-w-[300px]'>
+            <div className='border-l border-gray-400 overflow-auto no-scrollbar fixed  h-[calc(100vh-90px)] px-6 pt-6 pb-8 lg:px-8'>
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
                   <h3>Course Name</h3>

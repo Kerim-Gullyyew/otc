@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
   };
   return (
     <>
-      <nav className="bg-white z-50 fixed w-full p-6 shadow-inner lg:px-8" aria-label="Global">
+      <nav className="bg-white z-50 fixed w-full p-6 shadow-sm lg:px-8" aria-label="Global">
         <div className=' relative isolate flex gap-5 items-center justify-between'>
           <div className="flex lg:flex-1">
             <h2>Logo</h2>
