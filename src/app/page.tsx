@@ -6,7 +6,7 @@ export default function Home() {
       <div className="gap-10 sm:gap-14 flex-col flex justify-center lg:justify-between items-center lg:flex lg:flex-row">
         <div className="space-y-5">
           <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis
+            Lorem ipdsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis
           </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
