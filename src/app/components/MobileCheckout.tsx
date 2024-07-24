@@ -26,7 +26,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
   return (
     <>
 
-      <div className={`fixed bottom-0 sm:hidden w-full z-50 ${openMobileNav && 'hidden'}`}>
+      <div className={`fixed bottom-0 md:hidden w-full z-50 ${openMobileNav && 'hidden'}`}>
         <button onClick={() => setOpenMobileNav(true)} className="bg-blue rounded-lg text-center w-full py-3">
           Enroll this course
         </button>
