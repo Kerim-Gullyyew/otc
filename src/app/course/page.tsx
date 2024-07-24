@@ -20,7 +20,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
         <div className='md:flex md:gap-6 lg:gap-8  '>
           <div className=''>
-            <nav className="flex mt-5" aria-label="Breadcrumb">
+            <nav className="flex mt-1" aria-label="Breadcrumb">
               <ol role="list" className="flex space-x-2 rounded-md bg-gray-100 px-6 shadow-sm">
                 <li className="flex">
                   <div className="flex items-center">
@@ -57,12 +57,12 @@ const page: React.FC<pageProps> = ({ }) => {
                 ))}
               </ol>
             </nav>
-            <div className='mt-5'>
-              <Image className='max-h-64 object-cover w-full' width={1000} height={1000} alt='download' src={'/course/download.jpg'} />
+            <div className='mt-2'>
+              <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.jpg'} />
             </div>
             <div className='mt-5 px-5 space-y-5'>
               <div className=''>
-                <h1>Course Name</h1>
+                <h1 className='font-bold'>Course Name</h1>
                 <p>Duration: 9 months</p>
                 <p>Weekly sessions: 2</p>
               </div>
@@ -105,7 +105,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
             </div>
           </div>
-          <div className='hidden relative md:flex w-[300px] max-w-[300px] min-w-[300px]'>
+          <div className='hidden relative md:flex w-[350px] max-w-[350px] min-w-[350px]'>
             <div className='border-l border-gray-400 overflow-auto no-scrollbar fixed  h-[calc(100vh-90px)] px-6 pt-6 pb-8 lg:px-8'>
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
@@ -114,7 +114,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
                 <div className="space-y-3">
                   <h3>Select your payment option</h3>
-                  <button className="w-full border bg-gray-50 border-blue px-4 py-2 rounded-xl">
+                  <button className="w-full border bg-[#F6F5FF] border-blue px-4 py-2 rounded-xl">
                     <div className="flex justify-between">
                       <div>
                         <p>Billed One Off</p>
@@ -128,7 +128,7 @@ const page: React.FC<pageProps> = ({ }) => {
                       </div>
                     </div>
                   </button>
-                  <button className="w-full border bg-gray-50 border-gray-300 px-4 py-2 rounded-xl">
+                  <button className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-2 rounded-xl">
                     <div className="flex justify-between">
                       <div>
                         <p>Billed One Off</p>
@@ -146,15 +146,15 @@ const page: React.FC<pageProps> = ({ }) => {
 
                 <div className="space-y-3">
                   <h3>Enter Account Detail</h3>
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="First Name" />
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Last Name" />
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Email Address" />
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Phone number" />
+                  <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="First Name" />
+                  <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Last Name" />
+                  <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Email Address" />
+                  <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Phone number" />
                 </div>
 
 
                 <div>
-                  <button className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl">
+                  <button className="w-full border bg-[#0800FC] text-white border-gray-300 px-4 py-3 outline-none rounded-xl">
                     Place order
                   </button>
                 </div>
