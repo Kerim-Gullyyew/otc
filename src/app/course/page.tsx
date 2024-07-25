@@ -58,7 +58,7 @@ const page: React.FC<pageProps> = ({ }) => {
               </ol>
             </nav>
             <div className='mt-2'>
-              <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.jpg'} />
+              <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.webp'} />
             </div>
             <div className='mt-5 px-5 space-y-5'>
               <div className=''>
@@ -68,12 +68,12 @@ const page: React.FC<pageProps> = ({ }) => {
               </div>
 
               <div className=''>
-                <h3>Description</h3>
+                <h3 className='font-medium'>Description</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae modi cum, expedita magni velit molestias sed! Voluptates, ducimus! Quia nesciunt, debitis quaerat quis molestiae voluptate assumenda ducimus hic error architecto?</p>
               </div>
 
               <div>
-                <h3>Syllabus</h3>
+                <h3 className='font-medium'>Syllabus</h3>
                 <ul className=' list-disc ml-6'>
                   <li className='text-sm'>Lorem ipsum dolor </li>
                   <li className='text-sm'>Lorem ipsum dolor </li>
@@ -83,7 +83,7 @@ const page: React.FC<pageProps> = ({ }) => {
               </div>
 
               <div>
-                <h3>What you will learn</h3>
+                <h3 className='font-medium'>What you will learn</h3>
                 <ul className=' list-disc ml-6'>
                   <li className='text-sm'>Lorem ipsum dolor </li>
                   <li className='text-sm'>Lorem ipsum dolor </li>
@@ -93,10 +93,10 @@ const page: React.FC<pageProps> = ({ }) => {
               </div>
 
               <div>
-                <h3>Related courses</h3>
+                <h3 className='font-medium'>Related courses</h3>
                 <div className='grid grid-cols-2'>
                   <div>
-                    <Image className=' rounded-t-xl' width={1000} height={1000} src={"/course/download.jpg"} alt='download' />
+                    <Image className=' rounded-t-xl' width={1000} height={1000} src={"/course/download.webp"} alt='download' />
                     <div></div>
                   </div>
                 </div>
@@ -109,11 +109,11 @@ const page: React.FC<pageProps> = ({ }) => {
             <div className='border-l border-gray-400 overflow-auto no-scrollbar fixed  h-[calc(100vh-90px)] px-6 pt-6 pb-8 lg:px-8'>
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
-                  <h3>Course Name</h3>
+                  <h3 className='font-semibold'>Course Name</h3>
                 </div>
 
                 <div className="space-y-3">
-                  <h3>Select your payment option</h3>
+                  <h3 className='font-medium'>Select your payment option</h3>
                   <button className="w-full border bg-[#F6F5FF] border-blue px-4 py-2 rounded-xl">
                     <div className="flex justify-between">
                       <div>
@@ -145,7 +145,7 @@ const page: React.FC<pageProps> = ({ }) => {
                 </div>
 
                 <div className="space-y-3">
-                  <h3>Enter Account Detail</h3>
+                  <h3 className='font-medium'>Enter Account Detail</h3>
                   <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="First Name" />
                   <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Last Name" />
                   <input className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Email Address" />
