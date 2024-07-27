@@ -248,7 +248,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
           </div>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <h3>EN</h3>
+            <h3>Contact Us</h3>
           </div>
         </div>
       </nav>
