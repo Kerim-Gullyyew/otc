@@ -28,6 +28,7 @@ import {
   MagnifyingGlassIcon,
   UsersIcon,
   SquaresPlusIcon,
+  ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
@@ -37,7 +38,7 @@ import {
   RectangleGroupIcon,
 } from "@heroicons/react/20/solid";
 import { AnimatePresence, motion } from "framer-motion";
-interface HeaderProps {}
+interface HeaderProps { }
 const products = [
   {
     name: "Analytics",
@@ -89,33 +90,45 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-const Header: React.FC<HeaderProps> = ({}) => {
+const Header: React.FC<HeaderProps> = ({ }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   const [hoveredItem, setHoveredItem] = useState<number>(1);
-  const [selectedItem, setSelectedItem] = useState<number>(1);
+  const [selectedItem, setSelectedItem] = useState<1 | 2 | 3>(1);
+  const [selectedChildItem, setSelectedChildItem] = useState<number | null>(null);
   const [categories, setCategories] = useState<number>(1);
   useEffect(() => {
     setHoveredItem(1);
   }, []);
 
-  const handleMouseEnter = (item: number) => {
+  const handleMouseEnter = (item: 1 | 2 | 3) => {
     setHoveredItem(item);
     setSelectedItem(item);
+    setSelectedChildItem(null); // Reset the selected child item when the parent item changes
   };
-  const handleCategoryListEnter = (item: number) => {
-    setHoveredItem(item);
-    setSelectedItem(item);
-    setCategories(item);
+
+  const handleMouseLeave = () => {
+    setSelectedChildItem(null);
+  }
+
+  const handleChildMouseEnter = (childIndex: number) => {
+    setSelectedChildItem(childIndex);
   };
-  const parentItems = [1, 2, 3, 4, 5];
-  const childItems: { [key: number]: string[] } = {
-    1: ["Child 1-1", "Child 1-2", "Child 1-3"],
-    2: ["Child 2-1", "Child 2-2", "Child 2-3"],
-    3: ["Child 3-1", "Child 3-2", "Child 3-3"],
-    4: ["Child 4-1", "Child 4-2", "Child 4-3"],
-    5: ["Child 5-1", "Child 5-2", "Child 5-3"],
+  const parentItems: (1 | 2 | 3)[] = [1, 2, 3]; // Example parent items
+  const childItems: { [key in 1 | 2 | 3]: string[] } = {
+    1: ['Child 1-1', 'Child 1-2'],
+    2: ['Child 2-1', 'Child 2-2'],
+    3: ['Child 3-1', 'Child 3-2']
   };
+  const thirdItems: { [key: string]: string[] } = {
+    'Child 1-1': ['Third 1-1-1', 'Third 1-1-2'],
+    'Child 1-2': ['Third 1-2-1', 'Third 1-2-2'],
+    'Child 2-1': ['Third 2-1-1', 'Third 2-1-2'],
+    'Child 2-2': ['Third 2-2-1', 'Third 2-2-2'],
+    'Child 3-1': ['Third 3-1-1', 'Third 3-1-2'],
+    'Child 3-2': ['Third 3-2-1', 'Third 3-2-2']
+  };
+
   return (
     <>
       <nav
@@ -150,48 +163,71 @@ const Header: React.FC<HeaderProps> = ({}) => {
                 >
                   <div className="grid grid-cols-12 gap-5 container">
                     <div className="col-span-3">
-                      <ul className="space-y-3">
+                      <div className="border-b border-gray-700 max-w-48 pb-1">
+                        <h3 className="">Main Menu</h3>
+                      </div>
+                      <ul className="space-y-3 mt-5">
                         {parentItems.map((item) => (
                           <li
                             key={item}
-                            className={`bg-gray-50 hover:animate-fade-in cursor-pointer ${hoveredItem === item && "bg-red-200"}`}
+                            className={`text-black px-5 flex items-center justify-between rounded-xl py-2 hover:animate-fade-in cursor-pointer ${hoveredItem === item && "bg-[#F1F0FF]"}`}
                             onMouseEnter={() => handleMouseEnter(item)}
+                            onMouseLeave={handleMouseLeave}
                           >
-                            {item}
+                            <h3>
+                              {item}
+                            </h3>
+                            <ChevronRightIcon className="w-5 h-5" />
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="col-span-3">
-                      <ul className="space-y-3">
+                    <div className={`col-span-3 transition-opacity duration-500 ${selectedItem ? 'opacity-100' : 'opacity-0'}`}>
+                      <div className="border-b border-gray-700 max-w-48 pb-1">
+                        <h3 className="">Main Menu</h3>
+                      </div>
+                      <ul className="space-y-3 mt-5">
                         {selectedItem &&
                           childItems[selectedItem].map((child, index) => (
                             <li
                               key={index}
-                              className={"bg-gray-50 cursor-pointer"}
-                              // onMouseEnter={() => handleCategoryListEnter(item)}
+                              className={`text-black px-5 flex items-center justify-between rounded-xl py-2 hover:animate-fade-in cursor-pointer ${selectedChildItem === index && "bg-[#F1F0FF]"}`}
+                              onMouseEnter={() => handleChildMouseEnter(index)}
                             >
-                              {child}
+                              <h3>
+                                {child}
+                              </h3>
+                              <ChevronRightIcon className="w-5 h-5" />
                             </li>
                           ))}
                       </ul>
                     </div>
-                    <div className="bg-black h-20 col-span-6">
-                      {selectedItem &&
-                        childItems[selectedItem].map((child, index) => (
-                          <li
-                            key={index}
-                            className={"bg-gray-50 cursor-pointer"}
-                          >
-                            {child}
-                          </li>
-                        ))}
+                    <div className={`col-span-6 transition-opacity duration-200 ${selectedChildItem !== null ? 'opacity-100' : 'opacity-0'}`}>
+                      <div className="border-b border-gray-700 max-w-48 pb-1">
+                        <h3 className="">Main Menu</h3>
+                      </div>
+                      <ul className="space-y-3 mt-5">
+                        {selectedChildItem &&
+                          thirdItems[childItems[selectedItem][selectedChildItem]].map((third, index) => (
+                            <li
+                              key={index}
+                              className={"text-black px-5 rounded-xl py-2 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"}
+                            >
+                              <h4>
+                                {third}
+
+                              </h4>
+                            </li>
+                          ))}
+                      </ul>
                     </div>
                   </div>
                 </PopoverPanel>
               </>
             )}
           </Popover>
+
+
 
           <div className="flex flex-1 border gap-2 rounded-full border-gray-300 outline-none px-3 py-1 items-center">
             <input className="rounded-full outline-none  w-full h-full" />

@@ -57,13 +57,8 @@ const page: React.FC<pageProps> = ({ }) => {
                 ))}
               </ol>
             </nav>
-<<<<<<< Updated upstream
             <div className='mt-2'>
               <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.webp'} />
-=======
-            <div className='mt-5'>
-              <Image className='max-h-[700px] object-cover w-full' width={1000} height={1000} alt='download' src={'/course/download.jpg'} />
->>>>>>> Stashed changes
             </div>
             <div className='mt-5 px-5 space-y-5'>
               <div className=''>
