@@ -51,9 +51,9 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
             transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
             className=" border-gray-50 fixed bottom-0 right-0 left-0 z-10 w-full rounded-t-xl border-2 border-b-0 bg-white shadow-[0px_-8px_20px_-6px_rgba(0,0,0,0.3)]"
           >
-            <div className="py-4 px-3 h-screen overflow-auto" ref={bottomSheetRef}>
+            <div className="pb-4 pt-14 px-3 h-screen overflow-auto" ref={bottomSheetRef}>
               <div onClick={() => setOpenMobileNav(false)} className="flex justify-end">
-                <XMarkIcon className="w-10 h-10" />
+                <XMarkIcon className="w-8 h-8" />
               </div>
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">

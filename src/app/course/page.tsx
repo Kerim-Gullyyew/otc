@@ -3,14 +3,14 @@ import { HomeIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import MobileCheckout from "../components/MobileCheckout";
 
-interface pageProps {}
+interface pageProps { }
 
 const pages = [
   { name: "Secondary", href: "#", current: false },
   { name: "Course Name", href: "#", current: true },
 ];
 
-const page: React.FC<pageProps> = ({}) => {
+const page: React.FC<pageProps> = ({ }) => {
   return (
     <>
       <div className="relative px-6 lg:px-8 pb-20">
@@ -19,7 +19,7 @@ const page: React.FC<pageProps> = ({}) => {
             <nav className="flex mt-1" aria-label="Breadcrumb">
               <ol
                 role="list"
-                className="flex space-x-2 rounded-md bg-gray-100 px-6 shadow-sm"
+                className="flex space-x-2 rounded-md bg-white px-6 shadow-sm"
               >
                 <li className="flex">
                   <div className="flex items-center">
@@ -56,18 +56,23 @@ const page: React.FC<pageProps> = ({}) => {
                 ))}
               </ol>
             </nav>
+
+            <div className="pt-2 pb-1">
+              <h3 className="font-bold">Course Name</h3>
+
+            </div>
+
+
             <div className='mt-2'>
-              <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.webp'} />
+              <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.jpg'} />
             </div>
             <div className="mt-5 px-2 space-y-5">
-              <div className="">
-                <h1 className="font-bold">Course Name</h1>
-                <p>Duration: 9 months</p>
-                <p>Weekly sessions: 2</p>
-              </div>
 
-              <div className="">
-                <h3 className="font-medium">Description</h3>
+              <div className="space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-medium">Description</h3>
+                  {/* <div>dsfsd</div> */}
+                </div>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
                   modi cum, expedita magni velit molestias sed! Voluptates,
