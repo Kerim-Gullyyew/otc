@@ -118,7 +118,7 @@ const page: React.FC<pageProps> = ({}) => {
                       className=" rounded-t-xl"
                       width={1000}
                       height={1000}
-                      src={"/course/download.webp"}
+                      src={"/course/download.jpg"}
                       alt="download"
                     />
                     <div></div>
