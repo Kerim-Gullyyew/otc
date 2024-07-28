@@ -68,10 +68,10 @@ const page: React.FC<pageProps> = ({ }) => {
             <div className="mt-5 px-2 space-y-5">
 
               <div className="space-y-1">
-                <h3 className="font-bold">Course Name</h3>
+                <h1 className="font-bold">Course Name</h1>
                 <div className="flex justify-between items-center">
 
-                  <h3 className="font-medium">Description</h3>
+                  <h2 className="font-medium">Description</h2>
                   {/* <div>dsfsd</div> */}
                 </div>
                 <p>
@@ -92,48 +92,48 @@ const page: React.FC<pageProps> = ({ }) => {
 
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="font-medium">Course Detail</h3>
+                  <h2 className="font-medium">Course Detail</h2>
                 </div>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
                       <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
-                      <h4 className="font-semibold text-gray-700">144</h4>
+                      <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
                       <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
-                      <h4 className="font-semibold text-gray-700">144</h4>
+                      <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
                       <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
-                      <h4 className="font-semibold text-gray-700">144</h4>
+                      <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
                       <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
-                      <h4 className="font-semibold text-gray-700">144</h4>
+                      <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-medium">Syllabus</h3>
+                <h2 className="font-medium">Syllabus</h2>
                 <div className="space-y-2">
                   <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
                     {({ open }) => (
                       <>
                         <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
-                          <h4>Lorem ipsum dolor sit amet</h4>
+                          <h3>Lorem ipsum dolor sit amet</h3>
                           <ChevronRightIcon className={`w-5 transition-transform duration-500 h-5 ${open && "rotate-90"}`} />
                         </DisclosureButton>
                         <div className="overflow-hidden data-[open]:py-2">
@@ -152,7 +152,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
                   <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
                     <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
-                      <h4>Lorem ipsum dolor sit amet</h4>
+                      <h3>Lorem ipsum dolor sit amet</h3>
                       <ChevronRightIcon className="w-5 h-5" />
                     </DisclosureButton>
                     <div className="overflow-hidden data-[opened]:py-2">
@@ -168,7 +168,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
                   <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
                     <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
-                      <h4>Lorem ipsum dolor sit amet</h4>
+                      <h3>Lorem ipsum dolor sit amet</h3>
                       <ChevronRightIcon className="w-5 h-5" />
                     </DisclosureButton>
                     <div className="overflow-hidden data-[opened]:py-2">
@@ -184,7 +184,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
                   <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
                     <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
-                      <h4>Lorem ipsum dolor sit amet</h4>
+                      <h3>Lorem ipsum dolor sit amet</h3>
                       <ChevronRightIcon className="w-5 h-5" />
                     </DisclosureButton>
                     <div className="overflow-hidden data-[opened]:py-2">
@@ -203,7 +203,7 @@ const page: React.FC<pageProps> = ({ }) => {
               </div>
 
               <div>
-                <h3 className="font-medium">What you will learn</h3>
+                <h2 className="font-medium">What you will learn</h2>
                 <ul className=" list-disc ml-6">
                   <li className="text-sm">Lorem ipsum dolor </li>
                   <li className="text-sm">Lorem ipsum dolor </li>
@@ -213,7 +213,7 @@ const page: React.FC<pageProps> = ({ }) => {
               </div>
 
               <div>
-                <h3 className="font-medium">Related courses</h3>
+                <h2 className="font-medium">Related courses</h2>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
                   <div className="">
                     <Image
@@ -224,10 +224,10 @@ const page: React.FC<pageProps> = ({ }) => {
                       alt="download"
                     />
                     <div className="border space-y-1 px-3 py-1 rounded-b-xl">
-                      <h4>Course Name</h4>
+                      <h3>Course Name</h3>
                       <div>
-                        <h6>Tught: English</h6>
-                        <h6>Duration: 9 months</h6>
+                        <h4>Tught: English</h4>
+                        <h4>Duration: 9 months</h4>
                       </div>
                       <h4>$100/monthly</h4>
                     </div>
@@ -241,10 +241,10 @@ const page: React.FC<pageProps> = ({ }) => {
                       alt="download"
                     />
                     <div className="border space-y-1 px-3 py-1 rounded-b-xl">
-                      <h4>Course Name</h4>
+                      <h3>Course Name</h3>
                       <div>
-                        <h6>Tught: English</h6>
-                        <h6>Duration: 9 months</h6>
+                        <h4>Tught: English</h4>
+                        <h4>Duration: 9 months</h4>
                       </div>
                       <h4>$100/monthly</h4>
                     </div>
@@ -258,10 +258,10 @@ const page: React.FC<pageProps> = ({ }) => {
                       alt="download"
                     />
                     <div className="border space-y-1 px-3 py-1 rounded-b-xl">
-                      <h4>Course Name</h4>
+                      <h3>Course Name</h3>
                       <div>
-                        <h6>Tught: English</h6>
-                        <h6>Duration: 9 months</h6>
+                        <h4>Tught: English</h4>
+                        <h4>Duration: 9 months</h4>
                       </div>
                       <h4>$100/monthly</h4>
                     </div>
@@ -275,10 +275,10 @@ const page: React.FC<pageProps> = ({ }) => {
                       alt="download"
                     />
                     <div className="border space-y-1 px-3 py-1 rounded-b-xl">
-                      <h4>Course Name</h4>
+                      <h3>Course Name</h3>
                       <div>
-                        <h6>Tught: English</h6>
-                        <h6>Duration: 9 months</h6>
+                        <h4>Tught: English</h4>
+                        <h4>Duration: 9 months</h4>
                       </div>
                       <h4>$100/monthly</h4>
                     </div>
@@ -291,11 +291,11 @@ const page: React.FC<pageProps> = ({ }) => {
             <div className="border-l border-[#DEDEDE] overflow-auto no-scrollbar fixed  h-[calc(100vh-70px)] px-6 pt-6 pb-8 lg:px-8">
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
-                  <h3 className="font-semibold">Course Name</h3>
+                  <p className="font-semibold">Course Name</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="font-medium">Select your payment option</h3>
+                  <p className="font-medium">Select your payment option</p>
                   <button className="w-full border bg-[#F6F5FF] border-blue px-4 py-2 rounded-xl">
                     <div className="flex justify-between">
                       <div>
@@ -325,7 +325,7 @@ const page: React.FC<pageProps> = ({ }) => {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="font-medium">Enter Account Detail</h3>
+                  <p className="font-medium">Enter Account Detail</p>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium leading-4">
                       Email
