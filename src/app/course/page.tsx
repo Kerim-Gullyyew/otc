@@ -1,18 +1,22 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import MobileCheckout from "../components/MobileCheckout";
 import { AcademicCapIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 
-interface pageProps { }
+interface pageProps {}
 
 const pages = [
   { name: "Secondary", href: "#", current: false },
   { name: "Course Name", href: "#", current: true },
 ];
 
-const page: React.FC<pageProps> = ({ }) => {
+const page: React.FC<pageProps> = ({}) => {
   return (
     <>
       <div className="relative px-6 lg:px-8 pb-20">
@@ -59,18 +63,19 @@ const page: React.FC<pageProps> = ({ }) => {
               </ol>
             </nav>
 
-
-
-
-            <div className='mt-2'>
-              <Image className='max-h-[400px] object-cover w-full rounded-t-2xl' width={1000} height={1000} alt='download' src={'/course/download.jpg'} />
+            <div className="mt-2">
+              <Image
+                className="max-h-[400px] object-cover w-full rounded-t-2xl"
+                width={1000}
+                height={1000}
+                alt="download"
+                src={"/course/download.jpg"}
+              />
             </div>
             <div className="mt-5 px-2 space-y-5">
-
               <div className="space-y-1">
                 <h1 className="font-bold">Course Name</h1>
                 <div className="flex justify-between items-center">
-
                   <h2 className="font-medium">Description</h2>
                   {/* <div>dsfsd</div> */}
                 </div>
@@ -98,28 +103,36 @@ const page: React.FC<pageProps> = ({ }) => {
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
-                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <div>
+                        <AcademicCapIcon className="w-5 h-5 text-gray-700" />
+                      </div>
                       <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
-                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <div>
+                        <AcademicCapIcon className="w-5 h-5 text-gray-700" />
+                      </div>
                       <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
-                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <div>
+                        <AcademicCapIcon className="w-5 h-5 text-gray-700" />
+                      </div>
                       <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
                   <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
-                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <div>
+                        <AcademicCapIcon className="w-5 h-5 text-gray-700" />
+                      </div>
                       <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
@@ -129,28 +142,35 @@ const page: React.FC<pageProps> = ({ }) => {
               <div className="space-y-3">
                 <h2 className="font-medium">Syllabus</h2>
                 <div className="space-y-2">
-                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                  <Disclosure
+                    as="div"
+                    className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4"
+                  >
                     {({ open }) => (
                       <>
                         <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
                           <h3>Lorem ipsum dolor sit amet</h3>
-                          <ChevronRightIcon className={`w-5 transition-transform duration-500 h-5 ${open && "rotate-90"}`} />
+                          <ChevronRightIcon
+                            className={`w-5 transition-transform duration-500 h-5 ${open && "rotate-90"}`}
+                          />
                         </DisclosureButton>
                         <div className="overflow-hidden data-[open]:py-2">
                           <DisclosurePanel
                             transition
                             className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
                           >
-                            Yes! You can purchase a license that you can share with your entire team.
+                            Yes! You can purchase a license that you can share
+                            with your entire team.
                           </DisclosurePanel>
                         </div>
                       </>
-
                     )}
-
                   </Disclosure>
 
-                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                  <Disclosure
+                    as="div"
+                    className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4"
+                  >
                     <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
                       <h3>Lorem ipsum dolor sit amet</h3>
                       <ChevronRightIcon className="w-5 h-5" />
@@ -160,13 +180,16 @@ const page: React.FC<pageProps> = ({ }) => {
                         transition
                         className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
                       >
-                        Yes! You can purchase a license that you can share with your entire team.
+                        Yes! You can purchase a license that you can share with
+                        your entire team.
                       </DisclosurePanel>
                     </div>
-
                   </Disclosure>
 
-                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                  <Disclosure
+                    as="div"
+                    className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4"
+                  >
                     <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
                       <h3>Lorem ipsum dolor sit amet</h3>
                       <ChevronRightIcon className="w-5 h-5" />
@@ -176,13 +199,16 @@ const page: React.FC<pageProps> = ({ }) => {
                         transition
                         className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
                       >
-                        Yes! You can purchase a license that you can share with your entire team.
+                        Yes! You can purchase a license that you can share with
+                        your entire team.
                       </DisclosurePanel>
                     </div>
-
                   </Disclosure>
 
-                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                  <Disclosure
+                    as="div"
+                    className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4"
+                  >
                     <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
                       <h3>Lorem ipsum dolor sit amet</h3>
                       <ChevronRightIcon className="w-5 h-5" />
@@ -192,14 +218,12 @@ const page: React.FC<pageProps> = ({ }) => {
                         transition
                         className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
                       >
-                        Yes! You can purchase a license that you can share with your entire team.
+                        Yes! You can purchase a license that you can share with
+                        your entire team.
                       </DisclosurePanel>
                     </div>
-
                   </Disclosure>
-
                 </div>
-
               </div>
 
               <div>
@@ -327,7 +351,10 @@ const page: React.FC<pageProps> = ({ }) => {
                 <div className="space-y-4">
                   <p className="font-medium">Enter Account Detail</p>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-4"
+                    >
                       Email
                     </label>
                     <div className="mt-2">
@@ -340,7 +367,10 @@ const page: React.FC<pageProps> = ({ }) => {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-4"
+                    >
                       Email
                     </label>
                     <div className="mt-2">
@@ -353,7 +383,10 @@ const page: React.FC<pageProps> = ({ }) => {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-4"
+                    >
                       Email
                     </label>
                     <div className="mt-2">
@@ -366,7 +399,10 @@ const page: React.FC<pageProps> = ({ }) => {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-4"
+                    >
                       Email
                     </label>
                     <div className="mt-2">
