@@ -7,26 +7,34 @@ export default function Home() {
     <div className=" bg-white w-full px-6 lg:px-8 py-10 lg:py-14">
       <div className="gap-10 sm:gap-14 flex-col flex justify-center lg:justify-between items-center lg:flex lg:flex-row">
         <div className="space-y-5">
-          <h1>
-            Lorem ipdsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis
+          <h1 className="font-bold">
+            Keep Learning on Track
           </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
           </p>
-          <button className="bg-emerald-600 px-6 py-2 text-white rounded-lg">
+          <button className="bg-orange-400 px-6 py-2 text-white rounded-l-xl rounded-tr-xl">
             Explore courses
           </button>
+
+          <div className="flex">
+            <Image className="h-48 w-40 object-contain bg-red-600" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
+            <div className="pt-5 pb-8 bg-gray-100">
+              <h3>Best certified Teacher Worldwide</h3>
+            </div>
+          </div>
+
         </div>
         <div className="w-full md:w-[450px] lg:w-full h-80 bg-green">
 
         </div>
       </div>
 
-      <div className="mt-20 lg:mt-32">
+      <div className="mt-20 lg:mt-32 ">
         <div className="gap-10 sm:gap-14 flex-col flex justify-center lg:justify-between items-center lg:flex lg:flex-row-reverse">
 
           <div className="space-y-5">
-            <h1>
+            <h1 className="">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis
             </h1>
             <p>
