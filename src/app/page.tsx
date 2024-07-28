@@ -1,44 +1,58 @@
 "use client"
 import Image from "next/image";
-import { PlayIcon, AcademicCapIcon } from "@heroicons/react/24/outline";
+import { PlayIcon, AcademicCapIcon, ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className=" bg-white w-full px-6 lg:px-8 py-10 lg:py-14">
-      <div className="gap-10 sm:gap-14 flex-col flex justify-center lg:justify-between items-center lg:flex lg:flex-row">
-        <div className="space-y-5">
-          <h1 className="font-bold">
-            Keep Learning on Track
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
-          </p>
-          <button className="bg-orange-400 px-6 py-2 text-white rounded-l-xl rounded-tr-xl">
-            Explore courses
-          </button>
+      <div className="gap-10 sm:gap-14 grid grid-cols-1 lg:grid-cols-5 justify-center items-end">
+        <div className="flex flex-col justify-between lg:col-span-3  h-full">
+          <div className="space-y-5 max-w-xl">
+            <h1 className="font-bold">
+              Keep Learning on Track
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
+            </p>
+            <button className="bg-orange-400 px-6 py-2 text-white rounded-l-xl rounded-tr-xl">
+              Explore courses
+            </button>
 
-          <div className="flex relative">
-            <Image className="h-48 w-40 object-contain bg-none" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
-            <div className=" bg-gray-200 rounded-2xl relative">
-              <div className="pt-3 px-5 pb-8">
-                <h3>Best certified Teacher Worldwide</h3>
-              </div>
-
-              <div className=" absolute w-20 h-20 bg-white right-0 top-0 rounded-bl-[25px] before:w-5 before:h-5">
-                <div className=" absolute right-0 top-0 bg-gray-200 w-[90%] h-[90%] rounded-2xl">
-
-                </div>
-              </div>
-              {/* <div className="absolute bg-gray-200 w-16 h-16 top-0 right-0 border-l-[5px] rounded-bl-[25px] border-b-[5px] border-white before:absolute before:content-[''] before:w-5 before:h-5 before:right-0 before:rounded-full before:shadow-custom">
-
-              </div> */}
-
-            </div>
           </div>
 
-        </div>
-        <div className="w-full md:w-[450px] lg:w-full h-80 bg-green">
+          <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row relative gap-5 mt-10">
+            <div className="flex sm:flex-1 min-w-[200px]">
+              <Image className="w-56 z-10 self-end -mr-20 object-contain bg-none" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
+              <div className="bg-gray-200 w-full rounded-2xl relative px-5 py-4 flex flex-col justify-between">
+                <h3 className="font-semibold">Best <span className="text-green">Certified</span> Teacher Worldwide</h3>
+                <div className="flex flex-col items-end">
+                  <div>
+                    <h2 className="font-bold text-green">210+</h2>
+                    <p className="text-xs">Lorem ipsum dolor</p>
 
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5">
+                <div className="pr-20">
+                  <Image width={1000} height={1000} alt="Student" className="min-h-20 max-w-36 rounded-xl object-contain w-full" src={"/home/student.jpg"} />
+                </div>
+                <h3 className="font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+              </div>
+              <div className=" absolute w-20 h-20 bg-white right-0 top-0 rounded-bl-[25px] before:absolute before:right-[100%] before:top-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom before:rounded-full after:absolute after:top-[100%] after:right-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom after:rounded-full">
+                <div className=" absolute right-0 top-0 bg-gray-200 w-[90%] h-[90%] rounded-2xl flex items-center justify-center">
+                  <ArrowUpRightIcon className="w-10 h-10 text-orange-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className=" lg:col-span-2">
+          <Image src={"/home/studenthero.png"} width={1000} height={1000} alt="student with book" className="" />
         </div>
       </div>
 
