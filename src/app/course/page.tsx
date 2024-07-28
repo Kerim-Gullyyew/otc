@@ -382,7 +382,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
                 <div>
                   <button className="w-full border bg-[#0800FC] text-white border-gray-300 px-4 py-2 outline-none rounded-md">
-                    Place order
+                    Enrol now
                   </button>
                 </div>
               </div>
