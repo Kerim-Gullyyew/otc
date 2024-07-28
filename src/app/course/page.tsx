@@ -205,10 +205,10 @@ const page: React.FC<pageProps> = ({ }) => {
               <div>
                 <h2 className="font-medium">What you will learn</h2>
                 <ul className=" list-disc ml-6">
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                  <li className="text-sm">Lorem ipsum dolor </li>
+                  <li className=" ">Lorem ipsum dolor </li>
+                  <li className=" ">Lorem ipsum dolor </li>
+                  <li className=" ">Lorem ipsum dolor </li>
+                  <li className=" ">Lorem ipsum dolor </li>
                 </ul>
               </div>
 
