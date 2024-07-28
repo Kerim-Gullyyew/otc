@@ -132,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
   return (
     <>
       <nav
-        className="bg-white z-50 fixed w-full p-2 shadow-sm lg:px-8"
+        className="bg-white container mx-auto  z-50 fixed w-full p-2 shadow-sm lg:px-8"
         aria-label="Global"
       >
         <div className=" relative isolate flex gap-5 items-center justify-between">

@@ -19,8 +19,19 @@ export default function Home() {
 
           <div className="flex relative">
             <Image className="h-48 w-40 object-contain bg-none" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
-            <div className=" bg-gray-100 pt-5 pb-8">
+            <div className=" bg-gray-200 rounded-2xl relative">
+              <div className="pt-3 px-5 pb-8">
                 <h3>Best certified Teacher Worldwide</h3>
+              </div>
+
+              <div className=" absolute w-20 h-20 bg-white right-0 top-0 rounded-bl-[25px] before:w-5 before:h-5">
+                <div className=" absolute right-0 top-0 bg-gray-200 w-[90%] h-[90%] rounded-2xl">
+
+                </div>
+              </div>
+              {/* <div className="absolute bg-gray-200 w-16 h-16 top-0 right-0 border-l-[5px] rounded-bl-[25px] border-b-[5px] border-white before:absolute before:content-[''] before:w-5 before:h-5 before:right-0 before:rounded-full before:shadow-custom">
+
+              </div> */}
 
             </div>
           </div>

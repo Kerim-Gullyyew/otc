@@ -18,15 +18,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="container">
-        <header>
+      <body className="">
+        <header className="flex flex-col items-center">
           <Header />
         </header>
-        <main className="flex flex-col pt-[60px] w-full min-h-screen">
+        <main className="flex container flex-col pt-[60px] w-full min-h-screen">
           {children}
         </main>
+        <footer>
+          <Footer />
 
-        <Footer />
+        </footer>
       </body>
     </html>
   );
