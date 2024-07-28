@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PlayIcon } from "@heroicons/react/24/solid";
+import { PlayIcon, AcademicCapIcon } from "@heroicons/react/24/outline";
 export default function Home() {
   return (
     <div className=" bg-white w-full px-6 lg:px-8 py-10 lg:py-14">
@@ -42,19 +42,21 @@ export default function Home() {
 
       <div className="mt-20 lg:mt-32">
         <div className="space-y-6">
-          <h1>Popular Courses</h1>
+          <div className="flex flex-wrap gap-6 justify-between items-center">
+            <h1>Popular Courses</h1>
 
-          <div className="flex flex-wrap gap-3">
-            <button className="px-4 py-[2px] text-white rounded-full bg-yellow">All</button>
-            <button className="px-4 py-[2px] rounded-full bg-gray-50">Design</button>
-            <button className="px-4 py-[2px] rounded-full bg-gray-50">Development</button>
-            <button className="px-4 py-[2px] rounded-full bg-gray-50">Business</button>
-            <button className="px-4 py-[2px] rounded-full bg-gray-50">Data Science</button>
-            <button className="px-4 py-[2px] rounded-full bg-gray-50">Marketing</button>
+            <div className="flex flex-wrap gap-3">
+              <button className="px-4 py-[2px] text-white rounded-full bg-yellow">All</button>
+              <button className="px-4 py-[2px] rounded-full bg-gray-50">Design</button>
+              <button className="px-4 py-[2px] rounded-full bg-gray-50">Development</button>
+              <button className="px-4 py-[2px] rounded-full bg-gray-50">Business</button>
+              <button className="px-4 py-[2px] rounded-full bg-gray-50">Data Science</button>
+              <button className="px-4 py-[2px] rounded-full bg-gray-50">Marketing</button>
+            </div>
           </div>
 
 
-          <div className="grid grid-cols-1 gap-10">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
             <div className="bg-white-50 shadow-custom-light">
               <Image className="rounded-t-xl max-h-48 object-cover" width={1000} height={1000} src={'/course/download.jpg'} alt="download" />
@@ -70,6 +72,242 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <div className="bg-white-50 shadow-custom-light">
+              <Image className="rounded-t-xl max-h-48 object-cover" width={1000} height={1000} src={'/course/download.jpg'} alt="download" />
+              <div className="pt-5 px-6 pb-7 flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <div className="bg-yellow rounded-full p-1 flex items-center justify-center"><PlayIcon className="w-3 h-3" color="white" /></div>
+                  <div>
+                    <p>10s Lesson</p>
+                  </div>
+                </div>
+                <div className="bg-orange-50 px-4 py-1 rounded-lg">
+                  <p className="text-yellow font-bold">Download</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white-50 shadow-custom-light">
+              <Image className="rounded-t-xl max-h-48 object-cover" width={1000} height={1000} src={'/course/download.jpg'} alt="download" />
+              <div className="pt-5 px-6 pb-7 flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <div className="bg-yellow rounded-full p-1 flex items-center justify-center"><PlayIcon className="w-3 h-3" color="white" /></div>
+                  <div>
+                    <p>10s Lesson</p>
+                  </div>
+                </div>
+                <div className="bg-orange-50 px-4 py-1 rounded-lg">
+                  <p className="text-yellow font-bold">Download</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white-50 shadow-custom-light">
+              <Image className="rounded-t-xl max-h-48 object-cover" width={1000} height={1000} src={'/course/download.jpg'} alt="download" />
+              <div className="pt-5 px-6 pb-7 flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <div className="bg-yellow rounded-full p-1 flex items-center justify-center"><PlayIcon className="w-3 h-3" color="white" /></div>
+                  <div>
+                    <p>10s Lesson</p>
+                  </div>
+                </div>
+                <div className="bg-orange-50 px-4 py-1 rounded-lg">
+                  <p className="text-yellow font-bold">Download</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="mt-20 lg:mt-32">
+        <div className="flex justify-center flex-col items-center gap-8">
+
+          <div className="space-y-3">
+            <div className="flex items-center justify-center">
+              <div className="border-2 border-orange-300 bg-orange-100 flex items-center justify-center rounded-full px-3 py-1">
+                <h4 className="font-semibold">
+                  Categories
+                </h4>
+              </div>
+            </div>
+            <h1 className="font-bold text-center">Select your Categories</h1>
+          </div>
+          <div className="max-w-lg">
+            <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ad! Explicabo, ipsum mollitia dolorem beatae quas illo.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+
+
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+
+
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+
+
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+            <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow">
+              <div className="flex justify-between items-start w-full gap-4">
+                <div className="bg-violet-100 p-1 rounded-xl">
+                  <PlayIcon className="w-7 h-7 text-violet-500" />
+                </div>
+                <div className="flex items-center gap-1">
+                  <h5 className="text-orange-400 font-semibold text-nowrap">View Course</h5>
+                  <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-nowrap">Photography</h3>
+                <p>25 Courses</p>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div>
+            <button className="bg-orange-200 hover:bg-orange-300 transition-colors duration-200 rounded-full px-6 py-2">
+              <h4 className="tracking-tighter font-bold text-gray-700">
+                Explore All Courses
+
+              </h4>
+            </button>
           </div>
         </div>
       </div>

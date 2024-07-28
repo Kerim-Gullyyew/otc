@@ -1,7 +1,9 @@
+"use client"
 import React from "react";
-import { HomeIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import MobileCheckout from "../components/MobileCheckout";
+import { AcademicCapIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 
 interface pageProps { }
 
@@ -57,10 +59,7 @@ const page: React.FC<pageProps> = ({ }) => {
               </ol>
             </nav>
 
-            <div className="pt-2 pb-1">
-              <h3 className="font-bold">Course Name</h3>
 
-            </div>
 
 
             <div className='mt-2'>
@@ -69,7 +68,9 @@ const page: React.FC<pageProps> = ({ }) => {
             <div className="mt-5 px-2 space-y-5">
 
               <div className="space-y-1">
+                <h3 className="font-bold">Course Name</h3>
                 <div className="flex justify-between items-center">
+
                   <h3 className="font-medium">Description</h3>
                   {/* <div>dsfsd</div> */}
                 </div>
@@ -89,14 +90,116 @@ const page: React.FC<pageProps> = ({ }) => {
                 </p>
               </div>
 
-              <div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-medium">Course Detail</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                    <h3 className="font-semibold text-gray-700">Lessons</h3>
+                    <div className="flex items-center gap-3">
+                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <h4 className="font-semibold text-gray-700">144</h4>
+                    </div>
+                  </div>
+                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                    <h3 className="font-semibold text-gray-700">Lessons</h3>
+                    <div className="flex items-center gap-3">
+                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <h4 className="font-semibold text-gray-700">144</h4>
+                    </div>
+                  </div>
+                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                    <h3 className="font-semibold text-gray-700">Lessons</h3>
+                    <div className="flex items-center gap-3">
+                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <h4 className="font-semibold text-gray-700">144</h4>
+                    </div>
+                  </div>
+                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                    <h3 className="font-semibold text-gray-700">Lessons</h3>
+                    <div className="flex items-center gap-3">
+                      <div><AcademicCapIcon className="w-5 h-5 text-gray-700" /></div>
+                      <h4 className="font-semibold text-gray-700">144</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
                 <h3 className="font-medium">Syllabus</h3>
-                <ul className=" list-disc ml-6">
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                  <li className="text-sm">Lorem ipsum dolor </li>
-                </ul>
+                <div className="space-y-2">
+                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                    {({ open }) => (
+                      <>
+                        <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
+                          <h4>Lorem ipsum dolor sit amet</h4>
+                          <ChevronRightIcon className={`w-5 transition-transform duration-500 h-5 ${open && "rotate-90"}`} />
+                        </DisclosureButton>
+                        <div className="overflow-hidden data-[open]:py-2">
+                          <DisclosurePanel
+                            transition
+                            className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
+                          >
+                            Yes! You can purchase a license that you can share with your entire team.
+                          </DisclosurePanel>
+                        </div>
+                      </>
+
+                    )}
+
+                  </Disclosure>
+
+                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                    <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
+                      <h4>Lorem ipsum dolor sit amet</h4>
+                      <ChevronRightIcon className="w-5 h-5" />
+                    </DisclosureButton>
+                    <div className="overflow-hidden data-[opened]:py-2">
+                      <DisclosurePanel
+                        transition
+                        className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
+                      >
+                        Yes! You can purchase a license that you can share with your entire team.
+                      </DisclosurePanel>
+                    </div>
+
+                  </Disclosure>
+
+                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                    <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
+                      <h4>Lorem ipsum dolor sit amet</h4>
+                      <ChevronRightIcon className="w-5 h-5" />
+                    </DisclosureButton>
+                    <div className="overflow-hidden data-[opened]:py-2">
+                      <DisclosurePanel
+                        transition
+                        className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
+                      >
+                        Yes! You can purchase a license that you can share with your entire team.
+                      </DisclosurePanel>
+                    </div>
+
+                  </Disclosure>
+
+                  <Disclosure as="div" className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4">
+                    <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
+                      <h4>Lorem ipsum dolor sit amet</h4>
+                      <ChevronRightIcon className="w-5 h-5" />
+                    </DisclosureButton>
+                    <div className="overflow-hidden data-[opened]:py-2">
+                      <DisclosurePanel
+                        transition
+                        className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
+                      >
+                        Yes! You can purchase a license that you can share with your entire team.
+                      </DisclosurePanel>
+                    </div>
+
+                  </Disclosure>
+
+                </div>
+
               </div>
 
               <div>
@@ -111,8 +214,8 @@ const page: React.FC<pageProps> = ({ }) => {
 
               <div>
                 <h3 className="font-medium">Related courses</h3>
-                <div className="grid grid-cols-2">
-                  <div>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                  <div className="">
                     <Image
                       className=" rounded-t-xl"
                       width={1000}
@@ -120,14 +223,72 @@ const page: React.FC<pageProps> = ({ }) => {
                       src={"/course/download.jpg"}
                       alt="download"
                     />
-                    <div></div>
+                    <div className="border space-y-1 px-3 py-1 rounded-b-xl">
+                      <h4>Course Name</h4>
+                      <div>
+                        <h6>Tught: English</h6>
+                        <h6>Duration: 9 months</h6>
+                      </div>
+                      <h4>$100/monthly</h4>
+                    </div>
+                  </div>
+                  <div className="">
+                    <Image
+                      className=" rounded-t-xl"
+                      width={1000}
+                      height={1000}
+                      src={"/course/download.jpg"}
+                      alt="download"
+                    />
+                    <div className="border space-y-1 px-3 py-1 rounded-b-xl">
+                      <h4>Course Name</h4>
+                      <div>
+                        <h6>Tught: English</h6>
+                        <h6>Duration: 9 months</h6>
+                      </div>
+                      <h4>$100/monthly</h4>
+                    </div>
+                  </div>
+                  <div className="">
+                    <Image
+                      className=" rounded-t-xl"
+                      width={1000}
+                      height={1000}
+                      src={"/course/download.jpg"}
+                      alt="download"
+                    />
+                    <div className="border space-y-1 px-3 py-1 rounded-b-xl">
+                      <h4>Course Name</h4>
+                      <div>
+                        <h6>Tught: English</h6>
+                        <h6>Duration: 9 months</h6>
+                      </div>
+                      <h4>$100/monthly</h4>
+                    </div>
+                  </div>
+                  <div className="">
+                    <Image
+                      className=" rounded-t-xl"
+                      width={1000}
+                      height={1000}
+                      src={"/course/download.jpg"}
+                      alt="download"
+                    />
+                    <div className="border space-y-1 px-3 py-1 rounded-b-xl">
+                      <h4>Course Name</h4>
+                      <div>
+                        <h6>Tught: English</h6>
+                        <h6>Duration: 9 months</h6>
+                      </div>
+                      <h4>$100/monthly</h4>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="hidden relative md:flex w-[350px] max-w-[350px] min-w-[350px]">
-            <div className="border-l border-[#B7C6FF] overflow-auto no-scrollbar fixed  h-[calc(100vh-90px)] px-6 pt-6 pb-8 lg:px-8">
+            <div className="border-l border-[#DEDEDE] overflow-auto no-scrollbar fixed  h-[calc(100vh-70px)] px-6 pt-6 pb-8 lg:px-8">
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
                   <h3 className="font-semibold">Course Name</h3>
@@ -163,28 +324,64 @@ const page: React.FC<pageProps> = ({ }) => {
                   </button>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <h3 className="font-medium">Enter Account Detail</h3>
-                  <input
-                    className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl"
-                    placeholder="First Name"
-                  />
-                  <input
-                    className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl"
-                    placeholder="Last Name"
-                  />
-                  <input
-                    className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl"
-                    placeholder="Email Address"
-                  />
-                  <input
-                    className="w-full border bg-[#F6F5FF] border-gray-300 px-4 py-3 outline-none rounded-xl"
-                    placeholder="Phone number"
-                  />
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                      Email
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                      Email
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                      Email
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium leading-4">
+                      Email
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="block w-full rounded-md py-2 border border-gray-200 px-3 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div>
-                  <button className="w-full border bg-[#0800FC] text-white border-gray-300 px-4 py-3 outline-none rounded-xl">
+                  <button className="w-full border bg-[#0800FC] text-white border-gray-300 px-4 py-2 outline-none rounded-md">
                     Place order
                   </button>
                 </div>

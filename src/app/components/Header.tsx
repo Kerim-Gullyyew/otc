@@ -159,24 +159,24 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                   transition
                   onMouseLeave={close}
                   anchor="bottom"
-                  className="w-full bg-white py-5 px-10 shadow-md mt-5 origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+                  className="w-full bg-white py-5 px-10 shadow-md  origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
                 >
                   <div className="grid grid-cols-12 gap-5 container">
                     <div className="col-span-3">
                       <div className="border-b border-gray-700 max-w-48 pb-1">
-                        <h3 className="">Main Menu</h3>
+                        <h4 className="">Main Menu</h4>
                       </div>
-                      <ul className="space-y-3 mt-5">
+                      <ul className="space-y-2 mt-5">
                         {parentItems.map((item) => (
                           <li
                             key={item}
-                            className={`text-black px-5 flex items-center justify-between rounded-xl py-2 hover:animate-fade-in cursor-pointer ${hoveredItem === item && "bg-[#F1F0FF]"}`}
+                            className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${hoveredItem === item && "bg-[#F1F0FF]"}`}
                             onMouseEnter={() => handleMouseEnter(item)}
                             onMouseLeave={handleMouseLeave}
                           >
-                            <h3>
+                            <h4>
                               {item}
-                            </h3>
+                            </h4>
                             <ChevronRightIcon className="w-5 h-5" />
                           </li>
                         ))}
@@ -184,19 +184,19 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                     </div>
                     <div className={`col-span-3 transition-opacity duration-500 ${selectedItem ? 'opacity-100' : 'opacity-0'}`}>
                       <div className="border-b border-gray-700 max-w-48 pb-1">
-                        <h3 className="">Main Menu</h3>
+                        <h4 className="">Main Menu</h4>
                       </div>
-                      <ul className="space-y-3 mt-5">
+                      <ul className="space-y-2 mt-5">
                         {selectedItem &&
                           childItems[selectedItem].map((child, index) => (
                             <li
                               key={index}
-                              className={`text-black px-5 flex items-center justify-between rounded-xl py-2 hover:animate-fade-in cursor-pointer ${selectedChildItem === index && "bg-[#F1F0FF]"}`}
+                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${selectedChildItem === index && "bg-[#F1F0FF]"}`}
                               onMouseEnter={() => handleChildMouseEnter(index)}
                             >
-                              <h3>
+                              <h4>
                                 {child}
-                              </h3>
+                              </h4>
                               <ChevronRightIcon className="w-5 h-5" />
                             </li>
                           ))}
@@ -204,14 +204,14 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                     </div>
                     <div className={`col-span-6 transition-opacity duration-200 ${selectedChildItem !== null ? 'opacity-100' : 'opacity-0'}`}>
                       <div className="border-b border-gray-700 max-w-48 pb-1">
-                        <h3 className="">Main Menu</h3>
+                        <h4 className="">Main Menu</h4>
                       </div>
-                      <ul className="space-y-3 mt-5">
+                      <ul className=" mt-5 grid grid-cols-2 gap-2">
                         {selectedChildItem &&
                           thirdItems[childItems[selectedItem][selectedChildItem]].map((third, index) => (
                             <li
                               key={index}
-                              className={"text-black px-5 rounded-xl py-2 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"}
+                              className={"text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"}
                             >
                               <h4>
                                 {third}
@@ -229,12 +229,12 @@ const Header: React.FC<HeaderProps> = ({ }) => {
 
 
 
-          <div className="flex flex-1 border gap-2 rounded-full border-gray-300 outline-none px-3 py-1 items-center">
-            <input className="rounded-full outline-none  w-full h-full" />
+          <div className="flex flex-1 border gap-2 rounded-lg border-gray-300 outline-none px-3 py-1 items-center">
             <MagnifyingGlassIcon
               className="h-5 w-5 flex-none text-gray-400"
               aria-hidden="true"
             />
+            <input placeholder="Search" className="outline-none w-full h-full" />
           </div>
           <div className="flex lg:hidden">
             <button
@@ -313,7 +313,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                       width={1000}
                       height={1000}
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                      src="/vercel.svg"
                       alt="Your Company"
                     />
                   </div>
