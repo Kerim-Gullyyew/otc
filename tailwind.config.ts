@@ -10,7 +10,9 @@ const config: Config = {
     container: {
       center: true,
       padding: "2rem",
-
+      screens: {
+        'xl': '1600px',
+      },
     },
     extend: {
       animation: {

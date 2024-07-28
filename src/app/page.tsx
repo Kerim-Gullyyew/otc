@@ -17,10 +17,11 @@ export default function Home() {
             Explore courses
           </button>
 
-          <div className="flex">
-            <Image className="h-48 w-40 object-contain bg-red-600" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
-            <div className="pt-5 pb-8 bg-gray-100">
-              <h3>Best certified Teacher Worldwide</h3>
+          <div className="flex relative">
+            <Image className="h-48 w-40 object-contain bg-none" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
+            <div className=" bg-gray-100 pt-5 pb-8">
+                <h3>Best certified Teacher Worldwide</h3>
+
             </div>
           </div>
 
