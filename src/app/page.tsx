@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { PlayIcon, AcademicCapIcon, ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 export default function Home() {
   return (
@@ -57,21 +58,96 @@ export default function Home() {
       </div>
 
       <div className="mt-20 lg:mt-32 ">
-        <div className="gap-10 sm:gap-14 flex-col flex justify-center lg:justify-between items-center lg:flex lg:flex-row-reverse">
+        <div className="space-y-14">
 
-          <div className="space-y-5">
-            <h1 className="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
-            </p>
-            <button className="bg-emerald-600 px-6 py-2 text-white rounded-lg">
-              Explore courses
-            </button>
+          <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
+            <div className="flex-1">
+              <h1 className="font-bold">
+                An Easier way to be Sub and Find Sub
+              </h1>
+            </div>
+            <div className="flex-1 max-w-lg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
+              </p>
+            </div>
           </div>
-          <div className="w-full md:w-[450px] lg:w-full h-80 bg-green">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5 pb-24">
+
+                <h3 className="font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis non qui commodi </p>
+              </div>
+
+              <div className=" absolute bottom-4 left-4">
+                <AcademicCapIcon className="w-16 h-16 text-green" />
+              </div>
+              <div className=" absolute w-20 h-20 bg-white right-0 bottom-0 rounded-tl-[25px] before:absolute before:bottom-[100%] before:right-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom-bottom before:rounded-full after:absolute after:right-[100%] after:bottom-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom-bottom after:rounded-full">
+                <div className=" absolute right-0 bottom-0 bg-gray-200 w-[90%] h-[90%] rounded-full flex items-center justify-center">
+                  <ArrowUpRightIcon className="w-10 h-10 text-orange-500" />
+                </div>
+              </div>
+            </div>
+
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5">
+                <div className="pr-20">
+                  <Image width={1000} height={1000} alt="Student" className="min-h-20 max-w-36 rounded-xl object-contain w-full" src={"/home/student.jpg"} />
+                </div>
+                <h3 className="font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+              </div>
+              <div className=" absolute w-20 h-20 bg-white right-0 top-0 rounded-bl-[25px] before:absolute before:right-[100%] before:top-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom before:rounded-full after:absolute after:top-[100%] after:right-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom after:rounded-full">
+                <div className=" absolute right-0 top-0 bg-gray-200 w-[90%] h-[90%] rounded-full flex items-center justify-center">
+                  <ArrowUpRightIcon className="w-10 h-10 text-orange-500" />
+                </div>
+              </div>
+            </div>
+
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5 pb-24">
+
+                <h3 className="font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis non qui commodi </p>
+              </div>
+
+              <div className=" absolute bottom-4 left-4">
+                <AcademicCapIcon className="w-16 h-16 text-green" />
+              </div>
+              <div className=" absolute w-20 h-20 bg-white right-0 bottom-0 rounded-tl-[25px] before:absolute before:bottom-[100%] before:right-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom-bottom before:rounded-full after:absolute after:right-[100%] after:bottom-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom-bottom after:rounded-full">
+                <div className=" absolute right-0 bottom-0 bg-gray-200 w-[90%] h-[90%] rounded-full flex items-center justify-center">
+                  <ArrowUpRightIcon className="w-10 h-10 text-orange-500" />
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div className="mt-20 lg:mt-32 ">
+        <div className="space-y-14">
+
+          <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
+            <div className="flex-1">
+              <h1 className="font-bold">
+                Why Choose Our Services
+              </h1>
+            </div>
+            <div className="flex-1 max-w-lg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio quis quo maxime sint sit, nemo, vel quibusdam quos praesentium eos tempore! Officiis cumque nam autem deleniti, iure distinctio beatae.
+
+
+              </p>
+            </div>
+          </div>
+          <div className="w-full grid grid-cols-1 gap-10">
+            <Image width={1000} height={1000} className="w-full object-contain" alt="book" src={"/home/book.webp"} />
           </div>
         </div>
       </div>
@@ -461,6 +537,169 @@ export default function Home() {
               </h4>
             </button>
           </div>
+        </div>
+      </div>
+
+
+
+      <div className="mt-20 lg:mt-32">
+        <div className="flex justify-center flex-col items-center gap-8">
+
+          <div className="space-y-3">
+            <div className="flex items-center justify-center">
+              <div className="border-2 border-orange-300 bg-orange-100 flex items-center justify-center rounded-full px-3 py-1">
+                <h4 className="font-semibold">
+                  Testimonials
+                </h4>
+              </div>
+            </div>
+            <h1 className="font-bold text-center">Read Our Student Review</h1>
+          </div>
+          <div className="max-w-lg">
+            <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ad! Explicabo, ipsum mollitia dolorem beatae quas illo.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5 pb-24">
+                <div className="w-full border-b flex justify-between items-center">
+                  <div className="flex">
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3>
+                      Your Text
+                    </h3>
+                  </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis non qui commodi Lorem ipsum dolor sit amet consectetur adipisicing elit. At, doloribus. Dignissimos assumenda dolores porro ratione  </p>
+              </div>
+
+              <div className=" absolute bottom-4 left-4">
+                <AcademicCapIcon className="w-16 h-16 text-green" />
+              </div>
+              <div className=" absolute w-[70%] h-20 bg-white right-0 bottom-0 rounded-tl-[25px] before:absolute before:bottom-[100%] before:right-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom-bottom before:rounded-full after:absolute after:right-[100%] after:bottom-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom-bottom after:rounded-full">
+                <div className=" absolute right-0 bottom-0 bg-gray-200 w-[95%] h-[90%] rounded rounded-tl-[25px] flex items-center gap-3 px-3">
+                  <div>
+                    <Image width={1000} height={1000} className=" rounded-full w-10 h-10" src={'/home/profile.jpg'} alt="profile" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Name Surname</h4>
+                    <h5 className="text-orange-600">Web developer</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5 pb-24">
+                <div className="w-full border-b flex justify-between items-center">
+                  <div className="flex">
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3>
+                      Your Text
+                    </h3>
+                  </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis non qui commodi Lorem ipsum dolor sit amet consectetur adipisicing elit. At, doloribus. Dignissimos assumenda dolores porro ratione  </p>
+              </div>
+
+              <div className=" absolute bottom-4 left-4">
+                <AcademicCapIcon className="w-16 h-16 text-green" />
+              </div>
+              <div className=" absolute w-[70%] h-20 bg-white right-0 bottom-0 rounded-tl-[25px] before:absolute before:bottom-[100%] before:right-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom-bottom before:rounded-full after:absolute after:right-[100%] after:bottom-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom-bottom after:rounded-full">
+                <div className=" absolute right-0 bottom-0 bg-gray-200 w-[95%] h-[90%] rounded rounded-tl-[25px] flex items-center gap-3 px-3">
+                  <div>
+                    <Image width={1000} height={1000} className=" rounded-full w-10 h-10" src={'/home/profile.jpg'} alt="profile" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Name Surname</h4>
+                    <h5 className="text-orange-600">Web developer</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5 pb-24">
+                <div className="w-full border-b flex justify-between items-center">
+                  <div className="flex">
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3>
+                      Your Text
+                    </h3>
+                  </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis non qui commodi Lorem ipsum dolor sit amet consectetur adipisicing elit. At, doloribus. Dignissimos assumenda dolores porro ratione  </p>
+              </div>
+
+              <div className=" absolute bottom-4 left-4">
+                <AcademicCapIcon className="w-16 h-16 text-green" />
+              </div>
+              <div className=" absolute w-[70%] h-20 bg-white right-0 bottom-0 rounded-tl-[25px] before:absolute before:bottom-[100%] before:right-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom-bottom before:rounded-full after:absolute after:right-[100%] after:bottom-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom-bottom after:rounded-full">
+                <div className=" absolute right-0 bottom-0 bg-gray-200 w-[95%] h-[90%] rounded rounded-tl-[25px] flex items-center gap-3 px-3">
+                  <div>
+                    <Image width={1000} height={1000} className=" rounded-full w-10 h-10" src={'/home/profile.jpg'} alt="profile" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Name Surname</h4>
+                    <h5 className="text-orange-600">Web developer</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className=" bg-gray-200 sm:flex-1 w-full overflow-hidden rounded-2xl relative">
+              <div className="px-5 py-4 space-y-5 pb-24">
+                <div className="w-full border-b flex justify-between items-center">
+                  <div className="flex">
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                    <StarIcon className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3>
+                      Your Text
+                    </h3>
+                  </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis non qui commodi Lorem ipsum dolor sit amet consectetur adipisicing elit. At, doloribus. Dignissimos assumenda dolores porro ratione  </p>
+              </div>
+
+              <div className=" absolute bottom-4 left-4">
+                <AcademicCapIcon className="w-16 h-16 text-green" />
+              </div>
+              <div className=" absolute w-[70%] h-20 bg-white right-0 bottom-0 rounded-tl-[25px] before:absolute before:bottom-[100%] before:right-0 before:w-7 before:h-7 before:bg-transparent before:shadow-custom-bottom before:rounded-full after:absolute after:right-[100%] after:bottom-0 after:w-7 after:h-7 after:bg-transparent after:shadow-custom-bottom after:rounded-full">
+                <div className=" absolute right-0 bottom-0 bg-gray-200 w-[95%] h-[90%] rounded rounded-tl-[25px] flex items-center gap-3 px-3">
+                  <div>
+                    <Image width={1000} height={1000} className=" rounded-full w-10 h-10" src={'/home/profile.jpg'} alt="profile" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Name Surname</h4>
+                    <h5 className="text-orange-600">Web developer</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
         </div>
       </div>
     </div>

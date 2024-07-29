@@ -74,6 +74,7 @@ const config: Config = {
       boxShadow: {
         'custom-light': '0 1px 3px rgba(0, 0, 0, 0.1)',
         'custom': '10px -10px 0 #ffff',
+        'custom-bottom': '10px 10px 0 #ffff',
       },
 
       colors: {
