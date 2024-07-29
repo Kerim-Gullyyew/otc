@@ -22,8 +22,8 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row relative gap-5 mt-10">
             <div className="flex sm:flex-1 min-w-[200px]">
-              <Image className="w-56 z-10 self-end -mr-20 object-contain bg-none" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
-              <div className="bg-gray-200 w-full rounded-2xl relative px-5 py-4 flex flex-col justify-between">
+              <Image className="w-56 self-end z-10 -mr-20 object-contain bg-none" width={1000} height={1000} src={"/home/teacher.png"} alt="teacher" />
+              <div className="bg-gray-200 z-0 w-full rounded-2xl relative px-5 py-4 flex flex-col justify-between">
                 <h3 className="font-semibold">Best <span className="text-green">Certified</span> Teacher Worldwide</h3>
                 <div className="flex flex-col items-end">
                   <div>
