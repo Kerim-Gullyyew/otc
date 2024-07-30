@@ -16,7 +16,7 @@ export default function Home() {
           <div className="flex flex-col justify-between lg:col-span-3  h-full">
             <div className="space-y-5 max-w-xl">
               <h1 className="font-bold">
-                Flexible, Comprehensive K-12 Courses for Every Student
+                Find suitable online courses from the best tutors
               </h1>
               <p>
                 Empower your learning journey with our flexible online courses
