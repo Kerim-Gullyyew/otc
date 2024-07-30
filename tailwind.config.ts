@@ -79,7 +79,7 @@ const config: Config = {
 
       colors: {
         green: "#219C90",
-        yellow: "#E9B824",
+        yellow: "#FCDC2A",
         blue: "#3FA2F6",
       },
     },
