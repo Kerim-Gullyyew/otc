@@ -2,21 +2,22 @@
 import React from "react";
 import Image from "next/image";
 import MobileCheckout from "../components/MobileCheckout";
-import { AcademicCapIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, ChevronRightIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
+import Footer from "../components/Footer";
 
-interface pageProps {}
+interface pageProps { }
 
 const pages = [
   { name: "Secondary", href: "#", current: false },
   { name: "Course Name", href: "#", current: true },
 ];
 
-const page: React.FC<pageProps> = ({}) => {
+const page: React.FC<pageProps> = ({ }) => {
   return (
     <>
       <div className="relative px-6 lg:px-8 pb-20">
@@ -310,9 +311,11 @@ const page: React.FC<pageProps> = ({}) => {
                 </div>
               </div>
             </div>
+
+
           </div>
-          <div className="hidden relative md:flex w-[350px] max-w-[350px] min-w-[350px]">
-            <div className="border-l border-[#DEDEDE] overflow-auto no-scrollbar fixed  h-[calc(100vh-70px)] px-6 pt-6 pb-8 lg:px-8">
+          <div className="hidden relative md:flex w-[350px] max-w-[350px] min-w-[350px] ">
+            <div className="border-l border-[#DEDEDE] overflow-auto no-scrollbar bg-white fixed  h-[calc(100vh-70px)] px-6 pt-6 pb-8 lg:px-8">
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
                   <p className="font-semibold">Course Name</p>
@@ -416,10 +419,24 @@ const page: React.FC<pageProps> = ({}) => {
                   </div>
                 </div>
 
-                <div>
-                  <button className="w-full border bg-[#0800FC] text-white border-gray-300 px-4 py-2 outline-none rounded-md">
+                <div className="w-full h-[0.5px] bg-gray-300">
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <h2 className="font-semibold">Total</h2>
+                    <h2 className="font-semibold">$250/month</h2>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <LockClosedIcon className="w-5 h-5 text-gray-400" />
+                    <h5 className=" leading-tight text-gray-400">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.sfdas asd asd
+                    </h5>
+                  </div>
+                  <button className="w-full bg-[#FCDC2A] text-black px-4 py-2 outline-none rounded-md font-semibold">
                     Enrol now
                   </button>
+                  <p className="text-center leading-tight">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
               </div>
             </div>

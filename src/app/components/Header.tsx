@@ -248,7 +248,12 @@ const Header: React.FC<HeaderProps> = ({ }) => {
           </div>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <h3>Contact Us</h3>
+            <button className="bg-yellow rounded-md px-4 py-2">
+              <h4 className="font-semibold">
+                Contact Us
+
+              </h4>
+            </button>
           </div>
         </div>
       </nav>

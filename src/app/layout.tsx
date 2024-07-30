@@ -25,10 +25,7 @@ export default function RootLayout({
         <main className="flex container flex-col pt-[60px] w-full min-h-screen">
           {children}
         </main>
-        <footer>
-          <Footer />
-
-        </footer>
+       
       </body>
     </html>
   );
