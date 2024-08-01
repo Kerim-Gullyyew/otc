@@ -6,7 +6,7 @@ interface pageProps {
 
 const page: React.FC<pageProps> = ({ }) => {
   return (
-    <div className=" bg-white w-full px-6 lg:px-8 py-10 lg:py-14 sm:max-w-[90%]">
+    <div className=" bg-white w-full py-10 lg:py-14 sm:max-w-[90%]">
       <h1 className='font-bold'>Privacy Policy</h1>
 
       <div className='mt-8 space-y-4'>

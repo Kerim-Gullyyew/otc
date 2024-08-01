@@ -28,6 +28,7 @@ export default async function RootLayout({
   );
   
   const main_categories: {data: MainCategoryInterface[]} = await res.json();
+ 
   return (
     <html lang="en">
       <body className="">

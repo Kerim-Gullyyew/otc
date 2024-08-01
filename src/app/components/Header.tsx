@@ -97,111 +97,116 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
         className="bg-white container mx-auto z-50 fixed w-full py-2 shadow-sm"
         aria-label="Global"
       >
-        <div className=" relative isolate flex gap-5 items-center justify-between">
-          <div className="flex lg:flex-1">
+        <div className=" relative isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
+          <div className="flex  ">
             <h2>Logo</h2>
           </div>
 
-          <Popover className="relative hidden lg:flex">
-            {({ open, close }) => (
-              <>
-                <PopoverButton
-                  className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-1 rounded-xl  outline-none`}
-                  onClick={({ target }) =>
-                    !open ? "" : (target as HTMLElement).click()
-                  }
-                  onMouseEnter={({ target }) =>
-                    open ? "" : (target as HTMLElement).click()
-                  }
-                >
+          <div className="flex-1 flex items-center justify-center gap-3">
+            <Popover className="relative hidden lg:flex">
+              {({ open, close }) => (
+                <>
+                  <PopoverButton
+                    className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-1 rounded-xl  outline-none`}
+                    onClick={({ target }) =>
+                      !open ? "" : (target as HTMLElement).click()
+                    }
+                    onMouseEnter={({ target }) =>
+                      open ? "" : (target as HTMLElement).click()
+                    }
+                  >
 
-                  <Bars3Icon className="w-5 h-5" />
-                  Courses
-                </PopoverButton>
-
-                <PopoverPanel
-                  transition
-                  onMouseLeave={close}
-                  anchor="bottom"
-                  className="w-full bg-white z-50 py-5 px-10 shadow-md max-w-5xl origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
-                >
-                  <div className="grid grid-cols-12 mx-auto gap-5 w-5xl max-w-5xl">
-                    <div className="col-span-3">
-                      <div className="border-b border-gray-700 max-w-48 pb-1">
-                        <h4 className="">Main Menu</h4>
-                      </div>
-                      <ul className="space-y-0.5 mt-5">
-                        {main_categories.data.map((item, index) => (
-                          <li
-                            key={index}
-                            className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-[#F1F0FF]"}`}
-                            onMouseEnter={() => handleMouseEnter(item)}
-                            onMouseLeave={handleMouseLeave}
-                          >
-                            <h4>
-                              {item.name}
-                            </h4>
-                            <ChevronRightIcon className="w-5 h-5" />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? 'opacity-100' : 'opacity-0'}`}>
-                      <div className="border-b border-gray-700 max-w-48 pb-1">
-                        <h4 className="">Main Menu</h4>
-                      </div>
-                      <ul className="space-y-0.5 mt-5">
-                        {mainCategoryItem &&
-                          mainCategoryItem.secondary_category.map((category, index) => (
+                    <Bars3Icon className="w-5 h-5" />
+                    Courses
+                  </PopoverButton>
+                  <PopoverBackdrop
+                    transition
+                    className="fixed inset-0 backdrop-blur-sm bg-black/30 mt-[60px] transition duration-100 ease-out data-[closed]:opacity-0"
+                  />
+                  <PopoverPanel
+                    transition
+                    onMouseLeave={close}
+                    anchor="bottom"
+                    className="w-full h-[50%] bg-white z-50 py-5 px-10 shadow-md max-w-5xl origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+                  >
+                    <div className="grid grid-cols-12 mx-auto gap-5 w-5xl max-w-5xl">
+                      <div className="col-span-3">
+                        <div className="border-b border-gray-700 max-w-48 pb-1">
+                          <h4 className="">Main Menu</h4>
+                        </div>
+                        <ul className="space-y-0.5 mt-5">
+                          {main_categories.data.map((item, index) => (
                             <li
                               key={index}
-                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-[#F1F0FF]"}`}
-                              onMouseEnter={() => handleChildMouseEnter(category)}
+                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-[#F1F0FF]"}`}
+                              onMouseEnter={() => handleMouseEnter(item)}
+                              onMouseLeave={handleMouseLeave}
                             >
                               <h4>
-                                {category.name}
+                                {item.name}
                               </h4>
                               <ChevronRightIcon className="w-5 h-5" />
                             </li>
                           ))}
-                      </ul>
-                    </div>
-                    <div className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? 'opacity-100' : 'opacity-0'}`}>
-                      <div className="border-b border-gray-700 max-w-48 pb-1">
-                        <h4 className="">Main Menu</h4>
+                        </ul>
                       </div>
-                      <ul className=" mt-5 grid grid-cols-2 gap-0.5">
-                        {secondaryCategoryItem &&
-                          secondaryCategoryItem.courses.map((third, index) => (
-                            <li
-                              key={index}
-                              className={"text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"}
-                            >
-                              <h4>
-                                {third.name}
+                      <div className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className="border-b border-gray-700 max-w-48 pb-1">
+                          <h4 className="">Main Menu</h4>
+                        </div>
+                        <ul className="space-y-0.5 mt-5">
+                          {mainCategoryItem &&
+                            mainCategoryItem.secondary_category.map((category, index) => (
+                              <li
+                                key={index}
+                                className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-[#F1F0FF]"}`}
+                                onMouseEnter={() => handleChildMouseEnter(category)}
+                              >
+                                <h4>
+                                  {category.name}
+                                </h4>
+                                <ChevronRightIcon className="w-5 h-5" />
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                      <div className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className="border-b border-gray-700 max-w-48 pb-1">
+                          <h4 className="">Main Menu</h4>
+                        </div>
+                        <ul className=" mt-5 grid grid-cols-2 gap-0.5">
+                          {secondaryCategoryItem &&
+                            secondaryCategoryItem.courses.map((third, index) => (
+                              <li
+                                key={index}
+                                className={"text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"}
+                              >
+                                <h4>
+                                  {third.name}
 
-                              </h4>
-                            </li>
-                          ))}
-                      </ul>
+                                </h4>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+
+
                     </div>
+                  </PopoverPanel>
+                </>
+              )}
+            </Popover>
+            <div className="flex flex-1 border gap-2 rounded-lg border-gray-300 outline-none px-3 py-2 items-center">
+              <MagnifyingGlassIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
+              <input placeholder="Search" className="outline-none w-full h-full" />
+            </div>
 
-
-                  </div>
-                </PopoverPanel>
-              </>
-            )}
-          </Popover>
-
-
-
-          <div className="flex flex-1 border gap-2 rounded-lg border-gray-300 outline-none px-3 py-2 items-center">
-            <MagnifyingGlassIcon
-              className="h-5 w-5 flex-none text-gray-400"
-              aria-hidden="true"
-            />
-            <input placeholder="Search" className="outline-none w-full h-full" />
           </div>
+
+
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -213,7 +218,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
             </button>
           </div>
 
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:justify-end">
             <button className="bg-primary rounded-md px-4 py-2">
               <h4 className="font-semibold">
                 Contact Us

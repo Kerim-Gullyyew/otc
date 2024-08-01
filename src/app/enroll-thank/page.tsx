@@ -8,7 +8,7 @@ interface pageProps {
 
 const page: React.FC<pageProps> = ({ }) => {
   return (
-    <div className="xl:h-[calc(100vh-70px)] w-full mx-auto flex flex-col justify-center items-center gap-10 px-6 py-10">
+    <div className="xl:h-[calc(100vh-70px)] w-full mx-auto flex flex-col justify-center items-center gap-10 py-10">
       <div className='flex items-center flex-col gap-10'>
         <div className=' bg-emerald-200 rounded-full flex items-center justify-center p-1'>
           <CheckIcon className='w-14 h-14 text-emerald-600' />

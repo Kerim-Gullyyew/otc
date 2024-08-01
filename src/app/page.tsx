@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <>
-      <div className=" bg-white w-full px-6 lg:px-8 py-10 lg:py-14">
+      <div className=" bg-white w-full py-10 lg:py-14">
         <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
           <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
             <div className="space-y-10 max-w-xl">
