@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   return (
     <>
       <nav
-        className="bg-white container mx-auto z-50 fixed w-full p-2 shadow-sm lg:px-8"
+        className="bg-white container mx-auto z-50 fixed w-full py-2 shadow-sm"
         aria-label="Global"
       >
         <div className=" relative isolate flex gap-5 items-center justify-between">
@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
             {({ open, close }) => (
               <>
                 <PopoverButton
-                  className="bg-gray-50 px-4 py-2 flex items-center gap-1 rounded-xl hover:bg-gray-100 outline-none"
+                  className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-1 rounded-xl  outline-none`}
                   onClick={({ target }) =>
                     !open ? "" : (target as HTMLElement).click()
                   }
@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                 >
 
                   <Bars3Icon className="w-5 h-5" />
-                  Solutions
+                  Courses
                 </PopoverButton>
 
                 <PopoverPanel
@@ -130,7 +130,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <div className="border-b border-gray-700 max-w-48 pb-1">
                         <h4 className="">Main Menu</h4>
                       </div>
-                      <ul className="space-y-2 mt-5">
+                      <ul className="space-y-0.5 mt-5">
                         {main_categories.data.map((item, index) => (
                           <li
                             key={index}
@@ -150,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <div className="border-b border-gray-700 max-w-48 pb-1">
                         <h4 className="">Main Menu</h4>
                       </div>
-                      <ul className="space-y-2 mt-5">
+                      <ul className="space-y-0.5 mt-5">
                         {mainCategoryItem &&
                           mainCategoryItem.secondary_category.map((category, index) => (
                             <li
@@ -170,7 +170,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <div className="border-b border-gray-700 max-w-48 pb-1">
                         <h4 className="">Main Menu</h4>
                       </div>
-                      <ul className=" mt-5 grid grid-cols-2 gap-2">
+                      <ul className=" mt-5 grid grid-cols-2 gap-0.5">
                         {secondaryCategoryItem &&
                           secondaryCategoryItem.courses.map((third, index) => (
                             <li

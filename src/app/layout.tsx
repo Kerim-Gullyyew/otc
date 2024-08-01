@@ -34,7 +34,7 @@ export default async function RootLayout({
         <header className="flex flex-col items-center">
           <Header main_categories={main_categories} />
         </header>
-        <main className="flex container flex-col mt-[60px] w-full min-h-screen">
+        <main className="flex container flex-col pt-[60px] w-full min-h-screen">
           {children}
         </main>
 
