@@ -40,9 +40,9 @@ import {
   RectangleGroupIcon,
 } from "@heroicons/react/20/solid";
 import { AnimatePresence, motion } from "framer-motion";
-import { DataCategory, MainCategoryInterface, SecondaryCategoryInterface, CourseInterface } from "../data";
-interface HeaderProps { 
-  data: any;
+import { MainCategoryInterface, SecondaryCategoryInterface, CourseInterface } from "../data";
+interface HeaderProps {
+  main_categories: { data: MainCategoryInterface[] }
 }
 
 const teams = [
@@ -65,19 +65,20 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
 }
 
 
-const Header: React.FC<HeaderProps> = ({ data }) => {
+const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  console.log(data);
-  
-  
-  const [mainCategoryItem, setMainCategoryItem] = useState<MainCategoryInterface>(DataCategory.main_categories[0]);
-  const [secondaryCategoryItem, setSecondaryCategoryItem] = useState<SecondaryCategoryInterface>(DataCategory.main_categories[0].secondary_categories[0]);
+  // console.log("salam", main_categories);
+
+
+  const [mainCategoryItem, setMainCategoryItem] = useState<MainCategoryInterface>(main_categories.data[0]);
+  const [secondaryCategoryItem, setSecondaryCategoryItem] = useState<SecondaryCategoryInterface>(main_categories.data[0].secondary_category[0]);
   const [thirdCategoryItem, setThirdCategoryItem] = useState<CourseInterface | null>(null);
+  console.log("mainCategoryItem", mainCategoryItem);
 
 
   const handleMouseEnter = (item: MainCategoryInterface) => {
     setMainCategoryItem(item);
-    setSecondaryCategoryItem(item.secondary_categories[0]);
+    setSecondaryCategoryItem(item.secondary_category[0]);
     setThirdCategoryItem(null);
   };
 
@@ -130,7 +131,7 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                         <h4 className="">Main Menu</h4>
                       </div>
                       <ul className="space-y-2 mt-5">
-                        {DataCategory.main_categories.map((item, index) => (
+                        {main_categories.data.map((item, index) => (
                           <li
                             key={index}
                             className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-[#F1F0FF]"}`}
@@ -151,7 +152,7 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                       </div>
                       <ul className="space-y-2 mt-5">
                         {mainCategoryItem &&
-                          mainCategoryItem.secondary_categories.map((category, index) => (
+                          mainCategoryItem.secondary_category.map((category, index) => (
                             <li
                               key={index}
                               className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-[#F1F0FF]"}`}
@@ -223,7 +224,6 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <Transition.Root show={mobileMenuOpen} as={Fragment}>
         <Dialog
           as="div"
@@ -276,7 +276,6 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                     </button>
                   </div>
                 </Transition.Child>
-                {/* Sidebar component, swap this element with another sidebar if you like */}
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
                   <div className="flex h-16 shrink-0 items-center">
                     <Image

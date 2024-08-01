@@ -22,7 +22,7 @@ const page: React.FC<pageProps> = ({ }) => {
     <>
       <div className="relative px-6 lg:px-8 pb-20">
         <div className="md:flex md:gap-6 lg:gap-8  ">
-          <div className="">
+          <div className="md:flex flex-col w-[70%]">
             <nav className="flex mt-1" aria-label="Breadcrumb">
               <ol
                 role="list"
@@ -314,8 +314,8 @@ const page: React.FC<pageProps> = ({ }) => {
 
 
           </div>
-          <div className="hidden relative md:flex w-[350px] max-w-[350px] min-w-[350px] ">
-            <div className="border-l border-[#DEDEDE] overflow-auto no-scrollbar bg-white fixed  h-[calc(100vh-70px)] px-6 pt-6 pb-8 lg:px-8">
+          <div className="hidden relative md:flex w-[30%]">
+            <div className="border-l border-[#DEDEDE] fixed overflow-scroll no-scrollbar h-[calc(100vh-65px)] bg-white px-6 pt-6 pb-8 lg:px-8">
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
                   <p className="font-semibold">Course Name</p>

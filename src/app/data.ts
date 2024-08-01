@@ -12,15 +12,15 @@ export interface SecondaryCategoryInterface {
 export interface MainCategoryInterface {
   id: number;
   name: string;
-  secondary_categories: SecondaryCategoryInterface[];
+  secondary_category: SecondaryCategoryInterface[];
 }
 
-export const DataCategory: { main_categories: MainCategoryInterface[] } = {
-  main_categories: [
+export const DataCategory: { data: MainCategoryInterface[] } = {
+  data: [
     {
       id: 1,
       name: "Science",
-      secondary_categories: [
+      secondary_category: [
         {
           id: 1,
           name: "Physics",
@@ -136,7 +136,7 @@ export const DataCategory: { main_categories: MainCategoryInterface[] } = {
     {
       id: 2,
       name: "Arts",
-      secondary_categories: [
+      secondary_category: [
         {
           id: 1,
           name: "Painting",
@@ -252,7 +252,7 @@ export const DataCategory: { main_categories: MainCategoryInterface[] } = {
     {
       id: 3,
       name: "Technology",
-      secondary_categories: [
+      secondary_category: [
         {
           id: 1,
           name: "Programming",
@@ -348,7 +348,7 @@ export const DataCategory: { main_categories: MainCategoryInterface[] } = {
     {
       id: 4,
       name: "Business",
-      secondary_categories: [
+      secondary_category: [
         {
           id: 1,
           name: "Management",
@@ -458,7 +458,7 @@ export const DataCategory: { main_categories: MainCategoryInterface[] } = {
     {
       id: 5,
       name: "Health",
-      secondary_categories: [
+      secondary_category: [
         {
           id: 1,
           name: "Nutrition",
@@ -568,7 +568,7 @@ export const DataCategory: { main_categories: MainCategoryInterface[] } = {
     {
       id: 6,
       name: "Languages",
-      secondary_categories: [
+      secondary_category: [
         {
           id: 1,
           name: "English",
