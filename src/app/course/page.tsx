@@ -315,7 +315,7 @@ const page: React.FC<pageProps> = ({ }) => {
 
           </div>
           <div className="hidden relative md:flex md:w-[30%]">
-            <div className="border-l border-[#DEDEDE] fixed overflow-scroll no-scrollbar h-[calc(100vh-65px)] bg-white px-6 pt-6 pb-8 lg:px-8">
+            <div className="border-l border-[#DEDEDE] fixed overflow-scroll no-scrollbar h-[calc(100vh-65px)] bg-white pl-6 pt-6 pb-8 lg:pl-8">
               <div className="space-y-6">
                 <div className=" border-b border-gray-300 pb-2">
                   <p className="font-semibold">Course Name</p>
