@@ -107,7 +107,7 @@ export default function Home() {
                   Why Choose Us
                 </h1>
                 <p className="text-xl">
-                  Our courses cover all subjects from Kindergarten to 12th grade, providing a thorough understanding of core concepts across all grade levels. Whether it's math, science, language arts, or social studies, our curriculum is designed to meet educational standards and cater to the diverse learning needs of every student.
+                  {"Our courses cover all subjects from Kindergarten to 12th grade, providing a thorough understanding of core concepts across all grade levels. Whether it's math, science, language arts, or social studies, our curriculum is designed to meet educational standards and cater to the diverse learning needs of every student."}
                 </p>
               </div>
 
