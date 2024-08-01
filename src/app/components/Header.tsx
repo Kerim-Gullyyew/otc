@@ -1,6 +1,8 @@
 "use client";
 import { Fragment, useEffect, useRef, useState } from "react";
+import { GetStaticProps } from 'next';
 import Image from "next/image";
+import axios from 'axios';
 import {
   Popover,
   PopoverButton,
@@ -39,38 +41,9 @@ import {
 } from "@heroicons/react/20/solid";
 import { AnimatePresence, motion } from "framer-motion";
 import { DataCategory, MainCategoryInterface, SecondaryCategoryInterface, CourseInterface } from "../data";
-interface HeaderProps { }
-const products = [
-  {
-    name: "Analytics",
-    description: "Get a better understanding where your traffic is coming from",
-    href: "#",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "Engagement",
-    description: "Speak directly to your customers with our engagement tool",
-    href: "#",
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: SquaresPlusIcon,
-  },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
-  { name: "View all products", href: "#", icon: RectangleGroupIcon },
-];
+interface HeaderProps { 
+  data: any;
+}
 
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
@@ -91,14 +64,16 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-const Header: React.FC<HeaderProps> = ({ }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
+const Header: React.FC<HeaderProps> = ({ data }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  console.log(data);
+  
+  
   const [mainCategoryItem, setMainCategoryItem] = useState<MainCategoryInterface>(DataCategory.main_categories[0]);
   const [secondaryCategoryItem, setSecondaryCategoryItem] = useState<SecondaryCategoryInterface>(DataCategory.main_categories[0].secondary_categories[0]);
   const [thirdCategoryItem, setThirdCategoryItem] = useState<CourseInterface | null>(null);
 
-  console.log(mainCategoryItem);
 
   const handleMouseEnter = (item: MainCategoryInterface) => {
     setMainCategoryItem(item);
@@ -113,20 +88,6 @@ const Header: React.FC<HeaderProps> = ({ }) => {
   const handleChildMouseEnter = (category: SecondaryCategoryInterface) => {
     setSecondaryCategoryItem(category)
     setThirdCategoryItem(category.courses[0]);
-  };
-  const parentItems: (1 | 2 | 3)[] = [1, 2, 3]; // Example parent items
-  const childItems: { [key in 1 | 2 | 3]: string[] } = {
-    1: ['Child 1-1', 'Child 1-2'],
-    2: ['Child 2-1', 'Child 2-2'],
-    3: ['Child 3-1', 'Child 3-2']
-  };
-  const thirdItems: { [key: string]: string[] } = {
-    'Child 1-1': ['Third 1-1-1', 'Third 1-1-2'],
-    'Child 1-2': ['Third 1-2-1', 'Third 1-2-2'],
-    'Child 2-1': ['Third 2-1-1', 'Third 2-1-2'],
-    'Child 2-2': ['Third 2-2-1', 'Third 2-2-2'],
-    'Child 3-1': ['Third 3-1-1', 'Third 3-1-2'],
-    'Child 3-2': ['Third 3-2-1', 'Third 3-2-2']
   };
 
   return (
@@ -144,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
             {({ open, close }) => (
               <>
                 <PopoverButton
-                  className="bg-gray-50 px-4 py-2 rounded-xl hover:bg-gray-100 outline-none"
+                  className="bg-gray-50 px-4 py-2 flex items-center gap-1 rounded-xl hover:bg-gray-100 outline-none"
                   onClick={({ target }) =>
                     !open ? "" : (target as HTMLElement).click()
                   }
@@ -152,6 +113,8 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                     open ? "" : (target as HTMLElement).click()
                   }
                 >
+
+                  <Bars3Icon className="w-5 h-5" />
                   Solutions
                 </PopoverButton>
 
@@ -159,9 +122,9 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                   transition
                   onMouseLeave={close}
                   anchor="bottom"
-                  className="w-full bg-white z-50 py-5 px-10 shadow-md  origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+                  className="w-full bg-white z-50 py-5 px-10 shadow-md max-w-5xl origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
                 >
-                  <div className="grid grid-cols-12 gap-5 container">
+                  <div className="grid grid-cols-12 mx-auto gap-5 w-5xl max-w-5xl">
                     <div className="col-span-3">
                       <div className="border-b border-gray-700 max-w-48 pb-1">
                         <h4 className="">Main Menu</h4>
@@ -221,6 +184,8 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                           ))}
                       </ul>
                     </div>
+
+
                   </div>
                 </PopoverPanel>
               </>
@@ -248,7 +213,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
           </div>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <button className="bg-yellow rounded-md px-4 py-2">
+            <button className="bg-primary rounded-md px-4 py-2">
               <h4 className="font-semibold">
                 Contact Us
 

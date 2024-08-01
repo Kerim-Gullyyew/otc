@@ -78,9 +78,11 @@ const config: Config = {
       },
 
       colors: {
-        green: "#219C90",
-        yellow: "#FCDC2A",
-        blue: "#3FA2F6",
+        background: "#FFF7D4",
+        primary: "#FCDC2A",
+        // green: "#219C90",
+        // yellow: "#FCDC2A",
+        // blue: "#3FA2F6",
       },
     },
   },

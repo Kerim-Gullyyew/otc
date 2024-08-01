@@ -433,7 +433,7 @@ const page: React.FC<pageProps> = ({ }) => {
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.sfdas asd asd
                     </h5>
                   </div>
-                  <button className="w-full bg-yellow text-black px-4 py-2 outline-none rounded-md font-semibold">
+                  <button className="w-full bg-primary text-black px-4 py-2 outline-none rounded-md font-semibold">
                     Enrol now
                   </button>
                   <p className="text-center leading-tight">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
