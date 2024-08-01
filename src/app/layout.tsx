@@ -22,13 +22,14 @@ export default async function RootLayout({
 }>) {
 
   const res = await fetch(
-    'http://localhost:8055/items/main_category?fields=*,secondary_category.*,secondary_category.courses.*',
+    `${process.env.WEBSITE_URL}items/main_category?fields=*,secondary_category.*,secondary_category.courses.*`,
     {
       next: {
         revalidate: 5,
       },
     }
   );
+  
   const data: Time = await res.json();
   return (
     <html lang="en">
