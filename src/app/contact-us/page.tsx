@@ -78,7 +78,7 @@ const page: React.FC<pageProps> = ({ }) => {
         <div className='bg-white'>
           <div className='grid grid-cols-1 md:grid-cols-5 md:gap-10 gap-14 container py-9 rounded-lg'>
             <div className='md:col-span-2'>
-              <div className='h-full px-8 pt-6 pb-56 w-full object-cover rounded-lg bg-gradient-to-b from-indigo-500 to-indigo-100 from-40%'>
+              <div className='h-full px-8 pt-6 pb-56 w-full object-cover rounded-lg bg-gradient-to-b from-yellow-500 to-yellow-100 from-40%'>
                 <div className='space-y-5 sm:space-y-10'>
                   <h4 className='text-white font-semibold'>Get in touch</h4>
 
