@@ -286,7 +286,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
               <motion.div
                 className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
                 initial="hidden"
@@ -320,7 +320,63 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <div className="flex justify-between items-start w-full gap-4">
+                  <div className="bg-violet-100 p-1 rounded-xl">
+                    <PlayIcon className="w-7 h-7 text-violet-500" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <h5 className="text-orange-400 font-semibold text-nowrap">
+                      View Course
+                    </h5>
+                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <p>25 Courses</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <div className="flex justify-between items-start w-full gap-4">
+                  <div className="bg-violet-100 p-1 rounded-xl">
+                    <PlayIcon className="w-7 h-7 text-violet-500" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <h5 className="text-orange-400 font-semibold text-nowrap">
+                      View Course
+                    </h5>
+                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                  <p>25 Courses</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1, scale: 1 },
@@ -376,91 +432,35 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <div className="flex justify-between items-start w-full gap-4">
+                  <div className="bg-violet-100 p-1 rounded-xl">
+                    <PlayIcon className="w-7 h-7 text-violet-500" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <h5 className="text-orange-400 font-semibold text-nowrap">
+                      View Course
+                    </h5>
+                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <p>25 Courses</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
-                  <p>25 Courses</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
-                  <p>25 Courses</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1, duration: 0.6 }}
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1.2, scale: 1 },
@@ -488,7 +488,7 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1, duration: 0.6 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1.4, scale: 1 },
@@ -516,7 +516,7 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1, duration: 0.6 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1.6, scale: 1 },
@@ -544,7 +544,7 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 1.8, duration: 0.6 }}
+                transition={{ delay: 0.9, duration: 0.6 }}
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1, scale: 1 },

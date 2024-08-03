@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { GetServerSidePropsContext, Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
@@ -26,9 +26,9 @@ export default async function RootLayout({
       },
     }
   );
-  
-  const main_categories: {data: MainCategoryInterface[]} = await res.json();
- 
+
+  const main_categories: { data: MainCategoryInterface[] } = await res.json();
+
   return (
     <html lang="en">
       <body className="">
@@ -42,8 +42,8 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
 
+}
 
 
 

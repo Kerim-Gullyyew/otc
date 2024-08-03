@@ -26,8 +26,18 @@ const config: Config = {
         enterFromRight: 'enterFromRight 250ms ease',
         exitToLeft: 'exitToLeft 250ms ease',
         exitToRight: 'exitToRight 250ms ease',
+        enterFromTop: 'enterFromTop 250ms ease-out',
+        exitToTop: 'exitToTop 250ms ease-in',
       },
       keyframes: {
+        enterFromTop: {
+          '0%': { opacity: '0', transform: 'translateY(-90%)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        exitToTop: {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-100%)' },
+        },
         enterFromRight: {
           from: { opacity: '0', transform: 'translateX(200px)' },
           to: { opacity: '1', transform: 'translateX(0)' },
@@ -81,6 +91,9 @@ const config: Config = {
       colors: {
         background: "#FFF7D4",
         primary: "#FCDC2A",
+        textPrimary: "#C07F00",
+        icon: "#9ca3af",   //gray-400
+        border: "#e5e7eb", //gray-200
         // green: "#219C90",
         // yellow: "#FCDC2A",
         // blue: "#3FA2F6",

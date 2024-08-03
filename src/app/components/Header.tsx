@@ -1,26 +1,17 @@
 "use client";
-import { Fragment, useEffect, useRef, useState } from "react";
-import { GetStaticProps } from 'next';
+import { Fragment, useState } from "react";
 import Image from "next/image";
-import axios from 'axios';
 import {
   Popover,
   PopoverButton,
   PopoverPanel,
   Dialog,
-  Disclosure,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
   Transition,
   PopoverBackdrop,
+  DialogPanel,
 } from "@headlessui/react";
 import {
   Bars3Icon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  BellIcon,
   CalendarIcon,
   ChartPieIcon,
   Cog6ToothIcon,
@@ -29,17 +20,9 @@ import {
   HomeIcon,
   MagnifyingGlassIcon,
   UsersIcon,
-  SquaresPlusIcon,
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-  RectangleGroupIcon,
-} from "@heroicons/react/20/solid";
-import { AnimatePresence, motion } from "framer-motion";
 import { MainCategoryInterface, SecondaryCategoryInterface, CourseInterface } from "../data";
 interface HeaderProps {
   main_categories: { data: MainCategoryInterface[] }
@@ -67,14 +50,10 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
 
 const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  // console.log("salam", main_categories);
-
 
   const [mainCategoryItem, setMainCategoryItem] = useState<MainCategoryInterface>(main_categories.data[0]);
   const [secondaryCategoryItem, setSecondaryCategoryItem] = useState<SecondaryCategoryInterface>(main_categories.data[0].secondary_category[0]);
   const [thirdCategoryItem, setThirdCategoryItem] = useState<CourseInterface | null>(null);
-  console.log("mainCategoryItem", mainCategoryItem);
-
 
   const handleMouseEnter = (item: MainCategoryInterface) => {
     setMainCategoryItem(item);
@@ -98,8 +77,8 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
         aria-label="Global"
       >
         <div className=" relative isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
-          <div className="flex  ">
-            <h2>Logo</h2>
+          <div className="flex">
+            <Image className="w-12 object-contain" src={'/logo.svg'} alt="logo" width={1000} height={1000} />
           </div>
 
           <div className="flex-1 flex items-center justify-center gap-3">
@@ -127,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     transition
                     onMouseLeave={close}
                     anchor="bottom"
-                    className="w-full h-[50%] bg-white z-50 py-5 px-10 shadow-md max-w-5xl origin-top transition duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+                    className="w-full h-[50%] bg-white z-50 py-5 px-10 shadow-md max-w-5xl mt-2 origin-top transition duration-300 ease-out data-[closed]:opacity-0"
                   >
                     <div className="grid grid-cols-12 mx-auto gap-5 w-5xl max-w-5xl">
                       <div className="col-span-3">
@@ -229,12 +208,13 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
         </div>
       </nav>
 
-      <Transition.Root show={mobileMenuOpen} as={Fragment}>
+      <Transition show={mobileMenuOpen} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-50 lg:hidden"
           onClose={setMobileMenuOpen}
         >
+
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -244,7 +224,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-900/80" />
+            <div className="fixed inset-0 backdrop-blur-sm bg-black/300 transition duration-100 ease-out data-[closed]:opacity-0" />
           </Transition.Child>
 
           <div className="fixed justify-end inset-0 flex">
@@ -257,39 +237,36 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
               leaveFrom="-translate-x-0"
               leaveTo="translate-x-full"
             >
-              <Dialog.Panel className="relative ml-16 flex w-full max-w-xs flex-1">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-in-out duration-200"
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="ease-in-out duration-200"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0"
-                >
-                  <div className="absolute right-full top-0 flex w-16 justify-center pt-5">
-                    <button
-                      type="button"
-                      className="-m-2.5 p-2.5"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span className="sr-only">Close sidebar</span>
-                      <XMarkIcon
-                        className="h-6 w-6 text-white"
-                        aria-hidden="true"
+              <DialogPanel className="relative ml-16 flex w-full max-w-xs flex-1">
+
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto pt-5 bg-white px-6 pb-4">
+                  <div className="flex gap-5 h-16 shrink-0 items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        width={1000}
+                        height={1000}
+                        className="h-12 w-auto"
+                        src="/logo.svg"
+                        alt="Your Company"
                       />
-                    </button>
-                  </div>
-                </Transition.Child>
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
-                  <div className="flex h-16 shrink-0 items-center">
-                    <Image
-                      width={1000}
-                      height={1000}
-                      className="h-8 w-auto"
-                      src="/vercel.svg"
-                      alt="Your Company"
-                    />
+
+                      <h3 className="">Online Special Tutoring</h3>
+
+                    </div>
+
+                    <div>
+                      <button
+                        type="button"
+                        className="-m-2.5 p-2.5"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span className="sr-only">Close sidebar</span>
+                        <XMarkIcon
+                          className="h-6 w-6 text-black"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
                   </div>
                   <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -301,16 +278,16 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                 href={item.href}
                                 className={classNames(
                                   item.current
-                                    ? "bg-gray-50 text-indigo-600"
-                                    : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
+                                    ? "bg-background text-textPrimary"
+                                    : "text-black hover:text-textPrimary hover:bg-background",
                                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                 )}
                               >
                                 <item.icon
                                   className={classNames(
                                     item.current
-                                      ? "text-indigo-600"
-                                      : "text-gray-400 group-hover:text-indigo-600",
+                                      ? "text-textPrimary"
+                                      : "text-icon group-hover:text-textPrimary",
                                     "h-6 w-6 shrink-0"
                                   )}
                                   aria-hidden="true"
@@ -322,7 +299,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                         </ul>
                       </li>
                       <li>
-                        <div className="text-xs font-semibold leading-6 text-gray-400">
+                        <div className="text-xs font-semibold leading-6 text-icon">
                           Your teams
                         </div>
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
@@ -332,16 +309,16 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                 href={team.href}
                                 className={classNames(
                                   team.current
-                                    ? "bg-gray-50 text-indigo-600"
-                                    : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
+                                    ? "bg-background text-textPrimary"
+                                    : "text-black hover:text-textPrimary hover:bg-background",
                                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                 )}
                               >
                                 <span
                                   className={classNames(
                                     team.current
-                                      ? "text-indigo-600 border-indigo-600"
-                                      : "text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600",
+                                      ? "text-textPrimary border-textPrimary"
+                                      : "text-icon border-border group-hover:border-textPrimary group-hover:text-textPrimary",
                                     "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
                                   )}
                                 >
@@ -356,10 +333,10 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <li className="mt-auto">
                         <a
                           href="#"
-                          className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                          className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-black hover:bg-gray-50 hover:text-textPrimary"
                         >
                           <Cog6ToothIcon
-                            className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
+                            className="h-6 w-6 shrink-0 text-icon group-hover:text-textPrimary"
                             aria-hidden="true"
                           />
                           Settings
@@ -368,11 +345,11 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     </ul>
                   </nav>
                 </div>
-              </Dialog.Panel>
+              </DialogPanel>
             </Transition.Child>
           </div>
         </Dialog>
-      </Transition.Root>
+      </Transition>
     </>
   );
 };
