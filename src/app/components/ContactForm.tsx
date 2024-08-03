@@ -248,7 +248,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
               type="submit"
               onClick={handleSubmit}
               // className="rounded-md flex flex-3 font-[26px] items-center justify-center bg-indigo-600 px-3 py-4 text-2xl  text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              className='bg-primary w-full rounded-xl px-7 py-3 text-black hover:bg-yellow-500 transition-all duration-300  text-lg'
+              className='bg-primary w-full rounded-xl px-7 py-3 text-black hover:bg-primary transition-all duration-300  text-lg'
             >
               Send a Message
             </button>

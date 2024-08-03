@@ -133,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                           {main_categories.data.map((item, index) => (
                             <li
                               key={index}
-                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-[#F1F0FF]"}`}
+                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-background"}`}
                               onMouseEnter={() => handleMouseEnter(item)}
                               onMouseLeave={handleMouseLeave}
                             >
@@ -155,7 +155,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                               (category, index) => (
                                 <li
                                   key={index}
-                                  className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-[#F1F0FF]"}`}
+                                  className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-background"}`}
                                   onMouseEnter={() =>
                                     handleChildMouseEnter(category)
                                   }
@@ -180,7 +180,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                 <li
                                   key={index}
                                   className={
-                                    "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"
+                                    "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
                                   }
                                 >
                                   <h4>{third.name}</h4>

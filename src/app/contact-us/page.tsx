@@ -78,36 +78,36 @@ const page: React.FC<pageProps> = ({ }) => {
         <div className='bg-white'>
           <div className='grid grid-cols-1 md:grid-cols-5 md:gap-10 gap-14 container py-9 rounded-lg'>
             <div className='md:col-span-2'>
-              <div className='h-full px-8 pt-6 pb-56 w-full object-cover rounded-lg bg-gradient-to-b from-yellow-500 to-yellow-100 from-40%'>
+              <div className='h-full px-8 pt-6 pb-48 w-full object-cover rounded-lg bg-gradient-to-b from-primary to-background from-40%'>
                 <div className='space-y-5 sm:space-y-10'>
-                  <h4 className='text-white font-semibold'>Get in touch</h4>
+                  <h4 className=' font-semibold'>Get in touch</h4>
 
                   <div className='flex flex-col gap-5 sm:gap-10 md:gap-5 sm:flex-row md:flex-col'>
                     <div className='space-y-1'>
-                      <h5 className='text-white text-nowrap'>Visit us</h5>
-                      <h5 className='text-white text-nowrap'>Come say hello at our office HQ.</h5>
-                      <h5 className='text-white text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
+                      <h5 className=' text-nowrap'>Visit us</h5>
+                      <h5 className=' text-nowrap'>Come say hello at our office HQ.</h5>
+                      <h5 className=' text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
                     </div>
 
                     <div className='space-y-1'>
-                      <h5 className='text-white text-nowrap'>Visit us</h5>
-                      <h5 className='text-white text-nowrap'>Come say hello at our office HQ.</h5>
-                      <h5 className='text-white text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
+                      <h5 className=' text-nowrap'>Visit us</h5>
+                      <h5 className=' text-nowrap'>Come say hello at our office HQ.</h5>
+                      <h5 className=' text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
                     </div>
 
                   </div>
                   <div className='flex flex-col gap-5 sm:gap-10 md:gap-5 sm:flex-row md:flex-col'>
                     <div className='space-y-1'>
-                      <h5 className='text-white text-nowrap'>Visit us</h5>
-                      <h5 className='text-white text-nowrap'>Come say hello at our office HQ.</h5>
-                      <h5 className='text-white text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
+                      <h5 className=' text-nowrap'>Visit us</h5>
+                      <h5 className=' text-nowrap'>Come say hello at our office HQ.</h5>
+                      <h5 className=' text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
                     </div>
 
                     <div className='space-y-1'>
-                      <h5 className='text-white'>Social Media</h5>
+                      <h5 className=''>Social Media</h5>
                       <div className="flex space-x-3">
                         {navigation.map((item) => (
-                          <a key={item.name} href={item.href} className="text-white">
+                          <a key={item.name} href={item.href} className=" ">
                             <span className="sr-only">{item.name}</span>
                             <item.icon className="h-5 w-5" aria-hidden="true" />
                           </a>

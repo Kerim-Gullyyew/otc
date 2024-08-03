@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import axios from 'axios';
 import { MainCategoryInterface } from "./data";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default async function RootLayout({
         <main className="flex container flex-col pt-[60px] w-full min-h-screen">
           {children}
         </main>
+        
 
       </body>
     </html>
