@@ -13,8 +13,19 @@ export default function Home() {
     <>
       <div className=" bg-white w-full py-10 lg:py-14">
         <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
+
           <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
-            <div className="space-y-10 max-w-xl">
+            <motion.div
+              className="space-y-10 max-w-xl"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6 }}
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <h1 className="font-bold text-6xl">
                 Find suitable online courses from the best tutors
               </h1>
@@ -25,11 +36,22 @@ export default function Home() {
               <button className="bg-primary px-6 py-2 text-black font-semibold rounded-l-xl rounded-tr-xl">
                 Explore courses
               </button>
-            </div>
 
+            </motion.div>
 
           </div>
-          <div className=" md:col-span-2">
+
+          <motion.div
+            className=" md:col-span-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6 }}
+            variants={{
+              hidden: { opacity: 0, x: 50 },
+              visible: { opacity: 1, x: 0 },
+            }}
+          >
             <Image
               src={"/home/studenthero.png"}
               width={1000}
@@ -37,7 +59,8 @@ export default function Home() {
               alt="student with book"
               className=""
             />
-          </div>
+          </motion.div>
+
         </div>
 
         <div className="mt-20 lg:mt-32 ">
@@ -176,7 +199,16 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              <div className="">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
                 <Image
                   className=" rounded-t-xl max-h-56 object-cover"
                   width={1000}
@@ -193,8 +225,17 @@ export default function Home() {
                     <h4 className="font-semibold">$100/monthly</h4>
                   </div>
                 </div>
-              </div>
-              <div className="">
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
                 <Image
                   className=" rounded-t-xl max-h-56 object-cover"
                   width={1000}
@@ -211,64 +252,89 @@ export default function Home() {
                     <h4 className="font-semibold">$100/monthly</h4>
                   </div>
                 </div>
-              </div>
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <Image
+                  className=" rounded-t-xl max-h-56 object-cover"
+                  width={1000}
+                  height={1000}
+                  src={"/course/download.jpg"}
+                  alt="download"
+                />
+                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
+                  <h3 className="font-semibold">Course Name</h3>
+                  <div className="space-y-2">
+                    <h4>Tught: English</h4>
+                    <h4>Duration: 9 months</h4>
+                    <h4>Type: Live session</h4>
+                    <h4 className="font-semibold">$100/monthly</h4>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <Image
+                  className=" rounded-t-xl max-h-56 object-cover"
+                  width={1000}
+                  height={1000}
+                  src={"/course/download.jpg"}
+                  alt="download"
+                />
+                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
+                  <h3 className="font-semibold">Course Name</h3>
+                  <div className="space-y-2">
+                    <h4>Tught: English</h4>
+                    <h4>Duration: 9 months</h4>
+                    <h4>Type: Live session</h4>
+                    <h4 className="font-semibold">$100/monthly</h4>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <Image
+                  className=" rounded-t-xl max-h-56 object-cover"
+                  width={1000}
+                  height={1000}
+                  src={"/course/download.jpg"}
+                  alt="download"
+                />
+                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
+                  <h3 className="font-semibold">Course Name</h3>
+                  <div className="space-y-2">
+                    <h4>Tught: English</h4>
+                    <h4>Duration: 9 months</h4>
+                    <h4>Type: Live session</h4>
+                    <h4 className="font-semibold">$100/monthly</h4>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="">
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="">
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="">
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

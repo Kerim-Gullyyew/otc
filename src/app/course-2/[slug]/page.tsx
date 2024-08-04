@@ -1,6 +1,6 @@
 import MobileCheckout from '@/app/components/MobileCheckout';
 import { getCourse } from '@/app/components/utils/getCourse';
-import { AcademicCapIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, ClockIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import React from 'react'
 import Image from 'next/image';
 import Accordion from '@/app/components/ui/Accordion';
@@ -17,7 +17,7 @@ interface CourseProps {
   discount: number | null;
   sessions_weekly: number;
   duration: number;
-  what_learn: null;
+  what_learn: null | string;
   secondary_category: string;
   syllabus:
   {
@@ -32,7 +32,14 @@ interface CourseProps {
       price: number;
       duration: number;
     }
-  }[]
+  }[];
+  available_languages: {
+    languages_id: {
+      id: string;
+      name: string;
+      icon: string | null;
+    }
+  }[];
 }
 
 const pages = [
@@ -55,7 +62,7 @@ export default async function Page({
         <div className="relative pb-20">
           <div className="md:flex md:gap-6">
             <div className="md:flex flex-col md:w-[70%]">
-              <nav className="flex mt-1" aria-label="Breadcrumb">
+              {/* <nav className="flex mt-1" aria-label="Breadcrumb">
                 <ol
                   role="list"
                   className="flex space-x-2 rounded-md bg-white px-6 shadow-sm"
@@ -94,7 +101,7 @@ export default async function Page({
                     </li>
                   ))}
                 </ol>
-              </nav>
+              </nav> */}
 
               <div className="mt-2">
                 <Image
@@ -122,21 +129,21 @@ export default async function Page({
                   </div>
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
                     <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
-                      <h3 className="font-semibold text-gray-700">Lessons</h3>
+                      <h3 className="font-semibold text-gray-700">Duration</h3>
                       <div className="flex items-center gap-3">
                         <div>
-                          <AcademicCapIcon className="w-5 h-5 text-gray-700" />
+                          <ClockIcon className="w-5 h-5 text-gray-700" />
                         </div>
-                        <p className="font-semibold text-gray-700">144</p>
+                        <p className="font-semibold text-gray-700">{course.duration + " " + 'months'}</p>
                       </div>
                     </div>
                     <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
-                      <h3 className="font-semibold text-gray-700">Lessons</h3>
+                      <h3 className="font-semibold text-gray-700">Weekly sessions</h3>
                       <div className="flex items-center gap-3">
                         <div>
                           <AcademicCapIcon className="w-5 h-5 text-gray-700" />
                         </div>
-                        <p className="font-semibold text-gray-700">144</p>
+                        <p className="font-semibold text-gray-700">{course.sessions_weekly}</p>
                       </div>
                     </div>
                     <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
@@ -159,7 +166,27 @@ export default async function Page({
                     </div>
                   </div>
                 </div>
+                {
+                  course.available_languages && (
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <h2 className="font-medium">Available Languages</h2>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                        {
+                          course.available_languages.map((lang) => (
+                            <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                              <h3 className="font-semibold text-gray-700">{lang.languages_id.name}</h3>
+                            </div>
 
+                          ))
+                        }
+
+                      </div>
+                    </div>
+
+                  )
+                }
                 <div className="space-y-3">
                   <h2 className="font-medium">Syllabus</h2>
                   <div className="space-y-2">
@@ -172,15 +199,16 @@ export default async function Page({
                   </div>
                 </div>
 
-                <div>
-                  <h2 className="font-medium">What you will learn</h2>
-                  <ul className=" list-disc ml-6">
-                    <li className=" ">Lorem ipsum dolor </li>
-                    <li className=" ">Lorem ipsum dolor </li>
-                    <li className=" ">Lorem ipsum dolor </li>
-                    <li className=" ">Lorem ipsum dolor </li>
-                  </ul>
-                </div>
+                {
+                  course.what_learn && (
+                    <div>
+                      <h2 className="font-medium">What you will learn</h2>
+                      <div className='pl-3 mt-5' dangerouslySetInnerHTML={{ __html: course.what_learn }}></div>
+
+                    </div>
+
+                  )
+                }
 
                 <div>
                   <h2 className="font-medium">Related courses</h2>
