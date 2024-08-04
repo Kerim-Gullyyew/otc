@@ -23,9 +23,14 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { MainCategoryInterface, SecondaryCategoryInterface, CourseInterface } from "../data";
+import {
+  MainCategoryInterface,
+  SecondaryCategoryInterface,
+  CourseInterface,
+} from "../data";
+import Link from "next/link";
 interface HeaderProps {
-  main_categories: { data: MainCategoryInterface[] }
+  main_categories: { data: MainCategoryInterface[] };
 }
 
 const teams = [
@@ -47,13 +52,17 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-
 const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-  const [mainCategoryItem, setMainCategoryItem] = useState<MainCategoryInterface>(main_categories.data[0]);
-  const [secondaryCategoryItem, setSecondaryCategoryItem] = useState<SecondaryCategoryInterface>(main_categories.data[0].secondary_category[0]);
-  const [thirdCategoryItem, setThirdCategoryItem] = useState<CourseInterface | null>(null);
+  const [mainCategoryItem, setMainCategoryItem] =
+    useState<MainCategoryInterface>(main_categories.data[0]);
+  const [secondaryCategoryItem, setSecondaryCategoryItem] =
+    useState<SecondaryCategoryInterface>(
+      main_categories.data[0].secondary_category[0]
+    );
+  const [thirdCategoryItem, setThirdCategoryItem] =
+    useState<CourseInterface | null>(null);
 
   const handleMouseEnter = (item: MainCategoryInterface) => {
     setMainCategoryItem(item);
@@ -63,10 +72,10 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
 
   const handleMouseLeave = () => {
     setThirdCategoryItem(null);
-  }
+  };
 
   const handleChildMouseEnter = (category: SecondaryCategoryInterface) => {
-    setSecondaryCategoryItem(category)
+    setSecondaryCategoryItem(category);
     setThirdCategoryItem(category.courses[0]);
   };
 
@@ -78,7 +87,15 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
       >
         <div className=" relative isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
           <div className="flex">
-            <Image className="w-12 object-contain" src={'/logo.svg'} alt="logo" width={1000} height={1000} />
+            <Link href="/">
+              <Image
+                className="w-12 object-contain"
+                src={"/logo.svg"}
+                alt="logo"
+                width={1000}
+                height={1000}
+              />
+            </Link>
           </div>
 
           <div className="flex-1 flex items-center justify-center gap-3">
@@ -94,7 +111,6 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       open ? "" : (target as HTMLElement).click()
                     }
                   >
-
                     <Bars3Icon className="w-5 h-5" />
                     Courses
                   </PopoverButton>
@@ -117,59 +133,62 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                           {main_categories.data.map((item, index) => (
                             <li
                               key={index}
-                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-[#F1F0FF]"}`}
+                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-background"}`}
                               onMouseEnter={() => handleMouseEnter(item)}
                               onMouseLeave={handleMouseLeave}
                             >
-                              <h4>
-                                {item.name}
-                              </h4>
+                              <h4>{item.name}</h4>
                               <ChevronRightIcon className="w-5 h-5" />
                             </li>
                           ))}
                         </ul>
                       </div>
-                      <div className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? 'opacity-100' : 'opacity-0'}`}>
+                      <div
+                        className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? "opacity-100" : "opacity-0"}`}
+                      >
                         <div className="border-b border-gray-700 max-w-48 pb-1">
                           <h4 className="">Main Menu</h4>
                         </div>
                         <ul className="space-y-0.5 mt-5">
                           {mainCategoryItem &&
-                            mainCategoryItem.secondary_category.map((category, index) => (
-                              <li
-                                key={index}
-                                className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-[#F1F0FF]"}`}
-                                onMouseEnter={() => handleChildMouseEnter(category)}
-                              >
-                                <h4>
-                                  {category.name}
-                                </h4>
-                                <ChevronRightIcon className="w-5 h-5" />
-                              </li>
-                            ))}
+                            mainCategoryItem.secondary_category.map(
+                              (category, index) => (
+                                <li
+                                  key={index}
+                                  className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-background"}`}
+                                  onMouseEnter={() =>
+                                    handleChildMouseEnter(category)
+                                  }
+                                >
+                                  <h4>{category.name}</h4>
+                                  <ChevronRightIcon className="w-5 h-5" />
+                                </li>
+                              )
+                            )}
                         </ul>
                       </div>
-                      <div className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? 'opacity-100' : 'opacity-0'}`}>
+                      <div
+                        className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? "opacity-100" : "opacity-0"}`}
+                      >
                         <div className="border-b border-gray-700 max-w-48 pb-1">
                           <h4 className="">Main Menu</h4>
                         </div>
                         <ul className=" mt-5 grid grid-cols-2 gap-0.5">
                           {secondaryCategoryItem &&
-                            secondaryCategoryItem.courses.map((third, index) => (
-                              <li
-                                key={index}
-                                className={"text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-[#F1F0FF]"}
-                              >
-                                <h4>
-                                  {third.name}
-
-                                </h4>
-                              </li>
-                            ))}
+                            secondaryCategoryItem.courses.map(
+                              (third, index) => (
+                                <li
+                                  key={index}
+                                  className={
+                                    "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
+                                  }
+                                >
+                                  <h4>{third.name}</h4>
+                                </li>
+                              )
+                            )}
                         </ul>
                       </div>
-
-
                     </div>
                   </PopoverPanel>
                 </>
@@ -180,11 +199,12 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
               />
-              <input placeholder="Search" className="outline-none w-full h-full" />
+              <input
+                placeholder="Search"
+                className="outline-none w-full h-full"
+              />
             </div>
-
           </div>
-
 
           <div className="flex lg:hidden">
             <button
@@ -198,12 +218,12 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
           </div>
 
           <div className="hidden lg:flex lg:justify-end">
-            <button className="bg-primary rounded-md px-4 py-2">
-              <h4 className="font-semibold">
-                Contact Us
-
-              </h4>
-            </button>
+            <Link
+              className="bg-primary rounded-md px-4 py-2"
+              href="/contact-us"
+            >
+              <p className="font-semibold">Contact Us</p>
+            </Link>
           </div>
         </div>
       </nav>
@@ -214,7 +234,6 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
           className="relative z-50 lg:hidden"
           onClose={setMobileMenuOpen}
         >
-
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -238,7 +257,6 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
               leaveTo="translate-x-full"
             >
               <DialogPanel className="relative ml-16 flex w-full max-w-xs flex-1">
-
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto pt-5 bg-white px-6 pb-4">
                   <div className="flex gap-5 h-16 shrink-0 items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -251,7 +269,6 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       />
 
                       <h3 className="">Online Special Tutoring</h3>
-
                     </div>
 
                     <div>
