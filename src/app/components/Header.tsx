@@ -177,14 +177,15 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                           {secondaryCategoryItem &&
                             secondaryCategoryItem.courses.map(
                               (third, index) => (
-                                <li
+                                <Link
+                                  onClick={close}
                                   key={index}
                                   className={
                                     "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
                                   }
-                                >
+                                  href={`/course-2/${third.id}`}>
                                   <h4>{third.name}</h4>
-                                </li>
+                                </Link>
                               )
                             )}
                         </ul>
