@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import axios from 'axios';
 import { MainCategoryInterface } from "./data";
+import { getCategory } from "./components/utils/getCategory";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +19,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const res = await fetch(
-    `${process.env.WEBSITE_URL}items/main_category?fields=*,secondary_category.*,secondary_category.courses.*`,
-    {
-      next: {
-        revalidate: 5,
-      },
-    }
-  );
-
-  const main_categories: { data: MainCategoryInterface[] } = await res.json();
-
+  const main_categories: { data: MainCategoryInterface[] } = await getCategory();
+  
   return (
     <html lang="en">
       <body className="">
@@ -39,8 +30,6 @@ export default async function RootLayout({
         <main className="flex container flex-col pt-[60px] w-full min-h-screen">
           {children}
         </main>
-
-
       </body>
     </html>
   );

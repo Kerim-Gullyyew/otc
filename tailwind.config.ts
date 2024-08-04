@@ -17,58 +17,32 @@ const config: Config = {
     extend: {
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
-        'fade-in2': 'fadeIn 0.3s ease-in',
-        scaleIn: 'scaleIn 200ms ease',
-        scaleOut: 'scaleOut 200ms ease',
-        fadeIn: 'fadeIn 200ms ease',
-        fadeOut: 'fadeOut 200ms ease',
-        enterFromLeft: 'enterFromLeft 250ms ease',
-        enterFromRight: 'enterFromRight 250ms ease',
-        exitToLeft: 'exitToLeft 250ms ease',
-        exitToRight: 'exitToRight 250ms ease',
-        enterFromTop: 'enterFromTop 250ms ease-out',
-        exitToTop: 'exitToTop 250ms ease-in',
+
+
+
+        fadeInLeft: 'fadeInLeft 0.6s ease-out forwards',
+        fadeInRight: 'fadeInRight 0.6s ease-out forwards',
+        fadeInScale: 'fadeInScale 0.6s ease-out forwards',
       },
       keyframes: {
-        enterFromTop: {
-          '0%': { opacity: '0', transform: 'translateY(-90%)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-        exitToTop: {
-          '0%': { opacity: '1', transform: 'translateY(0)' },
-          '100%': { opacity: '0', transform: 'translateY(-100%)' },
+        fadeInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-        enterFromRight: {
-          from: { opacity: '0', transform: 'translateX(200px)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
+        fadeInScale: {
+          '0%': { opacity: '0', transform: 'scale(0.8)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
         },
-        enterFromLeft: {
-          from: { opacity: '0', transform: 'translateX(-200px)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
-        },
-        exitToRight: {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(200px)' },
-        },
-        exitToLeft: {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(-200px)' },
-        },
-        scaleIn: {
-          from: { opacity: '0', transform: 'rotateX(-10deg) scale(0.9)' },
-          to: { opacity: '1', transform: 'rotateX(0deg) scale(1)' },
-        },
-        scaleOut: {
-          from: { opacity: '1', transform: 'rotateX(0deg) scale(1)' },
-          to: { opacity: '0', transform: 'rotateX(-10deg) scale(0.95)' },
-        },
+
+
+
         fadeIn: {
           from: { opacity: '0' },
           to: { opacity: '1' },
-        },
-        fadeOut: {
-          from: { opacity: '1' },
-          to: { opacity: '0' },
         },
       },
 

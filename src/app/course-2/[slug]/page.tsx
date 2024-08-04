@@ -109,7 +109,7 @@ export default async function Page({
                   width={1000}
                   height={1000}
                   alt="download"
-                  src={`${process.env.WEBSITE_URL}assets/${course.image}`}
+                  src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
                 />
               </div>
               <div className="mt-5 px-2 space-y-5">
@@ -220,7 +220,7 @@ export default async function Page({
                             className=" rounded-t-xl"
                             width={1000}
                             height={1000}
-                            src={`${process.env.WEBSITE_URL}assets/${related.related_courses_id.image}`}
+                            src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${related.related_courses_id.image}`}
                             alt="download"
                           />
                           <div className="border space-y-1 px-3 py-1 rounded-b-xl">

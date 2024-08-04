@@ -107,9 +107,11 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     onClick={({ target }) =>
                       !open ? "" : (target as HTMLElement).click()
                     }
-                    onMouseEnter={({ target }) =>
-                      open ? "" : (target as HTMLElement).click()
-                    }
+                    onMouseEnter={({ target }) => {
+                      if (!open && target instanceof HTMLElement) {
+                        target.click();
+                      }
+                    }}
                   >
                     <Bars3Icon className="w-5 h-5" />
                     Courses

@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   PlayIcon,
@@ -6,26 +6,32 @@ import {
   ArrowUpRightIcon,
 } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/20/solid";
-import { motion } from "framer-motion";
 import Footer from "./components/Footer";
-export default function Home() {
+import { getPopularCourses } from "./components/utils/getPopularCourses";
+import Link from "next/link";
+
+interface popularCourses {
+  id: string;
+  name: string;
+  duration: number;
+  price: number;
+  image: string;
+  discount: null | number;
+}
+export default async function Home() {
+
+
+  const popularCourses: popularCourses[] = await getPopularCourses();
+
+
   return (
     <>
       <div className=" bg-white w-full py-10 lg:py-14">
         <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
 
           <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
-            <motion.div
-              className="space-y-10 max-w-xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6 }}
-              variants={{
-                hidden: { opacity: 0, x: -50 },
-                visible: { opacity: 1, x: 0 },
-              }}
-            >
+
+            <div className="space-y-10 max-w-xl opacity-0 translate-x-[-50px] animate-fadeInLeft">
               <h1 className="font-bold text-6xl">
                 Find suitable online courses from the best tutors
               </h1>
@@ -36,22 +42,10 @@ export default function Home() {
               <button className="bg-primary px-6 py-2 text-black font-semibold rounded-l-xl rounded-tr-xl">
                 Explore courses
               </button>
-
-            </motion.div>
+            </div>
 
           </div>
-
-          <motion.div
-            className=" md:col-span-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6 }}
-            variants={{
-              hidden: { opacity: 0, x: 50 },
-              visible: { opacity: 1, x: 0 },
-            }}
-          >
+          <div className="md:col-span-2 opacity-0 translate-x-[50px] animate-fadeInRight">
             <Image
               src={"/home/studenthero.png"}
               width={1000}
@@ -59,8 +53,7 @@ export default function Home() {
               alt="student with book"
               className=""
             />
-          </motion.div>
-
+          </div>
         </div>
 
         <div className="mt-20 lg:mt-32 ">
@@ -199,143 +192,37 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <Image
-                  className=" rounded-t-xl max-h-56 object-cover"
-                  width={1000}
-                  height={1000}
-                  src={"/course/download.jpg"}
-                  alt="download"
-                />
-                <div className="border space-y-1 px-5 pt-3 pb-4 rounded-b-xl">
-                  <h3 className="font-semibold">Course Name</h3>
-                  <div className="space-y-2">
-                    <h4>Tught: English</h4>
-                    <h4>Duration: 9 months</h4>
-                    <h4>Type: Live session</h4>
-                    <h4 className="font-semibold">$100/monthly</h4>
-                  </div>
-                </div>
-              </motion.div>
+
+              {
+                popularCourses.map((popularCourse) => (
+                  <Link
+                    href={`course-2/${popularCourse.id}`}
+                    key={popularCourse.id}
+                    className="flex flex-col h-full justify-between">
+
+                    <Image
+                      className="rounded-t-xl max-h-44 h-44 min-h-44 object-cover"
+                      width={1000}
+                      height={1000}
+                      src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${popularCourse.image}`}
+                      alt="download"
+                    />
+
+                    <div className="flex flex-col justify-between border space-y-1 px-5 pt-3 pb-4 rounded-b-xl h-full">
+                      <h3 className="font-semibold">{popularCourse.name}</h3>
+                      <div className="space-y-2">
+                        <h4>Teaching Language: English</h4>
+                        <h4>Duration: {popularCourse.duration} months</h4>
+                        <h4>Type: Live session</h4>
+                        <h4 className="font-semibold">${popularCourse.price}/monthly</h4>
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              }
 
             </div>
+
           </div>
         </div>
 
@@ -353,17 +240,8 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
+
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -379,47 +257,9 @@ export default function Home() {
                   <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
-                  <p>25 Courses</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -435,47 +275,9 @@ export default function Home() {
                   <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
-                  <p>25 Courses</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -491,19 +293,9 @@ export default function Home() {
                   <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -516,22 +308,12 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1.2, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -544,22 +326,12 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1.4, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -572,22 +344,12 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1.6, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -600,22 +362,12 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
 
-              <motion.div
-                className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.9, duration: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-              >
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -628,10 +380,48 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography</h3>
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
                   <p>25 Courses</p>
                 </div>
-              </motion.div>
+
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+                <div className="flex justify-between items-start w-full gap-4">
+                  <div className="bg-violet-100 p-1 rounded-xl">
+                    <PlayIcon className="w-7 h-7 text-violet-500" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <h5 className="text-orange-400 font-semibold text-nowrap">
+                      View Course
+                    </h5>
+                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                  <p>25 Courses</p>
+                </div>
+
+              </div>
+              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+                <div className="flex justify-between items-start w-full gap-4">
+                  <div className="bg-violet-100 p-1 rounded-xl">
+                    <PlayIcon className="w-7 h-7 text-violet-500" />
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <h5 className="text-orange-400 font-semibold text-nowrap">
+                      View Course
+                    </h5>
+                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
+                  <p>25 Courses</p>
+                </div>
+
+              </div>
+
             </div>
 
 
