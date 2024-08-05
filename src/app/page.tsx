@@ -1,9 +1,8 @@
 
 import Image from "next/image";
 import {
-  PlayIcon,
-  AcademicCapIcon,
   ArrowUpRightIcon,
+  EyeIcon,
 } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/20/solid";
 import Footer from "./components/Footer";
@@ -23,17 +22,12 @@ interface popularCourses {
 interface popularCategories {
   id: string;
   name: string;
-  duration: number;
-  price: number;
-  image: string;
-  discount: null | number;
+  courses: [];
 }
 export default async function Home() {
-
-
-  const popularCourses: popularCourses[] = await getPopularCourses();
-  const popularCategories: popularCategories[] = await getPopularCategories();
-
+  const popularCoursesPromise = getPopularCourses();
+  const popularCategoriesPromise = getPopularCategories();
+  const [popularCourses, popularCategories] = await Promise.all([popularCoursesPromise, popularCategoriesPromise]);
 
   return (
     <>
@@ -205,7 +199,7 @@ export default async function Home() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 
               {
-                popularCourses.map((popularCourse) => (
+                popularCourses.map((popularCourse: popularCourses) => (
                   <Link
                     href={`/course-2/${popularCourse.id}`}
                     key={popularCourse.id}
@@ -251,8 +245,25 @@ export default async function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+              {
+                popularCategories.map((popular_category: popularCategories) => (
+                  <Link href={'/category/' + popular_category.id} key={popular_category.id} className="rounded-xl flex flex-col justify-between gap-6 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+                    <div className="flex justify-between items-center w-full gap-14">
+                      <div className="bg-background py-0.5 px-2.5 rounded-xl">
+                        <p>{popular_category.courses.length} Courses</p>
+                      </div>
+                      <EyeIcon className="w-7 h-7 text-primary" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="font-bold text-nowrap">{popular_category.name}</h3>
+                    </div>
+                  </Link>
 
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+                ))
+              }
+
+
+              {/* <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                 <div className="flex justify-between items-start w-full gap-4">
                   <div className="bg-violet-100 p-1 rounded-xl">
                     <PlayIcon className="w-7 h-7 text-violet-500" />
@@ -413,25 +424,7 @@ export default async function Home() {
                   <p>25 Courses</p>
                 </div>
 
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
+              </div> */}
 
             </div>
 
