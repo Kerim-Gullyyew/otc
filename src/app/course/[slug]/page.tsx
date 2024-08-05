@@ -137,13 +137,13 @@ const page: React.FC<pageProps> = ({ }) => {
 
               <div className="space-y-3">
                 <h2 className="font-medium">Syllabus</h2>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Accordion />
                   <Accordion />
                   <Accordion />
                   <Accordion />
 
-                </div>
+                </div> */}
               </div>
 
               <div>
