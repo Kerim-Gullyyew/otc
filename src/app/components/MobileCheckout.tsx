@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { XMarkIcon } from "@heroicons/react/24/outline"
+import { LockClosedIcon, XMarkIcon } from "@heroicons/react/24/outline"
 interface MobileCheckoutProps {
 
 }
@@ -27,7 +27,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
     <>
 
       <div className={`fixed bottom-0 md:hidden w-full z-50 ${openMobileNav && 'hidden'}`}>
-        <button onClick={() => setOpenMobileNav(true)} className="bg-[#0800FC] text-white rounded-lg text-center w-full py-3">
+        <button onClick={() => setOpenMobileNav(true)} className="bg-primary text-black font-semibold rounded-t-lg text-center w-full py-3">
           Enrol now
         </button>
       </div>
@@ -36,7 +36,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
           openMobileNav ? { opacity: 0.6, zIndex: 3 } : { opacity: 0, display: 'none' }
         }
         initial={{ opacity: 0 }}
-        className="fixed top-0 bottom-0 right-0 left-0 h-full w-screen bg-white shadow-lg" />
+        className="fixed h-full w-screen bg-white" />
       <AnimatePresence initial={false}>
         {openMobileNav && (
           <motion.div key='content'
@@ -49,62 +49,107 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
 
             }}
             transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-            className=" border-gray-50 fixed bottom-0 right-0 left-0 z-10 w-full rounded-t-xl border-2 border-b-0 bg-white shadow-[0px_-8px_20px_-6px_rgba(0,0,0,0.3)]"
+            className=" border-gray-50 fixed bottom-0 right-0 pt-[60px] bg-white/50 backdrop-blur-lg left-0 z-10 w-full rounded-t-xl border-2 border-b-0 shadow-[0px_-8px_20px_-6px_rgba(0,0,0,0.3)] px-3 overflow-y-auto "
           >
-            <div className=" pt-6 pb-10 px-3 no-scrollbar h-[100%] overflow-auto items-end justify-end flex flex-col" ref={bottomSheetRef}>
+            <div className=" pt-6 pb-10 px-3 no-scrollbar overflow-auto flex flex-col" ref={bottomSheetRef}>
               <div onClick={() => setOpenMobileNav(false)} className="flex justify-end">
                 <XMarkIcon className="w-8 h-8 border rounded-full p-1 flex items-center justify-center border-black" />
               </div>
-              <div className="space-y-6">
-                <div className=" border-b border-gray-300 pb-2">
-                  <h3>Course Name</h3>
-                </div>
 
-                <div className="space-y-3">
-                  <h3>Select your payment option</h3>
-                  <button className="w-full border bg-gray-50 border-blue px-4 py-2 rounded-xl">
-                    <div className="flex justify-between">
+              <div className="flex justify-end">
+                <div className="no-scrollbar pt-6 pb-8 flex flex-col">
+                  <div className="space-y-6">
+                    <div className="pb-2">
+                      <p className="font-semibold">Course Name</p>
+                    </div>
+                    <div className="space-y-4">
+                      <p className="font-medium">Enter Account Detail</p>
                       <div>
-                        <p>Billed One Off</p>
-                        <div className="flex items-center gap-2">
-                          <p>$200</p>
-                          <p className="text-green">$150</p>
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium leading-4"
+                        >
+                          Email
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                          />
                         </div>
                       </div>
                       <div>
-                        <p className="text-green">Save 20%</p>
-                      </div>
-                    </div>
-                  </button>
-                  <button className="w-full border bg-gray-50 border-gray-300 px-4 py-2 rounded-xl">
-                    <div className="flex justify-between">
-                      <div>
-                        <p>Billed One Off</p>
-                        <div className="flex items-center gap-2">
-                          <p>$200</p>
-                          <p className="text-green">$150</p>
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium leading-4"
+                        >
+                          Email
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                          />
                         </div>
                       </div>
                       <div>
-                        {/* <p className="text-green">Save 20%</p> */}
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium leading-4"
+                        >
+                          Email
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium leading-4"
+                        >
+                          Email
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="block w-full rounded-md py-2 border border-gray-200 px-3 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
+                          />
+                        </div>
                       </div>
                     </div>
-                  </button>
-                </div>
 
-                <div className="space-y-3">
-                  <h3>Enter Account Detail</h3>
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="First Name" />
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Last Name" />
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Email Address" />
-                  <input className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl" placeholder="Phone number" />
-                </div>
+                    <div className="w-full h-[0.5px] bg-gray-300">
+                    </div>
 
-
-                <div>
-                  <button className="w-full border bg-gray-50 border-gray-300 px-4 py-3 outline-none rounded-xl">
-                    Place order
-                  </button>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <h2 className="font-semibold">Total</h2>
+                        <h2 className="font-semibold">$180/month</h2>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <LockClosedIcon className="w-5 h-5 text-gray-400" />
+                        <h5 className=" leading-tight text-gray-400">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit.sfdas asd asd
+                        </h5>
+                      </div>
+                      <button className="w-full bg-primary text-black px-4 py-2 outline-none rounded-md font-semibold">
+                        Enrol now
+                      </button>
+                      <p className="text-center leading-tight">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 

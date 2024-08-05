@@ -70,7 +70,7 @@ const navigation = [
 ]
 const page: React.FC<pageProps> = ({ }) => {
   return (
-    <div className=" bg-white w-full mx-auto py-10 lg:py-14 max-w-4xl">
+    <div className=" bg-white w-full mx-auto py-10 lg:py-14 max-w-4xl container">
       <h1 className='text-center font-bold'>Contact</h1>
       <p className='text-center'>Got any questions about the services or scaling on our platform? We’re here to help.</p>
       <div className='flex flex-col gap-10'>

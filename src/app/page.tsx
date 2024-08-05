@@ -9,8 +9,18 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import Footer from "./components/Footer";
 import { getPopularCourses } from "./components/utils/getPopularCourses";
 import Link from "next/link";
+import { getPopularCategories } from "./components/utils/getPopularCategories";
 
 interface popularCourses {
+  id: string;
+  name: string;
+  duration: number;
+  price: number;
+  image: string;
+  discount: null | number;
+}
+
+interface popularCategories {
   id: string;
   name: string;
   duration: number;
@@ -22,11 +32,12 @@ export default async function Home() {
 
 
   const popularCourses: popularCourses[] = await getPopularCourses();
+  const popularCategories: popularCategories[] = await getPopularCategories();
 
 
   return (
     <>
-      <div className=" bg-white w-full py-10 lg:py-14">
+      <div className=" bg-white w-full py-10 lg:py-14 container">
         <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
 
           <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
@@ -196,7 +207,7 @@ export default async function Home() {
               {
                 popularCourses.map((popularCourse) => (
                   <Link
-                    href={`course-2/${popularCourse.id}`}
+                    href={`/course-2/${popularCourse.id}`}
                     key={popularCourse.id}
                     className="flex flex-col h-full justify-between">
 

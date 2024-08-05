@@ -1,41 +1,81 @@
 import { getCoursesByCategory } from "@/app/components/utils/getCoursesByCategory";
+import Image from "next/image";
+import Link from "next/link";
 
-interface CoursesProps {
+interface CategoryProps {
   id: string;
   name: string;
-  image: string;
-  price: number;
-  discount: number | null;
-  duration: number;
-  syllabus:
+  icon: string | null;
+  description: null | string;
+  selected_for_home: number;
+  courses:
   {
     id: number;
     name: string;
-    description: string;
+    image: string;
+    duration: number;
+    price: number;
   }[];
-  related_courses: {
-    related_courses_id: {
-      id: string;
-      name: string;
-      image: string;
-      price: number;
-      duration: number;
-    }
-  }[];
-  available_languages: {
-    languages_id: {
-      id: string;
-      name: string;
-      icon: string | null;
-    }
-  }[];
-}[]
+}
 
 export default async function Page({ params: { slug } }: {
   params: { slug: string }
 }) {
-  const courses: CoursesProps = await getCoursesByCategory(slug)
+  const category: CategoryProps = await getCoursesByCategory(slug)
+  console.log("Online course", category);
+
+  return (
+    <div className="container">
+      <div className="relative w-full space-y-3 pt-3">
+        <h2>{category.name}</h2>
+        {
+          category.description && (
+            <p>{category.description}</p>
+          )
+        }
+        <div className="flex">
+          <div className="border border-border px-4 py-1">
+            <h4>
+              {category.courses.length + " courses"}
+            </h4>
+          </div>
+
+        </div>
+      </div>
 
 
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10">
+
+        {
+          category.courses.map((course) => (
+            <Link
+              href={`/course-2/${course.id}`}
+              key={course.id}
+              className="flex flex-col h-full justify-between">
+
+              <Image
+                className="rounded-t-xl max-h-44 h-44 min-h-44 object-cover"
+                width={1000}
+                height={1000}
+                src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
+                alt="download"
+              />
+
+              <div className="flex flex-col justify-between border space-y-1 px-5 pt-3 pb-4 rounded-b-xl h-full">
+                <h3 className="font-semibold">{course.name}</h3>
+                <div className="space-y-2">
+                  <h4>Teaching Language: English</h4>
+                  <h4>Duration: {course.duration} months</h4>
+                  <h4>Type: Live session</h4>
+                  <h4 className="font-semibold">${course.price}/monthly</h4>
+                </div>
+              </div>
+            </Link>
+          ))
+        }
+
+      </div>
+    </div>
+  )
 
 }

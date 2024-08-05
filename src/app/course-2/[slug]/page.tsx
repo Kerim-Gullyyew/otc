@@ -52,9 +52,9 @@ export default async function Page({ params: { slug } }: {
   return (
     <>
       <>
-        <div className="relative pb-20">
+        <div className="pb-20 container">
           <div className="md:flex md:gap-6">
-            <div className="md:flex flex-col md:w-[70%]">
+            <div className="md:flex flex-col md:w-[70%] lg:w-[75%]">
               {/* <nav className="flex mt-1" aria-label="Breadcrumb">
                 <ol
                   role="list"
@@ -177,17 +177,22 @@ export default async function Page({ params: { slug } }: {
                     </div>
                   )
                 }
-                <div className="space-y-3">
-                  <h2 className="font-medium">Syllabus</h2>
-                  <div className="space-y-2">
-                    {
-                      course.syllabus.map((syllabus) => (
-                        <Accordion key={syllabus.id} syllabus={syllabus} />
-                      ))
-                    }
 
-                  </div>
-                </div>
+                {
+                  course.syllabus.length > 0 && (
+                    <div className="space-y-3">
+                      <h2 className="font-medium">Syllabus</h2>
+                      <div className="space-y-2">
+                        {
+                          course.syllabus.map((syllabus) => (
+                            <Accordion key={syllabus.id} syllabus={syllabus} />
+                          ))
+                        }
+
+                      </div>
+                    </div>
+                  )
+                }
 
                 {
                   course.what_learn && (
@@ -201,7 +206,7 @@ export default async function Page({ params: { slug } }: {
                 }
 
                 {
-                  course.related_courses && (
+                  course.related_courses.length > 0 && (
                     <div>
                       <h2 className="font-medium">Related courses</h2>
                       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
@@ -234,7 +239,7 @@ export default async function Page({ params: { slug } }: {
 
 
             </div>
-            <div className="hidden md:flex md:w-[30%] justify-end">
+            <div className="hidden md:flex md:w-[30%] lg:w-[25%] justify-end">
               <div className="border-l border-[#DEDEDE] no-scrollbar pl-6 pt-6 pb-8 flex flex-col">
                 <div className="space-y-6">
                   <div className=" border-b border-gray-300 pb-2">

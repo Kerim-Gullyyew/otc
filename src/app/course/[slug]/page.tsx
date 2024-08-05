@@ -15,7 +15,7 @@ const pages = [
 const page: React.FC<pageProps> = ({ }) => {
   return (
     <>
-      <div className="relative pb-20">
+      <div className="relative pb-20 container">
         <div className="md:flex md:gap-6">
           <div className="md:flex flex-col md:w-[70%]">
             <nav className="flex mt-1" aria-label="Breadcrumb">

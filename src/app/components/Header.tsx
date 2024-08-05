@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   return (
     <>
       <nav
-        className="bg-white container mx-auto z-50 fixed w-full py-2 shadow-sm"
+        className="bg-white container mx-auto z-50 fixed w-full py-2"
         aria-label="Global"
       >
         <div className=" relative isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
@@ -295,68 +295,43 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                   <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
-                        <ul role="list" className="-mx-2 space-y-1">
+                        <ul role="list" className="-mx-2 space-y-1 border-b">
                           <li className="px-2">
                             <h4 className="font-semibold text-icon">Courses</h4>
                           </li>
-                          <li className="border-b">
-                            {
-                              main_categories.data.map((main_category) => (
-                                <Disclosure key={main_category.id}>
-                                  {({ open }) => (
-                                    <>
-                                      <DisclosureButton className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
-                                        <div className="flex items-center gap-x-3">
-                                          <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-background flex items-center justify-center rounded-full p-1 shrink-0" />
-                                          <h4>{main_category.name}</h4>
-                                        </div>
-                                        {main_category.secondary_category.length}
-                                      </DisclosureButton>
-                                      <DisclosurePanel className="ml-2">
-                                        {
-                                          main_category.secondary_category.map((secondary_cat) => (
-                                            <Link key={secondary_cat.id} href={"/category/" + secondary_cat.id} className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
-                                              <div className="flex items-center gap-x-3">
-                                                <h4>{secondary_cat.name}</h4>
-                                              </div>
-                                              {secondary_cat.courses.length}
-                                            </Link>
+                          {
+                            main_categories.data.map((main_category) => (
+                              <Disclosure as="li" key={main_category.id}>
+                                {({ open }) => (
+                                  <>
+                                    <DisclosureButton className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                      <div className="flex items-center gap-x-3">
+                                        <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-background flex items-center justify-center rounded-full p-1 shrink-0" />
+                                        <h4>{main_category.name}</h4>
+                                      </div>
+                                      {main_category.secondary_category.length}
+                                    </DisclosureButton>
+                                    <DisclosurePanel transition className="ml-2 origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in">
+                                      {
+                                        main_category.secondary_category.map((secondary_cat) => (
+                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id} href={"/category/" + secondary_cat.id} className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                            <div className="flex items-center gap-x-3">
+                                              <h4>{secondary_cat.name}</h4>
+                                            </div>
+                                            {secondary_cat.courses.length}
+                                          </Link>
 
-                                          ))
-                                        }
-                                      </DisclosurePanel>
-                                    </>
-                                  )}
-                                </Disclosure>
+                                        ))
+                                      }
+                                    </DisclosurePanel>
 
-                              ))
-                            }
-
-                          </li>
-                          {/* {navigation.map((item) => (
-                            <li key={item.name}>
-                              <a
-                                href={item.href}
-                                className={classNames(
-                                  item.current
-                                    ? "bg-background text-textPrimary"
-                                    : "text-black hover:text-textPrimary hover:bg-background",
-                                  "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                                  </>
                                 )}
-                              >
-                                <item.icon
-                                  className={classNames(
-                                    item.current
-                                      ? "text-textPrimary"
-                                      : "text-icon group-hover:text-textPrimary",
-                                    "h-6 w-6 shrink-0"
-                                  )}
-                                  aria-hidden="true"
-                                />
-                                {item.name}
-                              </a>
-                            </li>
-                          ))} */}
+                              </Disclosure>
+
+                            ))
+                          }
+
                         </ul>
                       </li>
                       <li>
