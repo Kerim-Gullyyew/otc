@@ -4,6 +4,7 @@ import { AcademicCapIcon, ClockIcon, LockClosedIcon } from "@heroicons/react/24/
 import React from 'react'
 import Image from 'next/image';
 import Accordion from '@/app/components/ui/Accordion';
+import Link from 'next/link';
 
 interface CourseProps {
   id: string;
@@ -27,6 +28,7 @@ interface CourseProps {
   }[];
   related_courses: {
     related_courses_id: {
+      id: string;
       name: string;
       image: string;
       price: number;
@@ -175,16 +177,13 @@ export default async function Page({
                       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
                         {
                           course.available_languages.map((lang) => (
-                            <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                            <div key={lang.languages_id.id} className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
                               <h3 className="font-semibold text-gray-700">{lang.languages_id.name}</h3>
                             </div>
-
                           ))
                         }
-
                       </div>
                     </div>
-
                   )
                 }
                 <div className="space-y-3">
@@ -192,7 +191,7 @@ export default async function Page({
                   <div className="space-y-2">
                     {
                       course.syllabus.map((syllabus) => (
-                        <Accordion syllabus={syllabus} />
+                        <Accordion key={syllabus.id} syllabus={syllabus} />
                       ))
                     }
 
@@ -210,32 +209,36 @@ export default async function Page({
                   )
                 }
 
-                <div>
-                  <h2 className="font-medium">Related courses</h2>
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
-                    {
-                      course.related_courses.map((related) => (
-                        <div className="">
-                          <Image
-                            className=" rounded-t-xl"
-                            width={1000}
-                            height={1000}
-                            src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${related.related_courses_id.image}`}
-                            alt="download"
-                          />
-                          <div className="border space-y-1 px-3 py-1 rounded-b-xl">
-                            <h3>{related.related_courses_id.name}</h3>
-                            <div>
-                              <h4>Tught: English</h4>
-                              <h4>Duration: {related.related_courses_id.duration} months</h4>
-                            </div>
-                            <h4>${related.related_courses_id.price}/monthly</h4>
-                          </div>
-                        </div>
-                      ))
-                    }
-                  </div>
-                </div>
+                {
+                  course.related_courses && (
+                    <div>
+                      <h2 className="font-medium">Related courses</h2>
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                        {
+                          course.related_courses.map((related) => (
+                            <Link key={related.related_courses_id.id} href={`/course-2/${related.related_courses_id.id}`} className="">
+                              <Image
+                                className=" rounded-t-xl"
+                                width={1000}
+                                height={1000}
+                                src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${related.related_courses_id.image}`}
+                                alt="download"
+                              />
+                              <div className="border space-y-1 px-3 py-1 rounded-b-xl">
+                                <h3>{related.related_courses_id.name}</h3>
+                                <div>
+                                  <h4>Tught: English</h4>
+                                  <h4>Duration: {related.related_courses_id.duration} months</h4>
+                                </div>
+                                <h4>${related.related_courses_id.price}/monthly</h4>
+                              </div>
+                            </Link>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  )
+                }
               </div>
 
 

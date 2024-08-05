@@ -9,6 +9,9 @@ import {
   Transition,
   PopoverBackdrop,
   DialogPanel,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
 } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -22,6 +25,7 @@ import {
   UsersIcon,
   ChevronRightIcon,
   XMarkIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 import {
   MainCategoryInterface,
@@ -292,6 +296,30 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
+                          <li>
+                            <Disclosure>
+                              <DisclosureButton className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-full">
+                                <HomeIcon
+                                  className={
+                                    "text-icon group-hover:text-textPrimary h-6 w-6 shrink-0"
+                                  }
+                                  aria-hidden="true"
+                                />
+                                Courses
+                              </DisclosureButton>
+                              <DisclosurePanel className="text-gray-500">
+                                <Disclosure>
+                                  <DisclosureButton className="ml-3 py-2 mr-4  text-black hover:text-textPrimary hover:bg-background group flex rounded-md text-sm leading-6 font-semibold w-full justify-between">
+                                    <h4>Category</h4>
+                                    <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90" />
+                                  </DisclosureButton>
+                                  <DisclosurePanel className="text-gray-500">
+                                    Yes! You can purchase a license that you can share with your entire team.
+                                  </DisclosurePanel>
+                                </Disclosure>
+                              </DisclosurePanel>
+                            </Disclosure>
+                          </li>
                           {navigation.map((item) => (
                             <li key={item.name}>
                               <a
