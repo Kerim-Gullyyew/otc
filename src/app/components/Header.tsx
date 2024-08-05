@@ -296,31 +296,44 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
-                          <li>
-                            <Disclosure>
-                              <DisclosureButton className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-full">
-                                <HomeIcon
-                                  className={
-                                    "text-icon group-hover:text-textPrimary h-6 w-6 shrink-0"
-                                  }
-                                  aria-hidden="true"
-                                />
-                                Courses
-                              </DisclosureButton>
-                              <DisclosurePanel className="text-gray-500">
-                                <Disclosure>
-                                  <DisclosureButton className="ml-3 py-2 mr-4  text-black hover:text-textPrimary hover:bg-background group flex rounded-md text-sm leading-6 font-semibold w-full justify-between">
-                                    <h4>Category</h4>
-                                    <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90" />
-                                  </DisclosureButton>
-                                  <DisclosurePanel className="text-gray-500">
-                                    Yes! You can purchase a license that you can share with your entire team.
-                                  </DisclosurePanel>
-                                </Disclosure>
-                              </DisclosurePanel>
-                            </Disclosure>
+                          <li className="px-2">
+                            <h4 className="font-semibold text-icon">Courses</h4>
                           </li>
-                          {navigation.map((item) => (
+                          <li className="border-b">
+                            {
+                              main_categories.data.map((main_category) => (
+                                <Disclosure key={main_category.id}>
+                                  {({ open }) => (
+                                    <>
+                                      <DisclosureButton className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                        <div className="flex items-center gap-x-3">
+                                          <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-background flex items-center justify-center rounded-full p-1 shrink-0" />
+                                          <h4>{main_category.name}</h4>
+                                        </div>
+                                        {main_category.secondary_category.length}
+                                      </DisclosureButton>
+                                      <DisclosurePanel className="ml-2">
+                                        {
+                                          main_category.secondary_category.map((secondary_cat) => (
+                                            <Link key={secondary_cat.id} href={"/category/" + secondary_cat.id} className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                              <div className="flex items-center gap-x-3">
+                                                <h4>{secondary_cat.name}</h4>
+                                              </div>
+                                              {secondary_cat.courses.length}
+                                            </Link>
+
+                                          ))
+                                        }
+                                      </DisclosurePanel>
+                                    </>
+                                  )}
+                                </Disclosure>
+
+                              ))
+                            }
+
+                          </li>
+                          {/* {navigation.map((item) => (
                             <li key={item.name}>
                               <a
                                 href={item.href}
@@ -343,7 +356,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                 {item.name}
                               </a>
                             </li>
-                          ))}
+                          ))} */}
                         </ul>
                       </li>
                       <li>

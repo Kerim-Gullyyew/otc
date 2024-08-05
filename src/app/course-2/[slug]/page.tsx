@@ -8,8 +8,6 @@ import Link from 'next/link';
 
 interface CourseProps {
   id: string;
-  sort: boolean;
-  date_created: string;
   name: string;
   description: string;
   mini_description: string;
@@ -44,15 +42,8 @@ interface CourseProps {
   }[];
 }
 
-const pages = [
-  { name: "Secondary", href: "#", current: false },
-  { name: "Course Name", href: "#", current: true },
-];
 
-
-export default async function Page({
-  params: { slug },
-}: {
+export default async function Page({ params: { slug } }: {
   params: { slug: string }
 }) {
   const course: CourseProps = await getCourse(slug)
