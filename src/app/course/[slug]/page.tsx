@@ -178,7 +178,7 @@ export default async function Page({ params: { slug } }: {
                 course.related_courses && course.related_courses.length > 0 && (
                   <div className='space-y-1'>
                     <h2 className="font-medium">Related courses</h2>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
                       {
                         course.related_courses.map((related) => (
                           <Card key={related.related_courses_id.id} course={related.related_courses_id} />

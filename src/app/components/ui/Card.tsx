@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ course }) => {
   return (
     <Link key={course.id} href={`/course/${course.slug}`} className="flex flex-col h-full group overflow-hidden rounded-xl shadow hover:shadow-md transition-shadow duration-500">
       <Image
-        className=" object-cover min-h-36 h-36 group-hover:scale-105 transition-transform duration-500"
+        className=" object-cover min-h-48 h-48 xs:h-56 group-hover:scale-105 transition-transform duration-500"
         width={1000}
         height={1000}
         src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
