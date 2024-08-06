@@ -70,7 +70,7 @@ const navigation = [
 ]
 const Footer: React.FC<FooterProps> = ({ }) => {
   return (
-    <div className='container px-6 lg:px-8 py-10 lg:py-14'>
+    <div className='container px-6 lg:px-8 py-10 lg:py-14 pb-20'>
       <div className='grid grid-cols-12 gap-5 sm:gap-10 items-start md:grid-cols-5'>
         <div className='grid col-span-12 gap-5 md:col-span-2'>
           <Link href="/">

@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
     useState<SecondaryCategoryInterface | null>(
       main_categories[0]?.secondary_category.length > 0 ? main_categories[0].secondary_category[0] : null
     );
-    
+
   const [thirdCategoryItem, setThirdCategoryItem] =
     useState<CourseInterface | null>(null);
 
@@ -177,7 +177,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                         className={
                                           "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
                                         }
-                                        href={`/course-2/${third.slug}`}>
+                                        href={`/course/${third.slug}`}>
                                         <h4>{third.name}</h4>
                                       </Link>
                                     )

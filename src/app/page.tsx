@@ -5,7 +5,6 @@ import {
   EyeIcon,
 } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/20/solid";
-import Footer from "./components/Footer";
 import { getPopularCourses } from "./components/utils/getPopularCourses";
 import Link from "next/link";
 import { getPopularCategories } from "./components/utils/getPopularCategories";
@@ -185,7 +184,7 @@ export default async function Home() {
                   {
                     popularCourses.map((popularCourse) => (
                       <Link
-                        href={`/course-2/${popularCourse.slug}`}
+                        href={`/course/${popularCourse.slug}`}
                         key={popularCourse.id}
                         className="flex flex-col h-full justify-between">
 
@@ -383,9 +382,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <footer>
-        <Footer />
-      </footer>
+     
     </>
   );
 }

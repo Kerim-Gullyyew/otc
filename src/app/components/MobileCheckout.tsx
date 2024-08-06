@@ -138,16 +138,16 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         <h2 className="font-semibold">Total</h2>
                         <h2 className="font-semibold">$180/month</h2>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <LockClosedIcon className="w-5 h-5 text-gray-400" />
+                      <div className="flex items-start gap-1">
+                        <LockClosedIcon className="w-5 h-5 text-gray-400 min-w-5 min-h-5 mt-1" />
                         <h5 className=" leading-tight text-gray-400">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit.sfdas asd asd
+                          Guaranteed to be safe & secure, ensuring that all transactions are protected with the highest level of security
                         </h5>
                       </div>
                       <button className="w-full bg-primary text-black px-4 py-2 outline-none rounded-md font-semibold">
                         Enrol now
                       </button>
-                      <p className="text-center leading-tight">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      <p className="text-center leading-tight">By submitting the form, you agree to our Terms of service and Privacy Policy</p>
                     </div>
                   </div>
                 </div>

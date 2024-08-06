@@ -57,7 +57,7 @@ export default async function Page({ params: { slug } }: {
         {
           category.courses.map((course) => (
             <Link
-              href={`/course-2/${course.slug}`}
+              href={`/course/${course.slug}`}
               key={course.id}
               className="flex flex-col h-full justify-between">
 

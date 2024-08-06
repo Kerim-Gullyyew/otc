@@ -23,18 +23,19 @@ const Accordion: React.FC<AccordionProps> = ({ syllabus }) => {
     >
       {({ open }) => (
         <>
-          <DisclosureButton className="w-full rounded-lg  text-left flex items-center justify-between">
-            <h3>{syllabus.name}</h3>
-            <ChevronRightIcon
-              className={`w-5 transition-transform duration-500 h-5 ${open && "rotate-90"}`}
-            />
+          <DisclosureButton className="outline-none group w-full rounded-lg  text-left flex items-center justify-between">
+            <h3 className='font-[500]'>{syllabus.name}</h3>
+            <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 shrink-0" />
           </DisclosureButton>
-          <div className="overflow-hidden data-[open]:py-2">
+          <div className="overflow-hidden">
             <DisclosurePanel
               transition
-              className={`origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[open]:py-3`}
+              className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in"
             >
+              <div className='pt-4'>
               {syllabus.description}
+
+              </div>
             </DisclosurePanel>
           </div>
         </>
