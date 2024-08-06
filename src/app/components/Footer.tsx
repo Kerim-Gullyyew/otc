@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 interface FooterProps {
@@ -71,7 +73,15 @@ const Footer: React.FC<FooterProps> = ({ }) => {
     <div className='container px-6 lg:px-8 py-10 lg:py-14'>
       <div className='grid grid-cols-12 gap-5 sm:gap-10 items-start md:grid-cols-5'>
         <div className='grid col-span-12 gap-5 md:col-span-2'>
-          <h1 className='font-bold'>Untitled UI</h1>
+          <Link href="/">
+            <Image
+              className="w-12 object-contain"
+              src={"/logo.svg"}
+              alt="logo"
+              width={1000}
+              height={1000}
+            />
+          </Link>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sit dolor saepe voluptate officiis.</p>
         </div>
 

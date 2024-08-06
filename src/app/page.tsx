@@ -10,25 +10,28 @@ import { getPopularCourses } from "./components/utils/getPopularCourses";
 import Link from "next/link";
 import { getPopularCategories } from "./components/utils/getPopularCategories";
 
-interface popularCourses {
+interface popularCourse {
   id: string;
+  slug: string;
   name: string;
-  duration: number;
+  duration: string;
   price: number;
   image: string;
   discount: null | number;
 }
 
-interface popularCategories {
+interface popularCategory {
   id: string;
   name: string;
+  slug: string;
   courses: [];
 }
 export default async function Home() {
-  const popularCoursesPromise = getPopularCourses();
-  const popularCategoriesPromise = getPopularCategories();
+  const popularCoursesPromise: Promise<popularCourse[] | { error: string }> = getPopularCourses();
+  const popularCategoriesPromise: Promise<popularCategory[] | { error: string }> = getPopularCategories();
   const [popularCourses, popularCategories] = await Promise.all([popularCoursesPromise, popularCategoriesPromise]);
-
+  console.log("popularCourses", popularCourses);
+  
   return (
     <>
       <div className=" bg-white w-full py-10 lg:py-14 container">
@@ -169,268 +172,90 @@ export default async function Home() {
           </div> */}
         </div>
 
-        <div className="mt-20 lg:mt-32">
-          <div className="space-y-6">
-            <div className="flex flex-wrap gap-6 justify-between items-center">
-              <h1 className="font-bold">Popular Courses</h1>
 
-              {/* <div className="flex flex-wrap gap-3">
-                <button className="px-4 py-[2px] text-white rounded-full bg-primary">
-                  All
-                </button>
-                <button className="px-4 py-[2px] rounded-full bg-gray-50">
-                  Design
-                </button>
-                <button className="px-4 py-[2px] rounded-full bg-gray-50">
-                  Development
-                </button>
-                <button className="px-4 py-[2px] rounded-full bg-gray-50">
-                  Business
-                </button>
-                <button className="px-4 py-[2px] rounded-full bg-gray-50">
-                  Data Science
-                </button>
-                <button className="px-4 py-[2px] rounded-full bg-gray-50">
-                  Marketing
-                </button>
-              </div> */}
+        {
+          (popularCourses && !('error' in popularCourses)) && (
+            <div className="mt-20 lg:mt-32">
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-6 justify-between items-center">
+                  <h1 className="font-bold">Popular Courses</h1>
+                </div>
+
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+
+                  {
+                    popularCourses.map((popularCourse) => (
+                      <Link
+                        href={`/course-2/${popularCourse.slug}`}
+                        key={popularCourse.id}
+                        className="flex flex-col h-full justify-between">
+
+                        <Image
+                          className="rounded-t-xl max-h-44 h-44 min-h-44 object-cover"
+                          width={1000}
+                          height={1000}
+                          src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${popularCourse.image}`}
+                          alt="download"
+                        />
+
+                        <div className="flex flex-col justify-between border space-y-1 px-5 pt-3 pb-4 rounded-b-xl h-full">
+                          <h3 className="font-semibold">{popularCourse.name}</h3>
+                          <div className="space-y-2">
+                            <h4>Teaching Language: English</h4>
+                            <h4>Duration: {popularCourse.duration} months</h4>
+                            <h4>Type: Live session</h4>
+                            <h4 className="font-semibold">${popularCourse.price}/monthly</h4>
+                          </div>
+                        </div>
+                      </Link>
+                    ))
+                  }
+
+                </div>
+
+              </div>
             </div>
+          )
+        }
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {
+          (popularCategories && !('error' in popularCategories)) && (
+            <div className="mt-20 lg:mt-32">
+              <div className="flex justify-center flex-col items-center gap-8">
+                <div className="space-y-3">
 
-              {
-                popularCourses.map((popularCourse: popularCourses) => (
-                  <Link
-                    href={`/course-2/${popularCourse.id}`}
-                    key={popularCourse.id}
-                    className="flex flex-col h-full justify-between">
+                  <h1 className="font-bold text-center">Select your Categories</h1>
+                </div>
+                <div className="max-w-lg">
+                  <p className="text-center">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
+                    ad! Explicabo, ipsum mollitia dolorem beatae quas illo.
+                  </p>
+                </div>
 
-                    <Image
-                      className="rounded-t-xl max-h-44 h-44 min-h-44 object-cover"
-                      width={1000}
-                      height={1000}
-                      src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${popularCourse.image}`}
-                      alt="download"
-                    />
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+                  {
+                    popularCategories.map((popular_category) => (
+                      <Link href={'/category/' + popular_category.slug} key={popular_category.id} className="rounded-xl flex flex-col justify-between gap-6 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+                        <div className="flex justify-between items-center w-full gap-14">
+                          <div className="bg-background py-0.5 px-2.5 rounded-xl">
+                            <p>{popular_category.courses.length} Courses</p>
+                          </div>
+                          <EyeIcon className="w-7 h-7 text-primary" />
+                        </div>
+                        <div className="space-y-1">
+                          <h3 className="font-bold text-nowrap">{popular_category.name}</h3>
+                        </div>
+                      </Link>
 
-                    <div className="flex flex-col justify-between border space-y-1 px-5 pt-3 pb-4 rounded-b-xl h-full">
-                      <h3 className="font-semibold">{popularCourse.name}</h3>
-                      <div className="space-y-2">
-                        <h4>Teaching Language: English</h4>
-                        <h4>Duration: {popularCourse.duration} months</h4>
-                        <h4>Type: Live session</h4>
-                        <h4 className="font-semibold">${popularCourse.price}/monthly</h4>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              }
+                    ))
+                  }
 
+                </div>
+              </div>
             </div>
-
-          </div>
-        </div>
-
-        <div className="mt-20 lg:mt-32">
-          <div className="flex justify-center flex-col items-center gap-8">
-            <div className="space-y-3">
-
-              <h1 className="font-bold text-center">Select your Categories</h1>
-            </div>
-            <div className="max-w-lg">
-              <p className="text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                ad! Explicabo, ipsum mollitia dolorem beatae quas illo.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-              {
-                popularCategories.map((popular_category: popularCategories) => (
-                  <Link href={'/category/' + popular_category.id} key={popular_category.id} className="rounded-xl flex flex-col justify-between gap-6 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                    <div className="flex justify-between items-center w-full gap-14">
-                      <div className="bg-background py-0.5 px-2.5 rounded-xl">
-                        <p>{popular_category.courses.length} Courses</p>
-                      </div>
-                      <EyeIcon className="w-7 h-7 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-bold text-nowrap">{popular_category.name}</h3>
-                    </div>
-                  </Link>
-
-                ))
-              }
-
-
-              {/* <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div>
-              <div className="rounded-xl flex flex-col justify-between gap-3 bg-gray-50 px-4 py-3 shadow overflow-hidden">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <div className="bg-violet-100 p-1 rounded-xl">
-                    <PlayIcon className="w-7 h-7 text-violet-500" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <h5 className="text-orange-400 font-semibold text-nowrap">
-                      View Course
-                    </h5>
-                    <AcademicCapIcon className="w-4 h-4 text-orange-400" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-nowrap">Photography sdefsd</h3>
-                  <p>25 Courses</p>
-                </div>
-
-              </div> */}
-
-            </div>
-
-
-          </div>
-        </div>
+          )
+        }
 
         <div className="mt-20 lg:mt-32">
           <div className="flex justify-center flex-col items-center gap-8">

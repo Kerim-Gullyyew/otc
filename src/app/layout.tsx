@@ -19,13 +19,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const main_categories: { data: MainCategoryInterface[] } = await getCategory();
-  
+  const main_categories: MainCategoryInterface[] | { error: string } = await getCategory();
+
   return (
     <html lang="en">
       <body className="">
         <header className="flex flex-col items-center">
-          <Header main_categories={main_categories} />
+          {
+            (!('error' in main_categories)) && (
+              <Header main_categories={main_categories} />
+            )
+          }
         </header>
         <main className="flex flex-col pt-[65px] w-full min-h-screen">
           {children}

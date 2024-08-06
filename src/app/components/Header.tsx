@@ -15,17 +15,10 @@ import {
 } from "@headlessui/react";
 import {
   Bars3Icon,
-  CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
   MagnifyingGlassIcon,
-  UsersIcon,
   ChevronRightIcon,
   XMarkIcon,
-  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 import {
   MainCategoryInterface,
@@ -34,22 +27,13 @@ import {
 } from "../data";
 import Link from "next/link";
 interface HeaderProps {
-  main_categories: { data: MainCategoryInterface[] };
+  main_categories: MainCategoryInterface[];
 }
 
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
   { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
   { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-];
-
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
 
 function classNames(...classes: (string | false | null | undefined)[]): string {
@@ -60,11 +44,12 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   const [mainCategoryItem, setMainCategoryItem] =
-    useState<MainCategoryInterface>(main_categories.data[0]);
+    useState<MainCategoryInterface>(main_categories[0]);
   const [secondaryCategoryItem, setSecondaryCategoryItem] =
-    useState<SecondaryCategoryInterface>(
-      main_categories.data[0].secondary_category[0]
+    useState<SecondaryCategoryInterface | null>(
+      main_categories[0]?.secondary_category.length > 0 ? main_categories[0].secondary_category[0] : null
     );
+    
   const [thirdCategoryItem, setThirdCategoryItem] =
     useState<CourseInterface | null>(null);
 
@@ -136,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                           <h4 className="">Main Menu</h4>
                         </div>
                         <ul className="space-y-0.5 mt-5">
-                          {main_categories.data.map((item, index) => (
+                          {main_categories.map((item, index) => (
                             <li
                               key={index}
                               className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-background"}`}
@@ -149,53 +134,59 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                           ))}
                         </ul>
                       </div>
-                      <div
-                        className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? "opacity-100" : "opacity-0"}`}
-                      >
-                        <div className="border-b border-gray-700 max-w-48 pb-1">
-                          <h4 className="">Main Menu</h4>
-                        </div>
-                        <ul className="space-y-0.5 mt-5">
-                          {mainCategoryItem &&
-                            mainCategoryItem.secondary_category.map(
-                              (category, index) => (
-                                <li
-                                  key={index}
-                                  className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-background"}`}
-                                  onMouseEnter={() =>
-                                    handleChildMouseEnter(category)
-                                  }
-                                >
-                                  <h4>{category.name}</h4>
-                                  <ChevronRightIcon className="w-5 h-5" />
-                                </li>
-                              )
-                            )}
-                        </ul>
-                      </div>
-                      <div
-                        className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? "opacity-100" : "opacity-0"}`}
-                      >
-                        <div className="border-b border-gray-700 max-w-48 pb-1">
-                          <h4 className="">Main Menu</h4>
-                        </div>
-                        <ul className=" mt-5 grid grid-cols-2 gap-0.5">
-                          {secondaryCategoryItem &&
-                            secondaryCategoryItem.courses.map(
-                              (third, index) => (
-                                <Link
-                                  onClick={close}
-                                  key={index}
-                                  className={
-                                    "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
-                                  }
-                                  href={`/course-2/${third.id}`}>
-                                  <h4>{third.name}</h4>
-                                </Link>
-                              )
-                            )}
-                        </ul>
-                      </div>
+                      {
+                        secondaryCategoryItem && (
+                          <>
+                            <div
+                              className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? "opacity-100" : "opacity-0"}`}
+                            >
+                              <div className="border-b border-gray-700 max-w-48 pb-1">
+                                <h4 className="">Main Menu</h4>
+                              </div>
+                              <ul className="space-y-0.5 mt-5">
+                                {mainCategoryItem &&
+                                  mainCategoryItem.secondary_category.map(
+                                    (category, index) => (
+                                      <li
+                                        key={index}
+                                        className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-background"}`}
+                                        onMouseEnter={() =>
+                                          handleChildMouseEnter(category)
+                                        }
+                                      >
+                                        <h4>{category.name}</h4>
+                                        <ChevronRightIcon className="w-5 h-5" />
+                                      </li>
+                                    )
+                                  )}
+                              </ul>
+                            </div>
+                            <div
+                              className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? "opacity-100" : "opacity-0"}`}
+                            >
+                              <div className="border-b border-gray-700 max-w-48 pb-1">
+                                <h4 className="">Main Menu</h4>
+                              </div>
+                              <ul className=" mt-5 grid grid-cols-2 gap-0.5">
+                                {secondaryCategoryItem &&
+                                  secondaryCategoryItem.courses.map(
+                                    (third, index) => (
+                                      <Link
+                                        onClick={close}
+                                        key={index}
+                                        className={
+                                          "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
+                                        }
+                                        href={`/course-2/${third.slug}`}>
+                                        <h4>{third.name}</h4>
+                                      </Link>
+                                    )
+                                  )}
+                              </ul>
+                            </div>
+                          </>
+                        )
+                      }
                     </div>
                   </PopoverPanel>
                 </>
@@ -300,7 +291,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                             <h4 className="font-semibold text-icon">Courses</h4>
                           </li>
                           {
-                            main_categories.data.map((main_category) => (
+                            main_categories.map((main_category) => (
                               <Disclosure as="li" key={main_category.id}>
                                 {({ open }) => (
                                   <>
@@ -314,7 +305,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                     <DisclosurePanel transition className="ml-2 origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in">
                                       {
                                         main_category.secondary_category.map((secondary_cat) => (
-                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id} href={"/category/" + secondary_cat.id} className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id} href={"/category/" + secondary_cat.slug} className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
                                             <div className="flex items-center gap-x-3">
                                               <h4>{secondary_cat.name}</h4>
                                             </div>

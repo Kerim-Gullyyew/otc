@@ -1,15 +1,25 @@
 export async function getCategory() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/main_category?fields=id,name,secondary_category.id,secondary_category.name,secondary_category.courses.id,secondary_category.courses.name`,
-    {
-      cache: 'force-cache',
-      // next: {
-      //   revalidate: 5,
-      // },
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/main_category?fields=id,slug,name,secondary_category.id,secondary_category.slug,secondary_category.name,secondary_category.courses.id,secondary_category.courses.name,secondary_category.courses.slug`,
+      {
+        cache: 'force-cache',
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`HTTPS error! status: ${res.status}`);
     }
-  );
 
-  const categories = await res.json();
+    const categories = await res.json();
 
-  return categories;
+    if (!categories || !categories.data) {
+      throw new Error('Invalid response structure');
+    }
+
+    return categories.data;
+  } catch (error: any) {
+    console.error('Error fetching categories:', error);
+    return { error: error.message };
+  }
 }

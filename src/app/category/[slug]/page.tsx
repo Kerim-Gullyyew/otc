@@ -8,12 +8,15 @@ interface CategoryProps {
   icon: string | null;
   description: null | string;
   selected_for_home: number;
+  popular_category: boolean;
+  slug: string;
   courses:
   {
     id: number;
+    slug: string;
     name: string;
     image: string;
-    duration: number;
+    duration: string;
     price: number;
   }[];
 }
@@ -22,8 +25,14 @@ export default async function Page({ params: { slug } }: {
   params: { slug: string }
 }) {
   const category: CategoryProps = await getCoursesByCategory(slug)
-  console.log("Online course", category);
 
+  if (!category) {
+    return (
+      <div>
+        Not Found
+      </div>
+    )
+  }
   return (
     <div className="container">
       <div className="relative w-full space-y-3 pt-3">
@@ -43,13 +52,12 @@ export default async function Page({ params: { slug } }: {
         </div>
       </div>
 
-
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10">
 
         {
           category.courses.map((course) => (
             <Link
-              href={`/course-2/${course.id}`}
+              href={`/course-2/${course.slug}`}
               key={course.id}
               className="flex flex-col h-full justify-between">
 
