@@ -24,9 +24,9 @@ interface CategoryProps {
 export default async function Page({ params: { slug } }: {
   params: { slug: string }
 }) {
-  const category: CategoryProps = await getCoursesByCategory(slug)
+  const category: CategoryProps | { error: string } = await getCoursesByCategory(slug)
 
-  if (!category) {
+  if ('error' in category) {
     return (
       <div>
         Not Found

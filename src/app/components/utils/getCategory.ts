@@ -19,7 +19,6 @@ export async function getCategory() {
 
     return categories.data;
   } catch (error: any) {
-    console.error('Error fetching categories:', error);
     return { error: error.message };
   }
 }

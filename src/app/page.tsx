@@ -30,7 +30,6 @@ export default async function Home() {
   const popularCoursesPromise: Promise<popularCourse[] | { error: string }> = getPopularCourses();
   const popularCategoriesPromise: Promise<popularCategory[] | { error: string }> = getPopularCategories();
   const [popularCourses, popularCategories] = await Promise.all([popularCoursesPromise, popularCategoriesPromise]);
-  console.log("popularCourses", popularCourses);
   
   return (
     <>

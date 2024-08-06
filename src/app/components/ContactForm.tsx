@@ -75,7 +75,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
         });
         router.push('/thank-you');
       } catch (error) {
-        console.error('Payment Error:', error);
+        console.error('Error:', error);
       }
     } catch (err) {
       if (err instanceof Yup.ValidationError) {

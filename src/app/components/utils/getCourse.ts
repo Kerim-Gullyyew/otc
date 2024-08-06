@@ -25,7 +25,6 @@ export async function getCourse(slug: string) {
 
     return course.data[0];
   } catch (error: any) {
-    console.error('Error fetching categories:', error);
     return { error: error.message };
   }
 }

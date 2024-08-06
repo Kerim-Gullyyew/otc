@@ -21,7 +21,6 @@ export async function getPopularCategories() {
 
     return popularCourses.data;
   } catch (error: any) {
-    console.error('Error fetching popular categories:', error);
     return { error: error.message };
   }
 }

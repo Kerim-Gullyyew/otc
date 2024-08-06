@@ -48,10 +48,9 @@ interface CourseProps {
 export default async function Page({ params: { slug } }: {
   params: { slug: string }
 }) {
-  const course: CourseProps = await getCourse(slug)
-  console.log("Course Detail", course);
+  const course: CourseProps | { error: string } = await getCourse(slug)
 
-  if (!course) {
+  if ('error' in course) {
     return (
       <div>
         Not Found
