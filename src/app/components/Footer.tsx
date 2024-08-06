@@ -70,18 +70,21 @@ const navigation = [
 ]
 const Footer: React.FC<FooterProps> = ({ }) => {
   return (
-    <div className='container px-6 lg:px-8 py-10 lg:py-14 pb-20'>
+    <div className='container px-6 lg:px-8 py-10 lg:py-14 pb-20 bg-background mt-20'>
       <div className='grid grid-cols-12 gap-5 sm:gap-10 items-start md:grid-cols-5'>
         <div className='grid col-span-12 gap-5 md:col-span-2'>
-          <Link href="/">
-            <Image
-              className="w-12 object-contain"
-              src={"/logo.svg"}
-              alt="logo"
-              width={1000}
-              height={1000}
-            />
-          </Link>
+          <div className='flex'>
+            <Link className='' href="/">
+              <Image
+                className="w-12 object-contain"
+                src={"/logo.svg"}
+                alt="logo"
+                width={1000}
+                height={1000}
+              />
+            </Link>
+
+          </div>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sit dolor saepe voluptate officiis.</p>
         </div>
 
@@ -115,14 +118,14 @@ const Footer: React.FC<FooterProps> = ({ }) => {
       <div className="md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+            <a key={item.name} href={item.href} className="text-gray-600 hover:text-gray-800">
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-500">
+          <p className="text-center text-xs leading-5 text-gray-800">
             &copy; 2024 Your Company, Inc. All rights reserved.
           </p>
         </div>

@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
               {({ open, close }) => (
                 <>
                   <PopoverButton
-                    className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-1 rounded-xl  outline-none`}
+                    className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-2 rounded-lg  outline-none`}
                     onClick={({ target }) =>
                       !open ? "" : (target as HTMLElement).click()
                     }
@@ -103,7 +103,9 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     }}
                   >
                     <Bars3Icon className="w-5 h-5" />
-                    Courses
+                    <p className="font-medium">
+                      Courses
+                    </p>
                   </PopoverButton>
                   <PopoverBackdrop
                     transition
@@ -117,19 +119,19 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                   >
                     <div className="grid grid-cols-12 mx-auto gap-5 w-5xl max-w-5xl">
                       <div className="col-span-3">
-                        <div className="border-b border-gray-700 max-w-48 pb-1">
-                          <h4 className="">Main Menu</h4>
+                        <div className="border-b border-gray-300 max-w-48 pb-1">
+                          <h5 className="font-medium text-gray-600">Categories</h5>
                         </div>
-                        <ul className="space-y-0.5 mt-5">
+                        <ul className="space-y-0.5 mt-3">
                           {main_categories.map((item, index) => (
                             <li
                               key={index}
-                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-background"}`}
+                              className={`text-black px-4 flex items-center justify-between rounded-xl py-1.5 hover:animate-fade-in cursor-pointer ${mainCategoryItem.id === item.id && "bg-background"}`}
                               onMouseEnter={() => handleMouseEnter(item)}
                               onMouseLeave={handleMouseLeave}
                             >
-                              <h4>{item.name}</h4>
-                              <ChevronRightIcon className="w-5 h-5" />
+                              <p className="text-[14px] font-medium text-gray-900">{item.name}</p>
+                              <ChevronRightIcon className="w-4 h-4" />
                             </li>
                           ))}
                         </ul>
@@ -140,22 +142,22 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                             <div
                               className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? "opacity-100" : "opacity-0"}`}
                             >
-                              <div className="border-b border-gray-700 max-w-48 pb-1">
-                                <h4 className="">Main Menu</h4>
+                              <div className="border-b border-gray-300 max-w-48 pb-1">
+                                <h5 className="font-medium text-gray-600">Subjects</h5>
                               </div>
-                              <ul className="space-y-0.5 mt-5">
+                              <ul className="space-y-0.5 mt-3">
                                 {mainCategoryItem &&
                                   mainCategoryItem.secondary_category.map(
                                     (category, index) => (
                                       <li
                                         key={index}
-                                        className={`text-black px-4 flex items-center justify-between rounded-xl py-1 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-background"}`}
+                                        className={`text-black px-4 flex items-center justify-between rounded-xl py-1.5 hover:animate-fade-in cursor-pointer ${secondaryCategoryItem.id === category.id && "bg-background"}`}
                                         onMouseEnter={() =>
                                           handleChildMouseEnter(category)
                                         }
                                       >
-                                        <h4>{category.name}</h4>
-                                        <ChevronRightIcon className="w-5 h-5" />
+                                        <p className="text-[14px] font-medium text-gray-900">{category.name}</p>
+                                        <ChevronRightIcon className="w-4 h-4" />
                                       </li>
                                     )
                                   )}
@@ -164,10 +166,10 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                             <div
                               className={`col-span-6 transition-opacity duration-200 ${thirdCategoryItem !== null ? "opacity-100" : "opacity-0"}`}
                             >
-                              <div className="border-b border-gray-700 max-w-48 pb-1">
-                                <h4 className="">Main Menu</h4>
+                              <div className="border-b border-gray-300 max-w-48 pb-1">
+                                <h5 className="font-medium text-gray-600">Courses</h5>
                               </div>
-                              <ul className=" mt-5 grid grid-cols-2 gap-0.5">
+                              <ul className=" mt-3 grid grid-cols-2 gap-0.5">
                                 {secondaryCategoryItem &&
                                   secondaryCategoryItem.courses.map(
                                     (third, index) => (
@@ -175,10 +177,10 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                         onClick={close}
                                         key={index}
                                         className={
-                                          "text-black px-4 rounded-xl py-1 hover:animate-fade-in cursor-pointer hover:bg-background"
+                                          "text-black px-4 rounded-xl py-1.5 hover:animate-fade-in cursor-pointer hover:bg-background"
                                         }
                                         href={`/course/${third.slug}`}>
-                                        <h4>{third.name}</h4>
+                                        <p className="text-[14px] font-medium text-gray-900">{third.name}</p>
                                       </Link>
                                     )
                                   )}
@@ -207,7 +209,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center outline-none border border-border rounded-md p-[6px] text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -268,7 +270,6 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
 
                       <h3 className="">Online Special Tutoring</h3>
                     </div>
-
                     <div>
                       <button
                         type="button"
@@ -288,7 +289,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <li>
                         <ul role="list" className="-mx-2 space-y-1 border-b">
                           <li className="px-2">
-                            <h4 className="font-semibold text-icon">Courses</h4>
+                            <h4 className="font-semibold text-icon">Categories</h4>
                           </li>
                           {
                             main_categories.map((main_category) => (
@@ -297,19 +298,18 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                   <>
                                     <DisclosureButton className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
                                       <div className="flex items-center gap-x-3">
-                                        <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-background flex items-center justify-center rounded-full p-1 shrink-0" />
+                                        <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-gray-100 flex items-center justify-center rounded-full p-1 shrink-0" />
                                         <h4>{main_category.name}</h4>
                                       </div>
-                                      {main_category.secondary_category.length}
                                     </DisclosureButton>
                                     <DisclosurePanel transition className="ml-2 origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in">
                                       {
                                         main_category.secondary_category.map((secondary_cat) => (
-                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id} href={"/category/" + secondary_cat.slug} className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id} href={"/category/" + secondary_cat.slug} className={`group pl-8 flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
                                             <div className="flex items-center gap-x-3">
                                               <h4>{secondary_cat.name}</h4>
                                             </div>
-                                            {secondary_cat.courses.length}
+                                            <ChevronRightIcon className="w-5 h-5 bg-gray-100 flex items-center justify-center rounded-full p-1 shrink-0" />
                                           </Link>
 
                                         ))

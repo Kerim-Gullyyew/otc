@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({ course }) => {
         src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
         alt="download"
       />
-      <div className="flex flex-col justify-between border space-y-1 px-3 py-2 flex-grow">
+      <div className="flex flex-col justify-between border space-y-1 p-4 flex-grow">
         <div className='space-y-2'>
           <h3 className='font-semibold'>{course.name}</h3>
           <div>
@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({ course }) => {
 
           </div>
         </div>
-        <h4>${course.price}/monthly</h4>
+        <h4 className='font-medium'>${course.price}/monthly</h4>
       </div>
     </Link>
   )

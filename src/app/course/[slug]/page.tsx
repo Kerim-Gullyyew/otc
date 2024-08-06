@@ -192,9 +192,9 @@ export default async function Page({ params: { slug } }: {
 
 
           </div>
-          <div className="hidden md:flex md:w-[30%] lg:w-[25%] justify-end">
-            <div className="border-l border-[#DEDEDE] no-scrollbar pl-6 pt-6 pb-8 flex flex-col">
-              <div className="space-y-6">
+          <div className="hidden md:flex md:w-[30%] lg:w-[25%] justify-end pt-2">
+            <div className=" flex flex-col">
+              <div className="space-y-6 border-l border-[#DEDEDE] no-scrollbar pl-6  pb-8">
                 <div className=" border-b border-gray-300 pb-2">
                   <p className="font-semibold">{course.name}</p>
                 </div>
@@ -275,7 +275,7 @@ export default async function Page({ params: { slug } }: {
                     <h2 className="font-semibold">${course.price}/month</h2>
                   </div>
                   <div className="flex items-start gap-2 justify-between">
-                    <LockClosedIcon className="w-4 h-4 text-gray-400 shrink-0 min-w-4 min-h-4 mt-1" />
+                    <LockClosedIcon className="w-4 h-4 text-gray-400 shrink-0 min-w-4 min-h-4" />
                     <h5 className=" leading-tight text-gray-400 text-xs">
                       Guaranteed to be safe & secure, ensuring that all transactions are protected with the highest level of security
                     </h5>

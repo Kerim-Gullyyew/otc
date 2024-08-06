@@ -49,25 +49,25 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
 
             }}
             transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-            className=" border-gray-50 fixed bottom-0 right-0 pt-[60px] bg-white/50 backdrop-blur-lg left-0 z-10 w-full rounded-t-xl border-2 border-b-0 shadow-[0px_-8px_20px_-6px_rgba(0,0,0,0.3)] px-3 overflow-y-auto "
+            className=" border-gray-50 fixed bottom-0 right-0 pt-[60px] bg-white left-0 z-10 w-full rounded-t-xl border-2 border-b-0 shadow-[0px_-8px_20px_-6px_rgba(0,0,0,0.3)] px-3 overflow-y-auto "
           >
             <div className=" pt-6 pb-10 px-3 no-scrollbar overflow-auto flex flex-col" ref={bottomSheetRef}>
               <div onClick={() => setOpenMobileNav(false)} className="flex justify-end">
-                <XMarkIcon className="w-8 h-8 border rounded-full p-1 flex items-center justify-center border-black" />
+                <XMarkIcon className="w-6 h-6 border rounded-full p-1 flex items-center justify-center border-black" />
               </div>
 
               <div className="flex justify-end">
-                <div className="no-scrollbar pt-6 pb-8 flex flex-col">
-                  <div className="space-y-6">
-                    <div className="pb-2">
-                      <p className="font-semibold">Course Name</p>
+                <div className="no-scrollbar pb-8 pt-2 flex flex-col">
+                  <div className="space-y-4">
+                    <div className="pb-2 border-b border-border">
+                      <p className="font-semibold">Course Namesdfh sdfsdfsdf sdfds fsd fsdk fhsdkjfhsdjfsdkj fsdf</p>
                     </div>
                     <div className="space-y-4">
                       <p className="font-medium">Enter Account Detail</p>
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium leading-4"
+                          className="block text-sm leading-4"
                         >
                           Email
                         </label>
@@ -83,7 +83,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium leading-4"
+                          className="block text-sm leading-4"
                         >
                           Email
                         </label>
@@ -99,7 +99,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium leading-4"
+                          className="block text-sm  leading-4"
                         >
                           Email
                         </label>
@@ -115,7 +115,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium leading-4"
+                          className="block text-sm  leading-4"
                         >
                           Email
                         </label>
@@ -139,7 +139,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         <h2 className="font-semibold">$180/month</h2>
                       </div>
                       <div className="flex items-start gap-1">
-                        <LockClosedIcon className="w-5 h-5 text-gray-400 min-w-5 min-h-5 mt-1" />
+                        <LockClosedIcon className="w-4 h-4 text-gray-400 min-w-4 min-h-4" />
                         <h5 className=" leading-tight text-gray-400">
                           Guaranteed to be safe & secure, ensuring that all transactions are protected with the highest level of security
                         </h5>
@@ -147,7 +147,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                       <button className="w-full bg-primary text-black px-4 py-2 outline-none rounded-md font-semibold">
                         Enrol now
                       </button>
-                      <p className="text-center leading-tight">By submitting the form, you agree to our Terms of service and Privacy Policy</p>
+                      <p className="text-center text-xs leading-tight">By submitting the form, you agree to our Terms of service and Privacy Policy</p>
                     </div>
                   </div>
                 </div>

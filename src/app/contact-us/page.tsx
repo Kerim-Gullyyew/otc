@@ -70,17 +70,20 @@ const navigation = [
 ]
 const page: React.FC<pageProps> = ({ }) => {
   return (
-    <div className=" bg-white w-full mx-auto py-10 lg:py-14 max-w-4xl container">
+    <div className=" bg-white w-full mx-auto py-5 lg:py-14 max-w-4xl container">
       <h1 className='text-center font-bold'>Contact</h1>
       <p className='text-center'>Got any questions about the services or scaling on our platform? We’re here to help.</p>
       <div className='flex flex-col gap-10'>
 
         <div className='bg-white'>
-          <div className='grid grid-cols-1 md:grid-cols-5 md:gap-10 gap-14 container py-9 rounded-lg'>
+          <div className='grid grid-cols-1 md:grid-cols-5 md:gap-10 gap-14 py-9 rounded-lg'>
+            <div className='md:col-span-3 flex flex-col gap-5 justify-between'>
+              <ContactForm />
+            </div>
             <div className='md:col-span-2'>
-              <div className='h-full px-8 pt-6 pb-48 w-full object-cover rounded-lg bg-gradient-to-b from-primary to-background from-40%'>
+              <div className='h-full px-8 pb-10 md:pb-0 pt-6 w-full object-cover rounded-lg bg-gradient-to-b from-primary to-background from-40%'>
                 <div className='space-y-5 sm:space-y-10'>
-                  <h4 className=' font-semibold'>Get in touch</h4>
+                  <h3 className=' font-semibold'>Get in touch</h3>
 
                   <div className='flex flex-col gap-5 sm:gap-10 md:gap-5 sm:flex-row md:flex-col'>
                     <div className='space-y-1'>
@@ -103,16 +106,14 @@ const page: React.FC<pageProps> = ({ }) => {
                       <h5 className=' text-nowrap'>67 Wisteria Way Croydon South VIC </h5>
                     </div>
 
-                    <div className='space-y-1'>
-                      <h5 className=''>Social Media</h5>
-                      <div className="flex space-x-3">
-                        {navigation.map((item) => (
-                          <a key={item.name} href={item.href} className=" ">
-                            <span className="sr-only">{item.name}</span>
-                            <item.icon className="h-5 w-5" aria-hidden="true" />
-                          </a>
-                        ))}
-                      </div>
+
+                    <div className="flex space-x-3">
+                      {navigation.map((item) => (
+                        <a key={item.name} href={item.href} className=" ">
+                          <span className="sr-only">{item.name}</span>
+                          <item.icon className="h-6 w-6 text-gray-700" aria-hidden="true" />
+                        </a>
+                      ))}
                     </div>
 
                   </div>
@@ -120,9 +121,7 @@ const page: React.FC<pageProps> = ({ }) => {
               </div>
 
             </div>
-            <div className='md:col-span-3 flex flex-col gap-5 justify-between'>
-              <ContactForm />
-            </div>
+
           </div>
 
         </div>

@@ -98,7 +98,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
   return (
 
     <>
-      <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6 h-full">
+      <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-6 h-full">
         <div className="sm:col-span-3">
           <div>
             <label
@@ -107,7 +107,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
             >
               First Name
             </label>
-            <div className="mt-4">
+            <div className="mt-2">
               <input
                 value={firstName}
                 onChange={handleFirstName}
@@ -135,7 +135,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
             >
               Last Name
             </label>
-            <div className="mt-4">
+            <div className="mt-2">
               <input
                 value={lastName}
                 onChange={handleLastName}
@@ -163,7 +163,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
             >
               Email
             </label>
-            <div className="mt-4">
+            <div className="mt-2">
               <input
                 value={email}
                 onChange={handleEmail}
@@ -192,7 +192,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
             >
               Phone Number
             </label>
-            <div className="mt-4">
+            <div className="mt-2">
               <PhoneNumber value={phoneNumber} onChange={setPhoneNumber} />
             </div>
           </div>
@@ -211,7 +211,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
               >
                 Message
               </label>
-              <div className="mt-4">
+              <div className="mt-2">
                 <textarea
                   value={message}
                   onChange={handleMessage}
@@ -248,7 +248,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
               type="submit"
               onClick={handleSubmit}
               // className="rounded-md flex flex-3 font-[26px] items-center justify-center bg-indigo-600 px-3 py-4 text-2xl  text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              className='bg-primary w-full rounded-xl px-7 py-3 text-black hover:bg-primary transition-all duration-300  text-lg'
+              className='bg-primary font-medium w-full rounded-xl px-7 py-3 text-black hover:bg-primary transition-all duration-300  text-lg'
             >
               Send a Message
             </button>
