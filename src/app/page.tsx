@@ -8,6 +8,7 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { getPopularCourses } from "./components/utils/getPopularCourses";
 import Link from "next/link";
 import { getPopularCategories } from "./components/utils/getPopularCategories";
+import Card from "./components/ui/Card";
 
 interface popularCourse {
   id: string;
@@ -29,7 +30,7 @@ export default async function Home() {
   const popularCoursesPromise: Promise<popularCourse[] | { error: string }> = getPopularCourses();
   const popularCategoriesPromise: Promise<popularCategory[] | { error: string }> = getPopularCategories();
   const [popularCourses, popularCategories] = await Promise.all([popularCoursesPromise, popularCategoriesPromise]);
-  
+
   return (
     <>
       <div className=" bg-white w-full py-10 lg:py-14 container">
@@ -183,29 +184,7 @@ export default async function Home() {
 
                   {
                     popularCourses.map((popularCourse) => (
-                      <Link
-                        href={`/course/${popularCourse.slug}`}
-                        key={popularCourse.id}
-                        className="flex flex-col h-full justify-between">
-
-                        <Image
-                          className="rounded-t-xl max-h-44 h-44 min-h-44 object-cover"
-                          width={1000}
-                          height={1000}
-                          src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${popularCourse.image}`}
-                          alt="download"
-                        />
-
-                        <div className="flex flex-col justify-between border space-y-1 px-5 pt-3 pb-4 rounded-b-xl h-full">
-                          <h3 className="font-semibold">{popularCourse.name}</h3>
-                          <div className="space-y-2">
-                            <h4>Teaching Language: English</h4>
-                            <h4>Duration: {popularCourse.duration} months</h4>
-                            <h4>Type: Live session</h4>
-                            <h4 className="font-semibold">${popularCourse.price}/monthly</h4>
-                          </div>
-                        </div>
-                      </Link>
+                      <Card key={popularCourse.id} course={popularCourse} />
                     ))
                   }
 
@@ -382,7 +361,7 @@ export default async function Home() {
         </div>
       </div>
 
-     
+
     </>
   );
 }

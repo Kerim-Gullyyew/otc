@@ -5,6 +5,7 @@ import React from 'react'
 import Image from 'next/image';
 import Accordion from '@/app/components/ui/Accordion';
 import Link from 'next/link';
+import Card from '@/app/components/ui/Card';
 
 interface CourseProps {
   id: string;
@@ -74,18 +75,18 @@ export default async function Page({ params: { slug } }: {
                 src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
               />
             </div>
-            <div className="mt-5 space-y-5">
-              <div className="space-y-1">
+            <div className="mt-5 space-y-6">
+              <div className="space-y-3">
                 <h1 className="font-bold">{course.name}</h1>
-                <div className="flex justify-between items-center">
+                <div className="">
                   <h2 className="font-medium">Description</h2>
+                  <p>
+                    {course.description}
+                  </p>
                 </div>
-                <p>
-                  {course.description}
-                </p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-1">
                 <div className="flex justify-between items-center">
                   <h2 className="font-medium">Course Detail</h2>
                 </div>
@@ -130,7 +131,7 @@ export default async function Page({ params: { slug } }: {
               </div>
               {
                 course.available_languages && (
-                  <div className="space-y-3">
+                  <div className="space-y-1">
                     <div className="flex justify-between items-center">
                       <h2 className="font-medium">Available Languages</h2>
                     </div>
@@ -167,7 +168,7 @@ export default async function Page({ params: { slug } }: {
                 course.what_learn && (
                   <div>
                     <h2 className="font-medium">What you will learn</h2>
-                    <div className='pl-5 mt-5 custom-ul-li' dangerouslySetInnerHTML={{ __html: course.what_learn }}></div>
+                    <div className='pl-5 custom-ul-li' dangerouslySetInnerHTML={{ __html: course.what_learn }}></div>
                   </div>
 
                 )
@@ -175,28 +176,12 @@ export default async function Page({ params: { slug } }: {
 
               {
                 course.related_courses && course.related_courses.length > 0 && (
-                  <div>
+                  <div className='space-y-1'>
                     <h2 className="font-medium">Related courses</h2>
-                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
                       {
                         course.related_courses.map((related) => (
-                          <Link key={related.related_courses_id.id} href={`/course/${related.related_courses_id.slug}`} className="">
-                            <Image
-                              className=" rounded-t-xl"
-                              width={1000}
-                              height={1000}
-                              src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${related.related_courses_id.image}`}
-                              alt="download"
-                            />
-                            <div className="border space-y-1 px-3 py-1 rounded-b-xl">
-                              <h3>{related.related_courses_id.name}</h3>
-                              <div>
-                                <h4>Tught: English</h4>
-                                <h4>Duration: {related.related_courses_id.duration} months</h4>
-                              </div>
-                              <h4>${related.related_courses_id.price}/monthly</h4>
-                            </div>
-                          </Link>
+                          <Card key={related.related_courses_id.id} course={related.related_courses_id} />
                         ))
                       }
                     </div>

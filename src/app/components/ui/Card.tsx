@@ -1,0 +1,40 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+
+interface CardProps {
+  course: {
+    id: string;
+    slug: string;
+    image: string;
+    name: string;
+    duration: string;
+    price: number;
+  }
+}
+
+const Card: React.FC<CardProps> = ({ course }) => {
+  return (
+    <Link key={course.id} href={`/course/${course.slug}`} className="flex flex-col h-full group overflow-hidden rounded-xl shadow hover:shadow-md transition-shadow duration-500">
+      <Image
+        className=" object-cover min-h-36 h-36 group-hover:scale-105 transition-transform duration-500"
+        width={1000}
+        height={1000}
+        src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
+        alt="download"
+      />
+      <div className="flex flex-col justify-between border space-y-1 px-3 py-2 flex-grow">
+        <div className='space-y-2'>
+          <h3 className='font-semibold'>{course.name}</h3>
+          <div>
+            <h4>Duration: {course.duration} months</h4>
+
+          </div>
+        </div>
+        <h4>${course.price}/monthly</h4>
+      </div>
+    </Link>
+  )
+}
+
+export default Card

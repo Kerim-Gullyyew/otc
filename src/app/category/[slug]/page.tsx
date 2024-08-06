@@ -1,3 +1,4 @@
+import Card from "@/app/components/ui/Card";
 import { getCoursesByCategory } from "@/app/components/utils/getCoursesByCategory";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,7 @@ interface CategoryProps {
   slug: string;
   courses:
   {
-    id: number;
+    id: string;
     slug: string;
     name: string;
     image: string;
@@ -56,29 +57,7 @@ export default async function Page({ params: { slug } }: {
 
         {
           category.courses.map((course) => (
-            <Link
-              href={`/course/${course.slug}`}
-              key={course.id}
-              className="flex flex-col h-full justify-between">
-
-              <Image
-                className="rounded-t-xl max-h-44 h-44 min-h-44 object-cover"
-                width={1000}
-                height={1000}
-                src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
-                alt="download"
-              />
-
-              <div className="flex flex-col justify-between border space-y-1 px-5 pt-3 pb-4 rounded-b-xl h-full">
-                <h3 className="font-semibold">{course.name}</h3>
-                <div className="space-y-2">
-                  <h4>Teaching Language: English</h4>
-                  <h4>Duration: {course.duration} months</h4>
-                  <h4>Type: Live session</h4>
-                  <h4 className="font-semibold">${course.price}/monthly</h4>
-                </div>
-              </div>
-            </Link>
+            <Card key={course.id} course={course} />
           ))
         }
 
