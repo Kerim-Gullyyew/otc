@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { LockClosedIcon, XMarkIcon } from "@heroicons/react/24/outline"
 interface MobileCheckoutProps {
-
+  name: string;
+  price: number;
 }
 
-const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
+const MobileCheckout: React.FC<MobileCheckoutProps> = ({ name, price }) => {
   const [openMobileNav, setOpenMobileNav] = useState<boolean>(false);
   const bottomSheetRef = useRef(null);
   function useOutsideAlerter(ref: any) {
@@ -60,7 +61,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                 <div className="no-scrollbar pb-8 pt-2 flex flex-col">
                   <div className="space-y-4">
                     <div className="pb-2 border-b border-border">
-                      <p className="font-semibold">Course Namesdfh sdfsdfsdf sdfds fsd fsdk fhsdkjfhsdjfsdkj fsdf</p>
+                      <p className="font-semibold">{name}</p>
                     </div>
                     <div className="space-y-4">
                       <p className="font-medium text-[1.1em]">Enter Account Detail</p>
@@ -136,7 +137,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <h2 className="font-semibold">Total</h2>
-                        <h2 className="font-semibold">$180/month</h2>
+                        <h2 className="font-semibold">${price}/month</h2>
                       </div>
                       <div className="flex items-start gap-1">
                         <LockClosedIcon className="w-4 h-4 text-gray-400 min-w-4 min-h-4" />

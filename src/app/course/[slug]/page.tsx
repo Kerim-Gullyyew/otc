@@ -290,7 +290,7 @@ export default async function Page({ params: { slug } }: {
           </div>
         </div>
       </div>
-      <MobileCheckout />
+      <MobileCheckout name={course.name} price={course.price} />
     </>
 
   )
