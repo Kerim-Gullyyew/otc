@@ -196,16 +196,16 @@ export default async function Page({ params: { slug } }: {
             <div className=" flex flex-col">
               <div className="space-y-6 border-l border-[#DEDEDE] no-scrollbar pl-6  pb-8">
                 <div className=" border-b border-gray-300 pb-2">
-                  <p className="font-semibold">{course.name}</p>
+                  <p className="font-semibold text-[1.1em]">{course.name}</p>
                 </div>
                 <div className="space-y-4">
-                  <p className="font-medium">Enter Account Detail</p>
+                  <p className="font-medium text-[1.1em]">Enter Account Detail</p>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-4"
+                      className="block text-sm leading-4"
                     >
-                      Email
+                      First Name
                     </label>
                     <div className="mt-2">
                       <input
@@ -219,9 +219,9 @@ export default async function Page({ params: { slug } }: {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-4"
+                      className="block text-sm leading-4"
                     >
-                      Email
+                      Last Name
                     </label>
                     <div className="mt-2">
                       <input
@@ -235,9 +235,9 @@ export default async function Page({ params: { slug } }: {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-4"
+                      className="block text-sm leading-4"
                     >
-                      Email
+                      Email Address
                     </label>
                     <div className="mt-2">
                       <input
@@ -251,9 +251,9 @@ export default async function Page({ params: { slug } }: {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-4"
+                      className="block text-sm leading-4"
                     >
-                      Email
+                      Phone Number
                     </label>
                     <div className="mt-2">
                       <input

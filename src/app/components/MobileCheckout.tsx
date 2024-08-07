@@ -63,7 +63,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                       <p className="font-semibold">Course Namesdfh sdfsdfsdf sdfds fsd fsdk fhsdkjfhsdjfsdkj fsdf</p>
                     </div>
                     <div className="space-y-4">
-                      <p className="font-medium">Enter Account Detail</p>
+                      <p className="font-medium text-[1.1em]">Enter Account Detail</p>
                       <div>
                         <label
                           htmlFor="email"
