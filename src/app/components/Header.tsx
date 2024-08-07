@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
           <div className="flex">
             <Link href="/">
               <Image
-                className="w-10 object-contain"
+                className="w-12 object-contain"
                 src={"/logo.svg"}
                 alt="logo"
                 width={1000}
