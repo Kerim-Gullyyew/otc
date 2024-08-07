@@ -71,7 +71,7 @@ const navigation = [
 const Footer: React.FC<FooterProps> = ({ }) => {
   return (
     <div className='px-6 lg:px-8 py-10 lg:py-14 pb-20 bg-background mt-20'>
-      <div className='grid grid-cols-12 gap-5 sm:gap-10 items-start md:grid-cols-5'>
+      <div className='grid container grid-cols-12 gap-5 sm:gap-10 items-start md:grid-cols-5'>
         <div className='grid col-span-12 gap-5 md:col-span-2'>
           <div className='flex'>
             <Link className='' href="/">
@@ -115,7 +115,7 @@ const Footer: React.FC<FooterProps> = ({ }) => {
 
       <div className='w-full h-[0.5px] bg-gray-400 my-10'></div>
 
-      <div className="md:flex md:items-center md:justify-between">
+      <div className="md:flex container md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
             <a key={item.name} href={item.href} className="text-gray-600 hover:text-gray-800">
