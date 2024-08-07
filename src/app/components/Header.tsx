@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                   </PopoverButton>
                   <PopoverBackdrop
                     transition
-                    className="fixed inset-0 backdrop-blur-sm bg-black/30 mt-[60px] transition duration-100 ease-out data-[closed]:opacity-0"
+                    className="fixed inset-0 backdrop-blur-sm bg-black/30 mt-[65px] transition duration-100 ease-out data-[closed]:opacity-0"
                   />
                   <PopoverPanel
                     transition

@@ -17,6 +17,7 @@ const config: Config = {
     extend: {
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
+        'fade-in-2': 'fadeIn 0.5s ease-out',
 
 
 
@@ -61,6 +62,7 @@ const config: Config = {
         'custom-light': '0 1px 3px rgba(0, 0, 0, 0.1)',
         'custom': '10px -10px 0 #ffff',
         'custom-bottom': '10px 10px 0 #ffff',
+        'inner-border': 'inset 0 0 0 1px rgba(209, 213, 219, 1)',
       },
 
       colors: {
