@@ -69,9 +69,9 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                           htmlFor="email"
                           className="block text-sm leading-4"
                         >
-                          Email
+                          First Name
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                           <input
                             type="email"
                             name="email"
@@ -85,9 +85,9 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                           htmlFor="email"
                           className="block text-sm leading-4"
                         >
-                          Email
+                          Last Name
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                           <input
                             type="email"
                             name="email"
@@ -103,7 +103,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         >
                           Email
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                           <input
                             type="email"
                             name="email"
@@ -117,9 +117,9 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                           htmlFor="email"
                           className="block text-sm  leading-4"
                         >
-                          Email
+                          Phone Number
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                           <input
                             type="email"
                             name="email"
