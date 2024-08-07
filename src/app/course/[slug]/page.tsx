@@ -78,7 +78,7 @@ export default async function Page({ params: { slug } }: {
             <div className="mt-5 space-y-6">
               <div className="space-y-3">
                 <h1 className="font-bold">{course.name}</h1>
-                <div className="">
+                <div className="space-y-2">
                   <h2 className="font-medium">Description</h2>
                   <p>
                     {course.description}
@@ -86,12 +86,12 @@ export default async function Page({ params: { slug } }: {
                 </div>
               </div>
 
-              <div className="space-y-1">
+              <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <h2 className="font-medium">Course Detail</h2>
                 </div>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
-                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                  <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Duration</h3>
                     <div className="flex items-center gap-3">
                       <div>
@@ -100,7 +100,7 @@ export default async function Page({ params: { slug } }: {
                       <p className="font-semibold text-gray-700">{course.duration + " " + 'months'}</p>
                     </div>
                   </div>
-                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                  <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Weekly sessions</h3>
                     <div className="flex items-center gap-3">
                       <div>
@@ -109,7 +109,7 @@ export default async function Page({ params: { slug } }: {
                       <p className="font-semibold text-gray-700">{course.sessions_weekly}</p>
                     </div>
                   </div>
-                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                  <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
                       <div>
@@ -118,7 +118,7 @@ export default async function Page({ params: { slug } }: {
                       <p className="font-semibold text-gray-700">144</p>
                     </div>
                   </div>
-                  <div className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                  <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
                     <h3 className="font-semibold text-gray-700">Lessons</h3>
                     <div className="flex items-center gap-3">
                       <div>
@@ -131,14 +131,19 @@ export default async function Page({ params: { slug } }: {
               </div>
               {
                 course.available_languages && (
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <h2 className="font-medium">Available Languages</h2>
                     </div>
-                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="gap-3 flex items-center flex-wrap">
                       {
                         course.available_languages.map((lang) => (
-                          <div key={lang.languages_id.id} className="bg-[#FFF6E9] rounded-2xl px-5 py-2 space-y-1">
+                          <div key={lang.languages_id.id} className="flex items-center gap-2 bg-background rounded-xl px-6 py-3">
+                            {
+                              lang.languages_id.icon && (
+                                <Image width={1000} height={1000} className='w-5 min-w-5 object-contain shrink-0' src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${lang.languages_id.icon}`} alt={`Flag of ` + lang.languages_id.name} />
+                              )
+                            }
                             <h3 className="text-gray-700 font-[500]">{lang.languages_id.name}</h3>
                           </div>
                         ))
@@ -150,7 +155,7 @@ export default async function Page({ params: { slug } }: {
 
               {
                 course.syllabus && course.syllabus.length > 0 && (
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <h2 className="font-medium">Syllabus</h2>
                     <div className="space-y-2">
                       {
@@ -158,7 +163,6 @@ export default async function Page({ params: { slug } }: {
                           <Accordion key={syllabus.id} syllabus={syllabus} />
                         ))
                       }
-
                     </div>
                   </div>
                 )
