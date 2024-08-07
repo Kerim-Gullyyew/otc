@@ -200,6 +200,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                 aria-hidden="true"
               />
               <input
+              
                 placeholder="Search"
                 className="outline-none w-full h-full"
               />
