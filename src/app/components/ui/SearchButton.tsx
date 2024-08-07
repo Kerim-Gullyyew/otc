@@ -43,9 +43,9 @@ const SearchButton: React.FC = () => {
           <div className='absolute h-screen inset-0 mt-[55px] w-full backdrop-blur animate-fade-in-2'></div>
         )
       }
-      <div className={`relative flex flex-1 ${foundCourses && foundCourses.length > 0 ? "rounded-t-lg" : "rounded-lg"} outline-none items-center shadow-inner-border`}>
+      <div className={`relative flex flex-1 ${foundCourses && foundCourses.length > 0 ? "rounded-t-lg" : "rounded-lg"} outline-none items-center shadow-inner-border bg-white`}>
 
-        <div className='flex flex-1 gap-2 px-3 py-2'>
+        <div className='flex flex-1 gap-2 px-3 py-2 '>
           <MagnifyingGlassIcon
             className="h-5 w-5 flex-none text-gray-400"
             aria-hidden="true"
@@ -55,7 +55,7 @@ const SearchButton: React.FC = () => {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Search"
-            className="outline-none w-full h-full"
+            className="outline-none w-full h-full bg-white"
           />
         </div>
         {foundCourses && foundCourses.length > 0 && query && (

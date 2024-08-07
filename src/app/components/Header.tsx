@@ -45,10 +45,10 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   return (
     <>
       <nav
-        className="bg-white container mx-auto z-50 fixed w-full py-2"
+        className="bg-yellow-50 mx-auto z-50 fixed w-full py-2"
         aria-label="Global"
       >
-        <div className=" relative isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
+        <div className=" relative container isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
           <div className="flex">
             <Link href="/">
               <Image
