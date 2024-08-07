@@ -71,7 +71,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         >
                           First Name
                         </label>
-                        <div className="mt-1">
+                        <div className="mt-2">
                           <input
                             type="email"
                             name="email"
@@ -87,7 +87,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         >
                           Last Name
                         </label>
-                        <div className="mt-1">
+                        <div className="mt-2">
                           <input
                             type="email"
                             name="email"
@@ -103,7 +103,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         >
                           Email
                         </label>
-                        <div className="mt-1">
+                        <div className="mt-2">
                           <input
                             type="email"
                             name="email"
@@ -119,7 +119,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ }) => {
                         >
                           Phone Number
                         </label>
-                        <div className="mt-1">
+                        <div className="mt-2">
                           <input
                             type="email"
                             name="email"
