@@ -23,8 +23,8 @@ const Card: React.FC<CardProps> = ({ course }) => {
         src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
         alt="download"
       />
-      <div className="flex flex-col justify-between border space-y-1 p-4 flex-grow">
-        <div className='space-y-2'>
+      <div className="flex flex-col justify-between border space-y-5 p-4 flex-grow">
+        <div className='space-y-1'>
           <h3 className='font-semibold'>{course.name}</h3>
           <div>
             <h4>Duration: {course.duration} months</h4>
