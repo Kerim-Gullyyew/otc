@@ -207,7 +207,7 @@ export default async function Page({ params: { slug } }: {
                     >
                       First Name
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-1">
                       <input
                         type="email"
                         name="email"
@@ -223,7 +223,7 @@ export default async function Page({ params: { slug } }: {
                     >
                       Last Name
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-1">
                       <input
                         type="email"
                         name="email"
@@ -239,7 +239,7 @@ export default async function Page({ params: { slug } }: {
                     >
                       Email Address
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-1">
                       <input
                         type="email"
                         name="email"
@@ -255,7 +255,7 @@ export default async function Page({ params: { slug } }: {
                     >
                       Phone Number
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-1">
                       <input
                         type="email"
                         name="email"
