@@ -75,7 +75,7 @@ export default async function Page({ params: { slug } }: {
                 src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
               />
             </div>
-            <div className="mt-5 space-y-6">
+            <div className="mt-5 space-y-8">
               <div className="space-y-3">
                 <h1 className="font-bold">{course.name}</h1>
                 <div className="space-y-2">
