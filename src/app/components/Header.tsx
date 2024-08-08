@@ -220,35 +220,28 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                         </ul>
                       </li>
                       <li>
-                        <div className="text-xs font-semibold leading-6 text-icon">
-                          Your teams
-                        </div>
+
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          {teams.map((team) => (
-                            <li key={team.name}>
-                              <a
-                                href={team.href}
-                                className={classNames(
-                                  team.current
-                                    ? "bg-background text-textPrimary"
-                                    : "text-black hover:text-textPrimary hover:bg-background",
-                                  "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                                )}
-                              >
-                                <span
-                                  className={classNames(
-                                    team.current
-                                      ? "text-textPrimary border-textPrimary"
-                                      : "text-icon border-border group-hover:border-textPrimary group-hover:text-textPrimary",
-                                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
-                                  )}
-                                >
-                                  {team.initial}
-                                </span>
-                                <span className="truncate">{team.name}</span>
-                              </a>
-                            </li>
-                          ))}
+                          <li>
+                            <Link className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/about'}>
+                              About
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/about'}>
+                              About
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/about'}>
+                              About
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/about'}>
+                              About
+                            </Link>
+                          </li>
                         </ul>
                       </li>
                       <li className="mt-auto">
