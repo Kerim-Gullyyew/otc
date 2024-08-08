@@ -91,7 +91,11 @@ const Footer: React.FC<FooterProps> = ({ }) => {
         <div className='grid col-span-12 gap-5 border-b pb-5 sm:border-none sm:pb-0 sm:col-span-4 md:col-span-1'>
           <h4 className='text-gray-600'>Company</h4>
           <ul className='pl-3 space-y-5 sm:pl-0'>
-            <li><h4 className=''>About Us</h4></li>
+            <li>
+              <Link href={'/about'}>
+                <h4 className=''>About Us</h4>
+              </Link>
+            </li>
           </ul>
 
         </div>
@@ -99,7 +103,11 @@ const Footer: React.FC<FooterProps> = ({ }) => {
         <div className='grid col-span-12 gap-5 border-b pb-5 sm:border-none sm:pb-0 sm:col-span-4 md:col-span-1'>
           <h4 className='text-gray-600'>Resources</h4>
           <ul className='pl-3 space-y-5 sm:pl-0'>
-            <li><h4 className=''>Contact</h4></li>
+            <li>
+              <Link href={'/contact'}>
+                <h4 className=''>Contact</h4>
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -107,8 +115,16 @@ const Footer: React.FC<FooterProps> = ({ }) => {
           <h4 className='text-gray-600'>Legal</h4>
 
           <ul className='pl-3 space-y-5 sm:pl-0'>
-            <li><h4 className=''>Terms</h4></li>
-            <li><h4 className=''>Privacy</h4></li>
+            <li>
+              <Link href={'/privacy'}>
+                <h4 className=''>Privacy</h4>
+              </Link>
+            </li>
+            <li>
+              <Link href={'/terms'}>
+                <h4 className=''>Terms and Conditions</h4>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
