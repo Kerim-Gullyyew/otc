@@ -3,7 +3,10 @@ export async function getCategory() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/main_category?fields=id,slug,name,secondary_category.id,secondary_category.slug,secondary_category.name,secondary_category.courses.id,secondary_category.courses.name,secondary_category.courses.slug`,
       {
-        cache: 'force-cache',
+        // cache: 'force-cache',
+        next: {
+          revalidate: 5,
+        },
       }
     );
 
