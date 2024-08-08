@@ -29,16 +29,6 @@ interface HeaderProps {
   main_categories: MainCategoryInterface[];
 }
 
-const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-];
-
-function classNames(...classes: (string | false | null | undefined)[]): string {
-  return classes.filter(Boolean).join(" ");
-}
-
 const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
@@ -91,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     anchor="bottom"
                     className="w-full h-[50%] bg-white z-50 py-5 px-10 shadow-md max-w-5xl mt-2 origin-top transition duration-300 ease-out data-[closed]:opacity-0"
                   >
-                    <HeaderCategory main_categories={main_categories} />
+                    <HeaderCategory close={close} main_categories={main_categories} />
                   </PopoverPanel>
                 </>
               )}

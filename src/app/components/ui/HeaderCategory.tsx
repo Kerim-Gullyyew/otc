@@ -5,9 +5,10 @@ import React, { useState } from 'react'
 
 interface HeaderCategoryProps {
   main_categories: MainCategoryInterface[];
+  close: () => void
 }
 
-const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories }) => {
+const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories, close }) => {
 
 
   const [mainCategoryItem, setMainCategoryItem] =
@@ -95,7 +96,7 @@ const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories }) => {
                   secondaryCategoryItem.courses.map(
                     (third, index) => (
                       <Link
-                        onClick={close}
+                        onClick={close} 
                         key={index}
                         className={
                           "text-black px-4 rounded-xl py-1.5 hover:animate-fade-in cursor-pointer hover:bg-background"
