@@ -70,7 +70,7 @@ const SearchButton: React.FC = () => {
           <div className='absolute h-screen inset-0 mt-[55px] w-full backdrop-blur animate-fade-in-2'></div>
         )
       }
-      <div className={`relative flex flex-1 ${foundCourses && foundCourses.length > 0 ? "rounded-t-lg" : "rounded-lg"} outline-none items-center shadow-inner-border bg-white`}>
+      <div className={`relative flex flex-1 ${foundCourses && foundCourses.length > 0 ? "rounded-t-lg" : "rounded-lg"} outline-none items-center py-[1px] shadow-inner-border bg-white`}>
 
         <div ref={inputRef} className='flex flex-1 gap-2 px-3 py-2 '>
           <MagnifyingGlassIcon

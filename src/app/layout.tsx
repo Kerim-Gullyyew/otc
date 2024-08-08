@@ -5,8 +5,17 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { MainCategoryInterface } from "./data";
 import { getCategory } from "./components/utils/getCategory";
+import type { Viewport } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+  colorScheme: "normal",
+  themeColor: "#4169E1",
+  width: "device-width",
+  initialScale: 1,
+};
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
