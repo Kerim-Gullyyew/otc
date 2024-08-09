@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IWS Online School - About Us",
-  description: "Discover IWS online school's unique approach and inspiring story. Join us on a journey of innovative learning and educational excellence",
-  abstract: "Discover IWS online school's unique approach and inspiring story. Join us on a journey of innovative learning and educational excellence",
+  title: "Online Tutoring Courses | About Us",
+  description: "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
+  abstract: "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
 };
 
 export default function RootLayout({

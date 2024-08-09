@@ -16,21 +16,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // metadataBase: new URL("https://www.iwsonlineschool.co.uk/"),
+  // metadataBase: new URL("https://onlinetutoringcourses.com/"),
 
-  title: "IWS Online School",
+  title: "Online Tutoring Courses | Expert Tutors for All Subjects & Grades",
   description:
-    "Accredited, Holistic Online Schooling IWS Online School - Your compass in the digital realm of learning. Discover new horizons, Create lasting memories, and Lead the future with our live lessons. Enrol now Contact Us Enrol now Contact Us Accredited by Accredited by The right study programme for you Primary School Ages 7-11 Secondary School Ages",
+    "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
   applicationName: "",
-  authors: [{ name: "IWS Team", url: "https://www.iwsonlineschool.co.uk/" }],
+  authors: [{ name: "Online Tutoring Courses", url: "https://onlinetutoringcourses.com/" }],
   generator: "Next.js",
   keywords:
-    "online cambridge school, international education, cambridge primary, cambridge secondary, igcse courses, a level courses, online learning, virtual classrooms, cambridge curriculum, international schooling, global education, cambridge assessment, e-learning cambridge, online tutoring, distance learning, cambridge exams preparation, online primary school, online secondary school, online a level, cambridge qualifications",
+    "online tutoring, online courses, online tutors, personalized tutoring, online learning, academic tutoring, virtual tutoring, subject-specific tutoring, tutoring for all grades, one-on-one tutoring, expert tutors, tutoring services online, e-learning courses, homework help online, math tutoring, science tutoring, english tutoring, test prep tutoring, affordable online tutoring, flexible online tutoring, interactive online tutoring, online education, customized learning plans, tutor matching service, online study help, 24/7 tutoring support, online classroom, digital tutoring platform, tutor-led courses, online academic coaching, sat prep tutoring, act prep tutoring, online tutoring for k-12, college-level tutoring, advanced placement tutoring, tutoring for standardized tests, online tutoring sessions, remote learning, virtual classroom assistance, online academic enrichment, online tutoring for homeschooling, stem tutoring online, language tutoring online, online tutoring for special needs, online tutoring for adults, international online tutoring, global online tutors, worldwide tutoring services, online tutoring for international students, cross-border tutoring, international education support, multilingual tutoring online, online tutoring for expats, global e-learning platform, online tutoring in multiple languages, international academic support, worldwide online education, international curriculum tutoring, online tutoring across time zones, global virtual classrooms, tutoring for international schools, online learning for global students, online tutoring in different languages, global academic coaching, international test prep tutoring, online tutoring for ib students, international student tutoring services, cross-cultural online tutoring, worldwide academic enrichment",
   referrer: "origin",
-  creator: "IWS Team",
-  publisher: "IWS Team",
+  creator: "Online Tutoring Courses",
+  publisher: "Online Tutoring Courses",
   robots: "index, follow",
-  alternates: { canonical: "https://iwsonlineschool.co.uk/" },
+  alternates: { canonical: "https://onlinetutoringcourses.com/" },
   icons: "./icon.ico",
   // manifest: "manifest",
   // openGraph: {
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   // },
   twitter: {
     card: "summary_large_image",
-    site: "@iwsonlineschool",
-    creator: "@iwsonlineschool",
+    site: "@onlinetutoringcourses",
+    creator: "@onlinetutoringcourses",
     images: "https://pbs.twimg.com/profile_banners/1483361690519486469/1711116188/600x200",
   },
   verification: {
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
   //   appArgument: "324234",
   // },
   abstract:
-    "Accredited, Holistic Online Schooling IWS Online School - Your compass in the digital realm of learning. Discover new horizons, Create lasting memories, and Lead the future with our live lessons. Enrol now Contact Us Enrol now Contact Us Accredited by Accredited by The right study programme for you Primary School Ages 7-11 Secondary School Ages",
+    "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
   appLinks: null,
   // archives: "https://example.com/archives",
   // assets: "https://example.com/assets",
