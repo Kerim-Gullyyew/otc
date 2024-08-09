@@ -1,7 +1,13 @@
 import Card from "@/app/components/ui/Card";
 import { getCoursesByCategory } from "@/app/components/utils/getCoursesByCategory";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+interface pageProps {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 
 interface CategoryProps {
   id: string;
@@ -22,10 +28,29 @@ interface CategoryProps {
   }[];
 }
 
-export default async function Page({ params: { slug } }: {
-  params: { slug: string }
-}) {
-  const category: CategoryProps | { error: string } = await getCoursesByCategory(slug)
+export async function generateMetadata(
+  { params, searchParams }: pageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const category: CategoryProps | { error: string } = await getCoursesByCategory(params.slug)
+
+  if ('error' in category) {
+    return {
+      title: "Not Found",
+    }
+  } else {
+    return {
+      title: category.name,
+      description: category.description !== null ? category.description : "Something description",
+      abstract: category.description !== null ? category.description : "Something description",
+    }
+  }
+
+}
+
+
+export default async function Page({ params, searchParams }: pageProps,) {
+  const category: CategoryProps | { error: string } = await getCoursesByCategory(params.slug)
 
   if ('error' in category) {
     return (
@@ -38,11 +63,7 @@ export default async function Page({ params: { slug } }: {
     <div className="container">
       <div className="relative w-full space-y-3 pt-3">
         <h1 className="text-[24px] font-medium">{category.name}</h1>
-        {/* {
-          category.description && (
-            <p>{category.description}</p>
-          )
-        } */}
+
         <div className="flex">
           <div className="border border-border rounded-lg px-4 py-1">
             <h4>

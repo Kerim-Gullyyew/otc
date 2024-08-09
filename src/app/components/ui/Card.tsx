@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ course }) => {
         className=" object-cover min-h-48 h-48 xs:h-56 group-hover:scale-105 transition-transform duration-500"
         width={1000}
         height={1000}
-        src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${course.image}`}
         alt="download"
       />
       <div className="flex flex-col justify-between border space-y-5 p-4 flex-grow">

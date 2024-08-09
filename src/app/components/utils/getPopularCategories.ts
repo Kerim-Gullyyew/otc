@@ -1,7 +1,7 @@
 export async function getPopularCategories() {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/secondary_category?filter[popular_category][_eq]=true&fields=id,name,slug,courses`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}items/secondary_category?filter[popular_category][_eq]=true&fields=id,name,slug,courses`,
       {
         next: {
           revalidate: 5,

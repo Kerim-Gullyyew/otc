@@ -1,7 +1,7 @@
 export async function getCoursesByCategory(slug: string) {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/secondary_category/?filter[slug][_eq]=${slug}&limit=1&fields=*,courses.id,courses.slug,courses.name,courses.image,courses.duration,courses.price`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}items/secondary_category/?filter[slug][_eq]=${slug}&limit=1&fields=*,courses.id,courses.slug,courses.name,courses.image,courses.duration,courses.price`,
       {
         next: {
           revalidate: 5,

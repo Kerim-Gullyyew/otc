@@ -6,6 +6,13 @@ import Image from 'next/image';
 import Accordion from '@/app/components/ui/Accordion';
 import Link from 'next/link';
 import Card from '@/app/components/ui/Card';
+import { Metadata, ResolvingMetadata } from 'next';
+
+
+interface pageProps {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 
 interface CourseProps {
   id: string;
@@ -46,11 +53,28 @@ interface CourseProps {
   }[] | [];
 }
 
+export async function generateMetadata(
+  { params, searchParams }: pageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const course: CourseProps | { error: string } = await getCourse(params.slug)
 
-export default async function Page({ params: { slug } }: {
-  params: { slug: string }
-}) {
-  const course: CourseProps | { error: string } = await getCourse(slug)
+  if ('error' in course) {
+    return {
+      title: "Not Found",
+    }
+  } else {
+    return {
+      title: course.name,
+      description: course.description !== null ? course.description : "Something description",
+      abstract: course.description !== null ? course.description : "Something description",
+    }
+  }
+
+}
+
+export default async function Page({ params, searchParams }: pageProps) {
+  const course: CourseProps | { error: string } = await getCourse(params.slug)
 
   if ('error' in course) {
     return (
@@ -72,7 +96,7 @@ export default async function Page({ params: { slug } }: {
                 width={1000}
                 height={1000}
                 alt="download"
-                src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${course.image}`}
+                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${course.image}`}
               />
             </div>
             <div className="mt-5 space-y-8">
@@ -141,7 +165,7 @@ export default async function Page({ params: { slug } }: {
                           <div key={lang.languages_id.id} className="flex items-center gap-2 bg-background rounded-xl px-6 py-3">
                             {
                               lang.languages_id.icon && (
-                                <Image width={1000} height={1000} className='w-5 min-w-5 object-contain shrink-0' src={`${process.env.NEXT_PUBLIC_WEBSITE_URL}assets/${lang.languages_id.icon}`} alt={`Flag of ` + lang.languages_id.name} />
+                                <Image width={1000} height={1000} className='w-5 min-w-5 object-contain shrink-0' src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${lang.languages_id.icon}`} alt={`Flag of ` + lang.languages_id.name} />
                               )
                             }
                             <h3 className="text-gray-700 font-[500]">{lang.languages_id.name}</h3>

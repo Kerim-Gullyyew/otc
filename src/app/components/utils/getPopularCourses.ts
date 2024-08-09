@@ -1,7 +1,7 @@
 export async function getPopularCourses() {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/courses?filter[popular_course][_eq]=true&fields=id,slug,name,duration,price,image,discount`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}items/courses?filter[popular_course][_eq]=true&fields=id,slug,name,duration,price,image,discount`,
       {
         next: {
           revalidate: 5,

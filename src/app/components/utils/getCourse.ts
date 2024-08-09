@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 export async function getCourse(slug: string) {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}items/courses?filter[slug][_eq]=${slug}&limit=1&fields=*,syllabus.*,available_languages.languages_id.*,related_courses.related_courses_id.name,related_courses.related_courses_id.image,related_courses.related_courses_id.price,related_courses.related_courses_id.duration,related_courses.related_courses_id.slug,related_courses.related_courses_id.id`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}items/courses?filter[slug][_eq]=${slug}&limit=1&fields=*,syllabus.*,available_languages.languages_id.*,related_courses.related_courses_id.name,related_courses.related_courses_id.image,related_courses.related_courses_id.price,related_courses.related_courses_id.duration,related_courses.related_courses_id.slug,related_courses.related_courses_id.id`,
       {
         // cache: 'force-cache',
         next: {
