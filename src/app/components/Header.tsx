@@ -141,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     transition
                     onMouseLeave={close}
                     anchor="bottom"
-                    className="w-full h-[50%] bg-white z-50 py-5 px-10 shadow-md max-w-5xl mt-2 origin-top transition duration-300 ease-out data-[closed]:opacity-0"
+                    className="w-full h-[60%] bg-white z-50 py-5 px-10 shadow-md max-w-5xl mt-2 origin-top transition duration-300 ease-out data-[closed]:opacity-0"
                   >
                     <HeaderCategory close={close} main_categories={main_categories} />
                   </PopoverPanel>

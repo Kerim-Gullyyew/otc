@@ -1,8 +1,6 @@
 import Card from "@/app/components/ui/Card";
 import { getCoursesByCategory } from "@/app/components/utils/getCoursesByCategory";
 import { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 
 interface pageProps {
   params: { slug: string }

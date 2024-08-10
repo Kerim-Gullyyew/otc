@@ -40,7 +40,7 @@ const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories, close 
 
   return (
     <div className="grid grid-cols-12 mx-auto gap-5 w-5xl max-w-5xl">
-      <div className="col-span-3">
+      <div className="col-span-3 border-r pr-5">
         <div className="border-b border-gray-300 max-w-48 pb-1">
           <h5 className="font-medium text-gray-600">Categories</h5>
         </div>
@@ -62,7 +62,7 @@ const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories, close 
         secondaryCategoryItem && (
           <>
             <div
-              className={`col-span-3 transition-opacity duration-500 ${secondaryCategoryItem ? "opacity-100" : "opacity-0"}`}
+              className={`col-span-3 border-r pr-5 transition-opacity duration-500 ${secondaryCategoryItem ? "opacity-100" : "opacity-0"}`}
             >
               <div className="border-b border-gray-300 max-w-48 pb-1">
                 <h5 className="font-medium text-gray-600">Subjects</h5>
@@ -91,19 +91,21 @@ const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories, close 
               <div className="border-b border-gray-300 max-w-48 pb-1">
                 <h5 className="font-medium text-gray-600">Courses</h5>
               </div>
-              <ul className=" mt-3 grid grid-cols-2 gap-0.5">
+              <ul className="space-y-0.5 mt-3">
                 {secondaryCategoryItem &&
                   secondaryCategoryItem.courses.map(
                     (third, index) => (
-                      <Link
-                        onClick={close} 
-                        key={index}
-                        className={
-                          "text-black px-4 rounded-xl py-1.5 hover:animate-fade-in cursor-pointer hover:bg-background"
-                        }
-                        href={`/course/${third.slug}`}>
-                        <p className="text-[14px] font-medium text-gray-900">{third.name}</p>
-                      </Link>
+                      <div key={index} className='flex' >
+                        <Link
+                          onClick={close}
+                          className={
+                            "flex text-black pr-10 pl-4 rounded-xl py-1.5 hover:animate-fade-in cursor-pointer hover:bg-background"
+                          }
+                          href={`/course/${third.slug}`}>
+                          <p className="text-[14px] font-medium text-gray-900">{third.name}</p>
+                        </Link>
+
+                      </div>
                     )
                   )}
               </ul>
