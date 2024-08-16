@@ -168,7 +168,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
               className="bg-primary rounded-md px-4 py-2"
               href="/contact"
             >
-              <p className="font-semibold">Contact Us</p>
+              <p className="font-semibold">Contact</p>
             </Link>
           </div>
         </div>
