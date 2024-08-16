@@ -227,7 +227,7 @@ export default async function Page({ params, searchParams }: pageProps) {
                   <p className="font-semibold text-[1.1em]">{course.name}</p>
                 </div>
                 <div className="space-y-4">
-                  <p className="font-medium text-[1.1em]">Enter Account Detail</p>
+                  <p className="font-medium text-[1.1em]">Enter Account Details</p>
                   <div>
                     <label
                       htmlFor="email"
