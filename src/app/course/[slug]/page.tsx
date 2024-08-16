@@ -65,7 +65,7 @@ export async function generateMetadata(
     }
   } else {
     return {
-      title: course.name,
+      title: course.name + " | Online Tutoring Course", 
       description: course.description !== null ? course.description : "Something description",
       abstract: course.description !== null ? course.description : "Something description",
     }
