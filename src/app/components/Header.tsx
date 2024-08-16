@@ -165,10 +165,10 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
 
           <div className="hidden lg:flex lg:justify-end">
             <Link
-              className="bg-primary rounded-md px-4 py-2"
+              className="bg-primary rounded-md px-6 py-2"
               href="/contact"
             >
-              <p className="font-semibold">Contact Us</p>
+              <p className="font-semibold">Contact</p>
             </Link>
           </div>
         </div>

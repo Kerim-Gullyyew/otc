@@ -38,7 +38,7 @@ export async function generateMetadata(
     }
   } else {
     return {
-      title: category.name !== null ? category.name : "Online Tutoring Courses | Expert Tutors for All Subjects & Grades",
+      title: category.name !== null ? category.name + " | Online Tutoring Courses" : "Online Tutoring Courses | Expert Tutors for All Subjects & Grades",
       description: category.description !== null ? category.description : "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
       abstract: category.description !== null ? category.description : "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
     }
