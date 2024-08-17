@@ -7,6 +7,8 @@ import Accordion from '@/app/components/ui/Accordion';
 import Link from 'next/link';
 import Card from '@/app/components/ui/Card';
 import { Metadata, ResolvingMetadata } from 'next';
+import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
+import StripeSection from '@/app/components/StripeSection';
 
 
 interface pageProps {
@@ -65,7 +67,7 @@ export async function generateMetadata(
     }
   } else {
     return {
-      title: course.name + " | Online Tutoring Course", 
+      title: course.name + " | Online Tutoring Course",
       description: course.description !== null ? course.description : "Something description",
       abstract: course.description !== null ? course.description : "Something description",
     }
@@ -292,6 +294,12 @@ export default async function Page({ params, searchParams }: pageProps) {
                       />
                     </div>
                   </div>
+
+                  
+                 {/* Here is Stripe section */}
+                  <StripeSection />
+
+
                 </div>
 
                 <div className="w-full h-[0.5px] bg-gray-300">

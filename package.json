@@ -11,17 +11,23 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.3.0",
     "axios": "^1.7.2",
     "framer-motion": "^11.3.8",
+    "micro": "^10.0.1",
+    "micro-cors": "^0.1.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-phone-input-2": "^2.15.1",
     "server-only": "^0.0.1",
     "sharp": "^0.33.4",
+    "stripe": "^16.8.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@types/micro-cors": "^0.1.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
