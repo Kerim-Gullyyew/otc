@@ -8,6 +8,12 @@ import { getCategory } from "./components/utils/getCategory";
 import type { Viewport } from "next";
 
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   colorScheme: "normal",
   themeColor: "#4169E1",
@@ -100,7 +106,7 @@ export default async function RootLayout({
   const main_categories: MainCategoryInterface[] | { error: string } = await getCategory();
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable}`}>
       <body className="">
         <header className="flex flex-col items-center">
           {

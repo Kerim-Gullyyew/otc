@@ -1,4 +1,3 @@
-"use client"
 import React from 'react'
 import {
   Disclosure,
@@ -21,8 +20,6 @@ const Accordion: React.FC<AccordionProps> = ({ syllabus }) => {
       as="div"
       className="w-full bg-[#FBFBFF] rounded-lg border-[1px] py-2 px-4"
     >
-      {({ open }) => (
-        <>
           <DisclosureButton className="outline-none group w-full rounded-lg  text-left flex items-center justify-between">
             <h3 className='font-[500]'>{syllabus.name}</h3>
             <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 shrink-0" />
@@ -38,8 +35,6 @@ const Accordion: React.FC<AccordionProps> = ({ syllabus }) => {
               </div>
             </DisclosurePanel>
           </div>
-        </>
-      )}
     </Disclosure>
   )
 }

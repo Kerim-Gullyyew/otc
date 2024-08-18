@@ -116,12 +116,12 @@ const Footer: React.FC<FooterProps> = ({ }) => {
 
           <ul className='pl-3 space-y-5 sm:pl-0'>
             <li>
-              <Link href={'/privacy'}>
+              <Link href={'/privacy-policy'}>
                 <h4 className=''>Privacy</h4>
               </Link>
             </li>
             <li>
-              <Link href={'/terms'}>
+              <Link href={'/terms-and-conditions'}>
                 <h4 className=''>Terms and Conditions</h4>
               </Link>
             </li>

@@ -1,7 +1,7 @@
 import MobileCheckout from '@/app/components/MobileCheckout';
 import { getCourse } from '@/app/components/utils/getCourse';
 import { AcademicCapIcon, ClockIcon, LockClosedIcon } from "@heroicons/react/24/outline";
-import React from 'react'
+import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Accordion from '@/app/components/ui/Accordion';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ import Card from '@/app/components/ui/Card';
 import { Metadata, ResolvingMetadata } from 'next';
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
 import StripeSection from '@/app/components/StripeSection';
-
+import Loading from './loading';
 
 interface pageProps {
   params: { slug: string }
@@ -86,8 +86,8 @@ export default async function Page({ params, searchParams }: pageProps) {
     )
   }
   return (
+    <Suspense fallback={<Loading />}>
 
-    <>
       <div className=" container">
         <div className="md:flex md:gap-6">
           <div className="md:flex flex-col md:w-[70%] lg:w-[75%]">
@@ -136,12 +136,12 @@ export default async function Page({ params, searchParams }: pageProps) {
                     </div>
                   </div>
                   <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
-                    <h3 className="font-semibold text-gray-700">Lessons</h3>
+                    <h3 className="font-semibold text-gray-700">Type</h3>
                     <div className="flex items-center gap-3">
                       <div>
                         <AcademicCapIcon className="w-5 h-5 text-gray-700" />
                       </div>
-                      <p className="font-semibold text-gray-700">144</p>
+                      <p className="font-semibold text-gray-700">Individual</p>
                     </div>
                   </div>
                   <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
@@ -222,15 +222,15 @@ export default async function Page({ params, searchParams }: pageProps) {
 
 
           </div>
-          <div className="hidden md:flex md:w-[30%] lg:w-[25%] justify-end pt-2">
+          <div className="hidden md:flex md:w-[30%] lg:w-[25%]">
             <div className=" flex flex-col">
-              <div className="space-y-6 border-l border-[#DEDEDE] no-scrollbar pl-6  pb-8">
-                <div className=" border-b border-gray-300 pb-2">
+              <div className="no-scrollbar mt-2">
+                {/* <div className=" border-b border-gray-300 pb-2">
                   <p className="font-semibold text-[1.1em]">{course.name}</p>
-                </div>
-                <div className="space-y-4">
-                  <p className="font-medium text-[1.1em]">Enter Account Details</p>
-                  <div>
+                </div> */}
+                {/* <div className="space-y-4"> */}
+                {/* <p className="font-medium text-[1.1em]">Enter Account Details</p> */}
+                {/* <div>
                     <label
                       htmlFor="email"
                       className="block text-sm leading-4"
@@ -293,16 +293,16 @@ export default async function Page({ params, searchParams }: pageProps) {
                         className="block w-full rounded-md py-2 border border-gray-200 px-3 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
                       />
                     </div>
-                  </div>
-
-                  
-                 {/* Here is Stripe section */}
-                  <StripeSection />
+                  </div> */}
 
 
-                </div>
+                {/* Here is Stripe section */}
+                <StripeSection />
 
-                <div className="w-full h-[0.5px] bg-gray-300">
+
+                {/* </div> */}
+
+                {/* <div className="w-full h-[0.5px] bg-gray-300">
                 </div>
 
                 <div className="space-y-4">
@@ -320,14 +320,16 @@ export default async function Page({ params, searchParams }: pageProps) {
                     Enrol now
                   </button>
                   <p className="text-center leading-tight text-xs">By submitting the form, you agree to our Terms of service and Privacy Policy</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       </div>
       <MobileCheckout name={course.name} price={course.price} />
-    </>
+
+
+    </Suspense>
 
   )
 
