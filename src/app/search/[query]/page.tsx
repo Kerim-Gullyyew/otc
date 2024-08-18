@@ -1,6 +1,7 @@
 import Card from "@/app/components/ui/Card";
 import { getSearchCourses } from "@/app/components/utils/getSearchCourses";
-
+import { Suspense } from "react";
+import Loading from './loading';
 interface foundCourseProps {
   id: string;
   name: string;
@@ -22,28 +23,31 @@ export default async function Page({ params: { query } }: {
     )
   }
   return (
-    <div className="container">
-      <div className="relative w-full space-y-3 pt-3">
+    <Suspense fallback={<Loading />}>
+      <div className="container">
+        <div className="relative w-full space-y-3 pt-3">
 
-        <div className="flex">
-          <div className="border border-border rounded-lg px-4 py-1">
-            <h4>
-              {courses.length + " courses found"}
-            </h4>
+          <div className="flex">
+            <div className="border border-border rounded-lg px-4 py-1">
+              <h4>
+                {courses.length + " courses found"}
+              </h4>
+            </div>
+
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-5">
+
+          {
+            courses.map((course) => (
+              <Card key={course.id} course={course} />
+            ))
+          }
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-5">
-
-        {
-          courses.map((course) => (
-            <Card key={course.id} course={course} />
-          ))
-        }
-      </div>
-    </div>
+    </Suspense>
   )
 
 }

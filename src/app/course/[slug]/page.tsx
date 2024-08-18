@@ -1,15 +1,13 @@
 import MobileCheckout from '@/app/components/MobileCheckout';
 import { getCourse } from '@/app/components/utils/getCourse';
-import { AcademicCapIcon, ClockIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, ClockIcon } from "@heroicons/react/24/outline";
 import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Accordion from '@/app/components/ui/Accordion';
-import Link from 'next/link';
 import Card from '@/app/components/ui/Card';
 import { Metadata, ResolvingMetadata } from 'next';
-import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
-import StripeSection from '@/app/components/StripeSection';
 import Loading from './loading';
+import DesktopCheckout from '@/app/components/DesktopCheckout';
 
 interface pageProps {
   params: { slug: string }
@@ -203,7 +201,6 @@ export default async function Page({ params, searchParams }: pageProps) {
 
                 )
               }
-
               {
                 course.related_courses && course.related_courses.length > 0 && (
                   <div className='space-y-1'>
@@ -219,110 +216,9 @@ export default async function Page({ params, searchParams }: pageProps) {
                 )
               }
             </div>
-
-
           </div>
           <div className="hidden md:flex md:w-[30%] lg:w-[25%]">
-            <div className="w-full flex flex-col">
-              <div className="no-scrollbar mt-2">
-                {/* <div className=" border-b border-gray-300 pb-2">
-                  <p className="font-semibold text-[1.1em]">{course.name}</p>
-                </div> */}
-                {/* <div className="space-y-4"> */}
-                {/* <p className="font-medium text-[1.1em]">Enter Account Details</p> */}
-                {/* <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm leading-4"
-                    >
-                      First Name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm leading-4"
-                    >
-                      Last Name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm leading-4"
-                    >
-                      Email Address
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="block w-full rounded-md py-2 px-3 border border-gray-2 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm leading-4"
-                    >
-                      Phone Number
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="block w-full rounded-md py-2 border border-gray-200 px-3 bg-[#F6F5FF] sm:text-sm sm:leading-6 outline-none"
-                      />
-                    </div>
-                  </div> */}
-
-
-                {/* Here is Stripe section */}
-                <StripeSection />
-
-
-                {/* </div> */}
-
-                {/* <div className="w-full h-[0.5px] bg-gray-300">
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <h2 className="font-semibold">Total</h2>
-                    <h2 className="font-semibold">${course.price}/month</h2>
-                  </div>
-                  <div className="flex items-start gap-2 justify-between">
-                    <LockClosedIcon className="w-4 h-4 text-gray-400 shrink-0 min-w-4 min-h-4" />
-                    <h5 className=" leading-tight text-gray-400 text-xs">
-                      Guaranteed to be safe & secure, ensuring that all transactions are protected with the highest level of security
-                    </h5>
-                  </div>
-                  <button className="w-full bg-primary text-black px-4 py-2 outline-none rounded-md font-semibold">
-                    Enrol now
-                  </button>
-                  <p className="text-center leading-tight text-xs">By submitting the form, you agree to our Terms of service and Privacy Policy</p>
-                </div> */}
-              </div>
-            </div>
+            <DesktopCheckout />
           </div>
         </div>
       </div>

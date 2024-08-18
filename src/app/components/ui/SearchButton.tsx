@@ -67,7 +67,7 @@ const SearchButton: React.FC = () => {
     <>
       {
         foundCourses && foundCourses.length > 0 && showBackdrop && (
-          <div className='absolute h-screen inset-0 mt-[55px] w-full backdrop-blur animate-fade-in-2'></div>
+          <div className='absolute h-screen inset-0 mt-[50px] w-full backdrop-blur animate-fade-in-2'></div>
         )
       }
       <div className={`relative flex flex-1 ${foundCourses && foundCourses.length > 0 ? "rounded-t-lg" : "rounded-lg"} outline-none items-center py-[1px] shadow-inner-border bg-white`}>

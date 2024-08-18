@@ -18,9 +18,9 @@ export async function POST(req: Request) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'Course Name', // Replace with actual course name
+              name: 'Course Name', 
             },
-            unit_amount: 1400, // Amount in cents
+            unit_amount: 1400,
           },
           quantity: 1,
         },
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
       ],
       custom_text: {
         submit: {
-          message: 'We\'ll email you instructions on how to get started.',
+          message: 'Guaranteed to be safe & secure, ensuring that all transactions are protected with the highest level of security.',
         },
       },
       ui_mode: 'embedded',

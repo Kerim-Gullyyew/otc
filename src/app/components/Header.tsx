@@ -119,12 +119,14 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                 <>
                   <PopoverButton
                     className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-2 rounded-lg  outline-none`}
-                    onClick={({ target }) =>
-                      !open ? "" : (target as HTMLElement).click()
-                    }
-                    onMouseEnter={({ target }) => {
-                      if (!open && target instanceof HTMLElement) {
-                        target.click();
+                    onClick={(event) => {
+                      if (open && event.target instanceof HTMLElement) {
+                        event.target.click();
+                      }
+                    }}
+                    onMouseEnter={(event) => {
+                      if (!open && event.target instanceof HTMLElement) {
+                        event.target.click();
                       }
                     }}
                   >
@@ -285,12 +287,12 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                             </Link>
                           </li>
                           <li>
-                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/privacy'}>
+                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/privacy-policy'}>
                               Privacy
                             </Link>
                           </li>
                           <li>
-                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/terms'}>
+                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/terms-and-conditions'}>
                               Terms and Conditions
                             </Link>
                           </li>
