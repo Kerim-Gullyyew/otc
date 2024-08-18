@@ -223,7 +223,7 @@ export default async function Page({ params, searchParams }: pageProps) {
 
           </div>
           <div className="hidden md:flex md:w-[30%] lg:w-[25%]">
-            <div className=" flex flex-col">
+            <div className="w-full flex flex-col">
               <div className="no-scrollbar mt-2">
                 {/* <div className=" border-b border-gray-300 pb-2">
                   <p className="font-semibold text-[1.1em]">{course.name}</p>
