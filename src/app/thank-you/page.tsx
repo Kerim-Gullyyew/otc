@@ -13,7 +13,7 @@ const page: React.FC<pageProps> = ({ }) => {
         <CheckIcon className='w-14 h-14 text-emerald-600' />
       </div>
 
-      <h3 className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+      <h3 className='text-center'>{"Thank you for reaching out! We appreciate your message and will get back to you as soon as possible. Your feedback is valuable to us, and we're here to assist with any inquiries or concerns you may have."}</h3>
     </div>
   )
 }

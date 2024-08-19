@@ -276,11 +276,11 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <li>
 
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          <li>
+                          {/* <li>
                             <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/about'}>
                               About
                             </Link>
-                          </li>
+                          </li> */}
                           <li>
                             <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/contact'}>
                               Contact

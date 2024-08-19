@@ -85,18 +85,19 @@ const Footer: React.FC<FooterProps> = ({ }) => {
             </Link>
 
           </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sit dolor saepe voluptate officiis.</p>
+          <p>Empower your learning journey with our flexible online courses
+          tailored for K-12 students.</p>
         </div>
 
         <div className='grid col-span-12 gap-5 border-b pb-5 sm:border-none sm:pb-0 sm:col-span-4 md:col-span-1'>
-          <h4 className='text-gray-600'>Company</h4>
-          <ul className='pl-3 space-y-5 sm:pl-0'>
+          {/* <h4 className='text-gray-600'>Company</h4> */}
+          {/* <ul className='pl-3 space-y-5 sm:pl-0'>
             <li>
               <Link href={'/about'}>
                 <h4 className=''>About Us</h4>
               </Link>
             </li>
-          </ul>
+          </ul> */}
 
         </div>
 

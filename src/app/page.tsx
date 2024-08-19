@@ -9,6 +9,7 @@ import { getPopularCourses } from "./components/utils/getPopularCourses";
 import Link from "next/link";
 import { getPopularCategories } from "./components/utils/getPopularCategories";
 import Card from "./components/ui/Card";
+import ButtonHome from "./components/ButtonHome";
 interface popularCourse {
   id: string;
   slug: string;
@@ -26,6 +27,7 @@ interface popularCategory {
   courses: [];
 }
 export default async function Home() {
+
   const popularCoursesPromise: Promise<popularCourse[] | { error: string }> = getPopularCourses();
   const popularCategoriesPromise: Promise<popularCategory[] | { error: string }> = getPopularCategories();
   const [popularCourses, popularCategories] = await Promise.all([popularCoursesPromise, popularCategoriesPromise]);
@@ -45,9 +47,8 @@ export default async function Home() {
               Empower your learning journey with our flexible online courses
               tailored for K-12 students.
             </p>
-            <button className="bg-primary px-6 py-2 text-black font-semibold rounded-l-xl rounded-tr-xl">
-              Explore courses
-            </button>
+
+            <ButtonHome />
           </div>
 
         </div>
@@ -171,7 +172,7 @@ export default async function Home() {
 
       {
         (popularCourses && !('error' in popularCourses)) && (
-          <div className="mt-20 lg:mt-32">
+          <div id="#popular" className="mt-20 lg:mt-32">
             <div className="space-y-6">
               <div className="flex flex-wrap gap-6 justify-between items-center">
                 <h1 className="font-bold">Popular Courses</h1>
@@ -194,7 +195,7 @@ export default async function Home() {
 
       {
         (popularCategories && !('error' in popularCategories)) && (
-          <div className="mt-20 lg:mt-32">
+          <div id="popular-courses" className="mt-20 lg:mt-32">
             <div className="flex justify-center flex-col items-center gap-8">
               <div className="space-y-3">
 
@@ -202,8 +203,7 @@ export default async function Home() {
               </div>
               <div className="max-w-lg">
                 <p className="text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                  ad! Explicabo, ipsum mollitia dolorem beatae quas illo.
+                Choose the categories that best suit your interests and needs. Your selections will help us tailor content and recommendations specifically for you, ensuring a more personalized experience.
                 </p>
               </div>
 

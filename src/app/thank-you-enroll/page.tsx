@@ -13,7 +13,7 @@ const page: React.FC<pageProps> = ({ }) => {
         <div className=' bg-emerald-200 rounded-full flex items-center justify-center p-1'>
           <CheckIcon className='w-14 h-14 text-emerald-600' />
         </div>
-        <h3 className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <h3 className='text-center'>{"Thank you for enrolling! We're excited to have you on board. Your journey with us is just beginning, and we're committed to providing you with an enriching and rewarding experience. Stay tuned for more details, and welcome to the community!"}</h3>
         <div className='space-y-7'> 
           <h3 className='text-center'>We have these courses too</h3>
 
