@@ -105,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
             <Link href="/">
               <Image
                 className="w-10 sm:w-12 object-contain"
-                src={"/logo.svg"}
+                src={"/logo.png"}
                 alt="logo"
                 width={1000}
                 height={1000}
@@ -212,7 +212,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                         width={1000}
                         height={1000}
                         className="h-12 w-auto"
-                        src="/logo.svg"
+                        src="/logo.png"
                         alt="Your Company"
                       />
 

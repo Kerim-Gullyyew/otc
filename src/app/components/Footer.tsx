@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({ }) => {
             <Link className='' href="/">
               <Image
                 className="w-12 object-contain"
-                src={"/logo.svg"}
+                src={"/logo.png"}
                 alt="logo"
                 width={1000}
                 height={1000}
