@@ -35,7 +35,7 @@ export default async function Home() {
     <div className=" bg-white w-full py-10 lg:py-14 container">
       <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
 
-        <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
+        <div className="flex flex-col justify-center md:col-span-2 items-start  h-full">
 
           <div className="space-y-10 max-w-xl opacity-0 translate-x-[-50px] animate-fadeInLeft">
             <h1 className="font-bold text-6xl">
@@ -51,14 +51,12 @@ export default async function Home() {
           </div>
 
         </div>
-        <div className="md:col-span-2 opacity-0 translate-x-[50px] animate-fadeInRight">
-          <Image
-            src={"/home/studenthero.png"}
-            width={1000}
-            height={1000}
-            alt="student with book"
-            className=""
-          />
+        <div className="md:col-span-3 opacity-0 translate-x-[50px] animate-fadeInRight w-full">
+          <video className="rounded-xl" width="100%" height="100%" autoPlay loop muted preload="none">
+            <source src="/home/student-video.mp4" type="video/mp4" />
+
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
 

@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(req: Request) {
   try {
-    const { items } = await req.json();
+    const { name, price } = await req.json();
 
     // Create a Checkout Session with custom appearance
     const session = await stripe.checkout.sessions.create({
@@ -18,9 +18,9 @@ export async function POST(req: Request) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'Course Name', 
+              name: name, 
             },
-            unit_amount: 1400,
+            unit_amount: price * 100,
           },
           quantity: 1,
         },
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
         },
       },
       ui_mode: 'embedded',
-      return_url: `${req.headers.get('origin')}/return?session_id={CHECKOUT_SESSION_ID}`,
+      return_url: `${req.headers.get('origin')}/thank-you-enroll?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     return NextResponse.json({

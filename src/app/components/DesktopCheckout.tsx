@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import StripeSection from './StripeSection'
 
 interface DesktopCheckoutProps {
-
+  name: string;
+  price: number;
 }
 
-const DesktopCheckout: React.FC<DesktopCheckoutProps> = ({ }) => {
+const DesktopCheckout: React.FC<DesktopCheckoutProps> = ({ name, price }) => {
 
   const [width, setWidth] = useState<number>(0);
 
@@ -31,7 +32,7 @@ const DesktopCheckout: React.FC<DesktopCheckoutProps> = ({ }) => {
         width >= 768 && (
           <div className="w-full flex flex-col">
             <div className="no-scrollbar mt-2">
-              <StripeSection />
+              <StripeSection name={name} price={price} />
             </div>
           </div>
         )

@@ -83,7 +83,7 @@ const MobileCheckout: React.FC<MobileCheckoutProps> = ({ name, price }) => {
                       </div>
 
                       <div className=" w-full h-full pt-5">
-                        <StripeSection />
+                        <StripeSection name={name} price={price} />
 
                       </div>
 

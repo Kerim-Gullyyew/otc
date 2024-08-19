@@ -218,7 +218,7 @@ export default async function Page({ params, searchParams }: pageProps) {
             </div>
           </div>
           <div className="hidden md:flex md:w-[30%] lg:w-[25%]">
-            <DesktopCheckout />
+            <DesktopCheckout name={course.name} price={course.price} />
           </div>
         </div>
       </div>

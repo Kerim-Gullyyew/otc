@@ -2,10 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js';
-
+interface StripeSectionProps {
+  name: string;
+  price: number;
+}
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-const StripeSection: React.FC = () => {
+const StripeSection: React.FC<StripeSectionProps> = ({ name, price }) => {
   const [clientSecret, setClientSecret] = useState('');
   const [error, setError] = useState('');
 
@@ -13,7 +16,7 @@ const StripeSection: React.FC = () => {
     fetch("/api/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "course-id" }] }),
+      body: JSON.stringify({ name, price }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -27,7 +30,7 @@ const StripeSection: React.FC = () => {
         console.error('Error:', error);
         setError('An unexpected error occurred');
       });
-  }, []);
+  }, [name, price]);
 
   if (error) {
     return <div className="text-red-500">Error: {error}</div>;
