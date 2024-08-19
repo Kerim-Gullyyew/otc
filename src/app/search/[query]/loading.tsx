@@ -1,3 +1,4 @@
+import LoadingSpinner from '@/app/components/LoadingSpinner'
 import React from 'react'
 
 interface loadingProps {
@@ -6,9 +7,7 @@ interface loadingProps {
 
 const loading: React.FC<loadingProps> = ({ }) => {
   return (
-    <div>
-      Loading...
-    </div>
+    <LoadingSpinner />
   )
 }
 

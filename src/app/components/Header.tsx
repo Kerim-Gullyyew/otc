@@ -216,7 +216,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                         alt="Your Company"
                       />
 
-                      <h3 className="">Online Special Tutoring</h3>
+                      <h3 className="">Online Tutoring Courses</h3>
                     </div>
                     <div>
                       <button
@@ -299,12 +299,12 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                         </ul>
                       </li>
                       <div className="mt-auto flex gap-4 mx-auto">
-                        {navigation.map((item) => (
+                        {/* {navigation.map((item) => (
                           <a key={item.name} href={item.href} className="text-gray-600 hover:text-gray-800">
                             <span className="sr-only">{item.name}</span>
                             <item.icon className="h-6 w-6" aria-hidden="true" />
                           </a>
-                        ))}
+                        ))} */}
 
                       </div>
                     </ul>

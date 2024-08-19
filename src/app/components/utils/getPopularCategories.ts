@@ -18,7 +18,7 @@ export async function getPopularCategories() {
     if (!popularCourses || !popularCourses.data) {
       throw new Error('Invalid response structure');
     }
-
+    // popularCourses.sort((a: any, b: any) => a.sort - b.sort)
     return popularCourses.data;
   } catch (error: any) {
     return { error: error.message };
