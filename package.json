@@ -1,12 +1,12 @@
 {
-  "name": "enrichment",
+  "name": "otc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5000",
+    "dev": "next dev -p 4800",
     "build": "next build",
-    "start": "next start -p 5000",
-    "lint": "next lint -p 5000"
+    "start": "next start -p 4800",
+    "lint": "next lint -p 4800"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
