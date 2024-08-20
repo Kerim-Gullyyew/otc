@@ -2,8 +2,8 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '10.205.0.121', //ip address bolmaly
+        protocol: 'https',
+        hostname: 'api.onlinetutoringcourses', //ip address bolmaly
         port: '8055',
         pathname: '/assets/**',
       },
