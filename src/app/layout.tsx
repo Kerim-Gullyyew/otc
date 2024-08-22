@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { MainCategoryInterface } from "./data";
 import { getCategory } from "./components/utils/getCategory";
 import type { Viewport } from "next";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 
 const inter = Inter({
@@ -107,6 +108,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable}`}>
+    <GoogleTagManager gtmId="GTM-TM32QNJ9" />
+    <GoogleAnalytics gaId="G-EXHS00LPQS" />
       <body className="">
         <header className="flex flex-col items-center">
           {
