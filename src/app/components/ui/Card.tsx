@@ -23,8 +23,8 @@ const Card: React.FC<CardProps> = ({ course }) => {
     >
       <Image
         className="object-cover min-h-48 h-48 xs:h-56 group-hover:scale-105 transition-transform duration-500"
-        width={1000}
-        height={1000}
+        width={500}
+        height={500}
         src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${course.image}`}
         alt="download"
       />
