@@ -102,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
       >
         <div className=" relative container isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
           <div className="flex">
-            <Link href="/">
+            <Link href="/" className="outline-none">
               <Image
                 className="w-10 sm:w-12 object-contain"
                 src={"/logo.png"}

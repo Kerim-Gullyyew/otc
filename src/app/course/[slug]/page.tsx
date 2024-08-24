@@ -8,6 +8,7 @@ import Card from '@/app/components/ui/Card';
 import { Metadata, ResolvingMetadata } from 'next';
 import Loading from './loading';
 import DesktopCheckout from '@/app/components/DesktopCheckout';
+import ShareButton from '@/app/components/ShareButton';
 
 interface pageProps {
   params: { slug: string }
@@ -75,7 +76,6 @@ export async function generateMetadata(
 
 export default async function Page({ params, searchParams }: pageProps) {
   const course: CourseProps | { error: string } = await getCourse(params.slug)
-
   if ('error' in course) {
     return (
       <div>
@@ -83,6 +83,7 @@ export default async function Page({ params, searchParams }: pageProps) {
       </div>
     )
   }
+  const pathname = process.env.NEXT_PUBLIC_WEBSITE_URL + "course/" + course.slug
   return (
     <Suspense fallback={<Loading />}>
 
@@ -103,7 +104,10 @@ export default async function Page({ params, searchParams }: pageProps) {
               <div className="space-y-3">
                 <h1 className="font-bold">{course.name}</h1>
                 <div className="space-y-2">
-                  <h2 className="font-medium">Description</h2>
+                  <div className='flex items-start gap-5 justify-between'>
+                    <h2 className="font-medium">Description</h2>
+                    <ShareButton url={pathname} title={course.name} />
+                  </div>
                   <p>
                     {course.description}
                   </p>
@@ -142,15 +146,7 @@ export default async function Page({ params, searchParams }: pageProps) {
                       <p className="font-semibold text-gray-700">Individual</p>
                     </div>
                   </div>
-                  <div className="bg-background rounded-2xl px-5 py-2 space-y-1">
-                    <h3 className="font-semibold text-gray-700">Lessons</h3>
-                    <div className="flex items-center gap-3">
-                      <div>
-                        <AcademicCapIcon className="w-5 h-5 text-gray-700" />
-                      </div>
-                      <p className="font-semibold text-gray-700">144</p>
-                    </div>
-                  </div>
+                
                 </div>
               </div>
               {
