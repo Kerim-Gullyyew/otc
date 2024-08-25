@@ -203,7 +203,7 @@ export default async function Home() {
               </div>
               <div className="max-w-lg">
                 <p className="text-center">
-                Choose the categories that best suit your interests and needs. Your selections will help us tailor content and recommendations specifically for you, ensuring a more personalized experience.
+                  Choose the categories that best suit your interests and needs. Your selections will help us tailor content and recommendations specifically for you, ensuring a more personalized experience.
                 </p>
               </div>
 

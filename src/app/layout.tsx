@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   publisher: "Online Tutoring Courses",
   robots: "index, follow",
   alternates: { canonical: "https://onlinetutoringcourses.com/", },
-  icons: [{ rel: "icon", url: "./icon.ico" }, { rel: "apple-touch-icon", url: "./icon.ico" }],
+  icons: [{ rel: "icon", url: "./icon.ico" }, { rel: "apple-touch-icon", url: "./apple-icon.png" }],
   // icons: "./icon.ico",
   // manifest: "manifest",
   // openGraph: {
