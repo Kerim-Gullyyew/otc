@@ -37,8 +37,9 @@ export const metadata: Metadata = {
   creator: "Online Tutoring Courses",
   publisher: "Online Tutoring Courses",
   robots: "index, follow",
-  alternates: { canonical: "https://onlinetutoringcourses.com/" },
-  icons: "./icon.ico",
+  alternates: { canonical: "https://onlinetutoringcourses.com/", },
+  icons: [{ rel: "icon", url: "./icon.ico" }, { rel: "apple-touch-icon", url: "./icon.ico" }],
+  // icons: "./icon.ico",
   // manifest: "manifest",
   // openGraph: {
   //   determiner: 'auto',
@@ -108,8 +109,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable}`}>
-    <GoogleTagManager gtmId="GTM-TM32QNJ9" />
-    <GoogleAnalytics gaId="G-EXHS00LPQS" />
+      <GoogleTagManager gtmId="GTM-TM32QNJ9" />
+      <GoogleAnalytics gaId="G-EXHS00LPQS" />
       <body className="">
         <header className="flex flex-col items-center">
           {
