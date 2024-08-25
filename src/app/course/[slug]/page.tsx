@@ -9,6 +9,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import Loading from './loading';
 import DesktopCheckout from '@/app/components/DesktopCheckout';
 import ShareButton from '@/app/components/ShareButton';
+import Link from 'next/link';
 
 interface pageProps {
   params: { slug: string }
@@ -67,8 +68,9 @@ export async function generateMetadata(
   } else {
     return {
       title: course.name + " | Online Tutoring Course",
-      description: course.description !== null ? course.description : "Something description",
-      abstract: course.description !== null ? course.description : "Something description",
+      description: course.mini_description !== null ? course.mini_description : "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
+      abstract: course.mini_description !== null ? course.mini_description : "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
+      alternates: { canonical: "https://onlinetutoringcourses.com/course/" + course.slug },
     }
   }
 
@@ -146,7 +148,7 @@ export default async function Page({ params, searchParams }: pageProps) {
                       <p className="font-semibold text-gray-700">Individual</p>
                     </div>
                   </div>
-                
+
                 </div>
               </div>
               {
@@ -197,6 +199,15 @@ export default async function Page({ params, searchParams }: pageProps) {
 
                 )
               }
+              <div className='flex items-center justify-center'>
+                <Link
+                  className="bg-primary rounded-md px-6 py-2"
+                  href="/contact"
+                >
+                  <p className="font-semibold">Contact</p>
+                </Link>
+
+              </div>
               {
                 course.related_courses && course.related_courses.length > 0 && (
                   <div className='space-y-1'>
