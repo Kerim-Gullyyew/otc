@@ -1,4 +1,10 @@
 module.exports = {
+  experimental: {
+    typedRoutes: true,
+  },
+  compiler: {
+    styledComponents: true,
+  },
   images: {
     remotePatterns: [
       {

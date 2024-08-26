@@ -38,7 +38,7 @@ const SearchButton: React.FC = () => {
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      router.push("/search/" + query);
+      router.push(`/search/${query}`);
       setQuery('');
       setShowBackdrop(false);
     }
