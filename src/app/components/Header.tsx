@@ -104,6 +104,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
           <div className="flex">
             <Link href="/" className="outline-none">
               <Image
+              loading="lazy"
                 className="w-10 sm:w-12 object-contain"
                 src={"/logo.png"}
                 alt="logo"
@@ -209,6 +210,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                   <div className="flex gap-5 h-16 shrink-0 items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Image
+                      loading="lazy"
                         width={1000}
                         height={1000}
                         className="h-12 w-auto"
@@ -253,8 +255,8 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                                     <DisclosurePanel transition className="ml-2 origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in">
                                       {
                                         main_category.secondary_category.map((secondary_cat) => (
-                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id} href="/category/[slug]"
-                                            as={`/category/${secondary_cat.slug}`} className={`group pl-8 flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
+                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id}
+                                            href={`/category/${secondary_cat.slug}`} className={`group pl-8 flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
                                             <div className="flex items-center gap-x-3">
                                               <h4>{secondary_cat.name}</h4>
                                             </div>

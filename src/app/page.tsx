@@ -136,6 +136,7 @@ export default async function Home() {
           </div>
           <div className=" md:col-span-2">
             <Image
+              loading="lazy"
               src={"/home/why.jpg"}
               width={1000}
               height={1000}
@@ -210,7 +211,7 @@ export default async function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {
                   popularCategories.map((popular_category) => (
-                    <Link href="/category/[slug]" as={`/category/${popular_category.slug}`} key={popular_category.id} className="rounded-xl flex flex-col justify-between gap-6 bg-gray-50 px-4 py-3 shadow overflow-hidden">
+                    <Link href={`/category/${popular_category.slug}`} key={popular_category.id} className="rounded-xl flex flex-col justify-between gap-6 bg-gray-50 px-4 py-3 shadow overflow-hidden">
                       <div className="flex justify-between items-center w-full gap-14">
                         <div className="bg-background py-0.5 px-2.5 rounded-xl">
                           <p>{popular_category.courses.length} Courses</p>

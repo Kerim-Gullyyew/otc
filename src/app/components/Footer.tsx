@@ -76,6 +76,7 @@ const Footer: React.FC<FooterProps> = ({ }) => {
           <div className='flex'>
             <Link className='' href="/">
               <Image
+                loading="lazy"
                 className="w-12 object-contain"
                 src={"/logo.png"}
                 alt="logo"
@@ -86,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({ }) => {
 
           </div>
           <p>Empower your learning journey with our flexible online courses
-          tailored for K-12 students.</p>
+            tailored for K-12 students.</p>
         </div>
 
         <div className='grid col-span-12 gap-5 border-b pb-5 sm:border-none sm:pb-0 sm:col-span-4 md:col-span-1'>

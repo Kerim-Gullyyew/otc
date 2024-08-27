@@ -95,6 +95,7 @@ export default async function Page({ params, searchParams }: pageProps) {
 
             <div className="mt-2">
               <Image
+                loading="lazy"
                 className="max-h-[400px] object-cover w-full rounded-t-2xl"
                 width={1000}
                 height={1000}
@@ -163,7 +164,13 @@ export default async function Page({ params, searchParams }: pageProps) {
                           <div key={lang.languages_id.id} className="flex items-center gap-2 bg-background rounded-xl px-6 py-3">
                             {
                               lang.languages_id.icon && (
-                                <Image width={1000} height={1000} className='w-5 min-w-5 object-contain shrink-0' src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${lang.languages_id.icon}`} alt={`Flag of ` + lang.languages_id.name} />
+                                <Image 
+                                loading="lazy" 
+                                width={1000} 
+                                height={1000} 
+                                className='w-5 min-w-5 object-contain shrink-0' 
+                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${lang.languages_id.icon}`} 
+                                alt={`Flag of ` + lang.languages_id.name} />
                               )
                             }
                             <h3 className="text-gray-700 font-[500]">{lang.languages_id.name}</h3>

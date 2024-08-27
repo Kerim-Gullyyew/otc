@@ -16,15 +16,18 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ course }) => {
   return (
-    <Link 
-      key={course.id} 
-      href={`/course/${course.slug}`} 
+    <Link
+      key={course.id}
+      href={`/course/${course.slug}`}
       className="flex flex-col h-full group overflow-hidden rounded-xl shadow hover:shadow-md transition-shadow duration-500"
     >
       <Image
         className="object-cover min-h-48 h-48 xs:h-56 group-hover:scale-105 transition-transform duration-500"
-        width={500}
-        height={500}
+        // placeholder='blur'
+        loading="lazy"
+        quality={40}
+        width={300}
+        height={200}
         src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${course.image}`}
         alt="download"
       />
