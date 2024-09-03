@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // metadataBase: new URL("https://onlinetutoringcourses.com/"),
+  metadataBase: new URL("https://onlinetutoringcourses.com/"),
 
   title: "Online Tutoring Courses | Expert Tutors for All Subjects & Grades",
   description:
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   alternates: { canonical: "https://onlinetutoringcourses.com/", },
   icons: "./icon.ico",
-  // manifest: "manifest",
+  manifest: "manifest",
   openGraph: {
     title: "Top Online Tutoring Courses",
     description: "Boost your grades with personalized online tutoring. Expert tutors for all subjects & grades.",
