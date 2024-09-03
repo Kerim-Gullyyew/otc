@@ -40,30 +40,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://onlinetutoringcourses.com/", },
   icons: "./icon.ico",
   // manifest: "manifest",
-  // openGraph: {
-  //   determiner: 'auto',
-  //   title: "My Website",
-  //   description: "My Website Description",
-  //   emails: "",
-  //   phoneNumbers: "",
-  //   faxNumbers: "",
-  //   siteName: "My Website",
-  //   locale: "",
-  //   alternateLocale: ["", "", ""],
-  //   images: [{
-  //     url: "https://example.com/og.png",
-  //   }],
-  //   audio: [{
-  //     url: "https://example.com/og.png",
-  //   }],
-  //   videos: [{
-  //     url: "https://example.com/og.png",
-  //   }],
-  //   url: "https://example.com",
-  //   countryName: '',
-  //   ttl: 1,
-  //   type: "website",
-  // },
+  openGraph: {
+    title: "Top Online Tutoring Courses",
+    description: "Boost your grades with personalized online tutoring. Expert tutors for all subjects & grades.",
+    url: "https://onlinetutoringcourses.com/",
+    siteName: "Online Tutoring Courses",
+    images: [{
+      url: "https://onlinetutoringcourses.com/logo.png",
+      width: 1200,
+      height: 630,
+      alt: "Online Tutoring Courses",
+    }],
+    type: "website",
+  },
   twitter: {
     card: "summary_large_image",
     site: "@onlinetutoringcourses",
