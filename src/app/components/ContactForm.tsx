@@ -66,7 +66,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
         message,
       }, { abortEarly: false });
       try {
-        const response = await axios.post('https://api.main.iwsonlineschool.co.uk/iws-contact2', {
+        const response = await axios.post('https://api.main.iwsonlineschool.co.uk/bitewi-contact', {
           firstName,
           lastName,
           email,
