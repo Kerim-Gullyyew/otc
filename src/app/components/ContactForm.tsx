@@ -18,7 +18,7 @@ interface ValidationErrors {
   lastName?: string;
   email?: string;
   phoneNumber?: string;
-  country?: string;
+  // country?: string;
   message?: string;
 }
 
@@ -50,7 +50,7 @@ const ContactForm: React.FC<TabSectionProps> = ({ }) => {
     lastName: Yup.string().required('Last name is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
     phoneNumber: Yup.string().required('Phone number is required'),
-    country: Yup.string().required('Country is required'),
+    // country: Yup.string().required('Country is required'),
     message: Yup.string().required('Your message is required'),
   });
 
