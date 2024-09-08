@@ -97,8 +97,8 @@ export default async function Page({ params, searchParams }: pageProps) {
               <Image
                 loading="lazy"
                 className="max-h-[400px] object-cover w-full rounded-t-2xl"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt={course.name}
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}assets/${course.image}`}
               />
