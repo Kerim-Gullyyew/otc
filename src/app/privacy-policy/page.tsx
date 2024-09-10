@@ -14,23 +14,23 @@ const page: React.FC<pageProps> = ({ }) => {
           <h3 className='font-semibold'>Inspired Online Schools Privacy Notice</h3>
           <div>
             <p>
-              {"Inspired Online Schools is committed to protecting you, and your family’s personal information. This Privacy Notice, together with any other documents referred to within, sets out the basis on which we will process any personal data about current, past and prospective pupils (referred to as “pupils” in this Privacy Notice), and their parents, carers or guardians (referred to as “parents” in this Privacy Notice)."}
+              {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
             </p>
             <p>
-              {"Inspired Online Schools is committed to protecting you, and your family’s personal information. This Privacy Notice, together with any other documents referred to within, sets out the basis on which we will process any personal data about current, past and prospective pupils (referred to as “pupils” in this Privacy Notice), and their parents, carers or guardians (referred to as “parents” in this Privacy Notice)."}
+              {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
             </p>
             <p>
-              {"Inspired Online Schools is committed to protecting you, and your family’s personal information. This Privacy Notice, together with any other documents referred to within, sets out the basis on which we will process any personal data about current, past and prospective pupils (referred to as “pupils” in this Privacy Notice), and their parents, carers or guardians (referred to as “parents” in this Privacy Notice)."}
+              {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
             </p>
             <p>
-              {"Inspired Online Schools is committed to protecting you, and your family’s personal information. This Privacy Notice, together with any other documents referred to within, sets out the basis on which we will process any personal data about current, past and prospective pupils (referred to as “pupils” in this Privacy Notice), and their parents, carers or guardians (referred to as “parents” in this Privacy Notice)."}
+              {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
             </p>
             <p>
-              {"Inspired Online Schools is committed to protecting you, and your family’s personal information. This Privacy Notice, together with any other documents referred to within, sets out the basis on which we will process any personal data about current, past and prospective pupils (referred to as “pupils” in this Privacy Notice), and their parents, carers or guardians (referred to as “parents” in this Privacy Notice)."}
+              {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
             </p>
 
