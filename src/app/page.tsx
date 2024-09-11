@@ -34,8 +34,10 @@ export default async function Home() {
 
   return (
 
-    <div className=" bg-white w-full py-10 lg:py-14 container">
-      <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
+    <div className=" bg-white w-full pb-10 lg:pb-14 ">
+     
+     <div className="bg-[#EAC300] px-3">
+      <div className="gap-10 py-10 lg:py-14 sm:gap-14 container grid grid-cols-1 md:grid-cols-5 justify-between items-center">
 
         <div className="flex flex-col justify-center md:col-span-2 items-start  h-full">
 
@@ -61,7 +63,10 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="mt-20 lg:mt-32 ">
+     </div>
+
+
+      <div className="mt-20 lg:mt-32 container">
         <div className="space-y-14">
 
           <div className="flex-1">
@@ -119,7 +124,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="mt-20 lg:mt-32 ">
+      <div className="mt-20 lg:mt-32 container">
 
         <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
           <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
@@ -173,7 +178,7 @@ export default async function Home() {
 
       {
         (popularCourses && !('error' in popularCourses)) && (
-          <div id="#popular" className="mt-20 lg:mt-32">
+          <div id="#popular" className="mt-20 lg:mt-32 container">
             <div className="space-y-6">
               <div className="flex flex-wrap gap-6 justify-between items-center">
                 <h1 className="font-bold">Popular Courses</h1>
@@ -196,7 +201,7 @@ export default async function Home() {
 
       {
         (popularCategories && !('error' in popularCategories)) && (
-          <div id="popular-courses" className="mt-20 lg:mt-32">
+          <div id="popular-courses" className="mt-20 lg:mt-32 container">
             <div className="flex justify-center flex-col items-center gap-8">
               <div className="space-y-3">
 
@@ -232,7 +237,7 @@ export default async function Home() {
         )
       }
 
-      <div className="mt-20 lg:mt-32">
+      <div className="mt-20 lg:mt-32 container">
         <div className="flex justify-center flex-col items-center gap-8">
           <div className="space-y-3">
             <h1 className="font-bold text-center">Read Our Reviews</h1>
