@@ -35,7 +35,7 @@ export default async function Home() {
 
   return (
     <div className=" bg-white w-full pb-10 lg:pb-14 ">
-      <div className="bg-[#EAC300] w-full px-3 relative">
+      <div className="bg-[#EAC300] w-full px-3 relative py-20">
         <div className="gap-10 relative py-10 lg:py-14 sm:gap-14 container grid grid-cols-1 md:grid-cols-5 justify-between items-center">
           <div className="flex flex-col justify-center md:col-span-2 items-start  h-full">
             <div className="space-y-10 relative max-w-xl opacity-0 translate-x-[-50px] animate-fadeInLeft">

@@ -10,6 +10,9 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { schoolSchema } from "./lib/schema/SchoolSchema";
 import { faqSchema } from "./lib/schema/FaqSchema";
+import { organizationSchema } from "./lib/schema/OrganizationSchema";
+import { reviewSchema } from "./lib/schema/ReviewSchema";
+import { websiteSchema } from "./lib/schema/WebsiteSchema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -115,17 +118,32 @@ export default async function RootLayout({
           type="image/png"
           sizes="32x32"
         />
-
         <Script
           id="school-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schoolSchema) }}
         />
-
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Script
           id="faq-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <Script
+          id="review-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+        />
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
       </head>
       <GoogleTagManager gtmId="GTM-TM32QNJ9" />
