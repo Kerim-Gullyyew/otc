@@ -7,6 +7,9 @@ import { MainCategoryInterface } from "./data";
 import { getCategory } from "./components/utils/getCategory";
 import type { Viewport } from "next";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
+import { schoolSchema } from "./lib/schema/SchoolSchema";
+import { faqSchema } from "./lib/schema/FaqSchema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -111,6 +114,18 @@ export default async function RootLayout({
           href="/apple-icon.png"
           type="image/png"
           sizes="32x32"
+        />
+
+        <Script
+          id="school-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schoolSchema) }}
+        />
+
+        <Script
+          id="faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
       <GoogleTagManager gtmId="GTM-TM32QNJ9" />
