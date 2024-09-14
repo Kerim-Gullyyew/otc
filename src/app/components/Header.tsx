@@ -19,13 +19,11 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  MainCategoryInterface,
-} from "../data";
+import { MainCategoryInterface } from "../data";
 import Link from "next/link";
 import SearchButton from "./ui/SearchButton";
 import HeaderCategory from "./ui/HeaderCategory";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 interface HeaderProps {
   main_categories: MainCategoryInterface[];
 }
@@ -33,18 +31,19 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ main_categories }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
   return (
     <>
       <nav
-        className={`${isHomePage ? "bg-yellow-50 " : " bg-[#EAC300]"}  mx-auto z-50 fixed w-full py-2`}
+        className={`${
+          pathname !== "/" ? "bg-yellow-50 " : " bg-[#EAC300]"
+        } z-50 w-full fixed py-2`}
         aria-label="Global"
       >
         <div className=" relative container isolate flex gap-5 sm:gap-10 md:gap-20 lg:gap-32 xl:gap-56 items-center justify-between">
           <div className="flex">
             <Link href="/" className="outline-none">
               <Image
-              loading="lazy"
+                loading="lazy"
                 className="w-10 sm:w-12 object-contain"
                 src={"/logo.png"}
                 alt="logo"
@@ -59,7 +58,9 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
               {({ open, close }) => (
                 <>
                   <PopoverButton
-                    className={`bg-yellow-200 ${open && "bg-primary"} transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-2 rounded-lg  outline-none`}
+                    className={`bg-yellow-200 ${
+                      open && "bg-primary"
+                    } transition-all hover:bg-primary duration-100 px-4 py-2 flex items-center gap-2 rounded-lg  outline-none`}
                     onClick={(event) => {
                       if (open && event.target instanceof HTMLElement) {
                         event.target.click();
@@ -72,9 +73,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     }}
                   >
                     <Bars3Icon className="w-5 h-5" />
-                    <p className="font-medium">
-                      Courses
-                    </p>
+                    <p className="font-medium">Courses</p>
                   </PopoverButton>
                   <PopoverBackdrop
                     transition
@@ -86,13 +85,15 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                     anchor="bottom"
                     className="w-full no-scrollbar bg-white z-50 py-5 px-10 shadow-md max-w-5xl mt-2 origin-top transition duration-300 ease-out data-[closed]:opacity-0"
                   >
-                    <HeaderCategory close={close} main_categories={main_categories} />
+                    <HeaderCategory
+                      close={close}
+                      main_categories={main_categories}
+                    />
                   </PopoverPanel>
                 </>
               )}
             </Popover>
             <SearchButton />
-
           </div>
 
           <div className="flex lg:hidden">
@@ -107,10 +108,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
           </div>
 
           <div className="hidden lg:flex lg:justify-end">
-            <Link
-              className="bg-primary rounded-md px-6 py-2"
-              href="/contact"
-            >
+            <Link className="bg-primary rounded-md px-6 py-2" href="/contact">
               <p className="font-semibold">Contact</p>
             </Link>
           </div>
@@ -150,7 +148,7 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                   <div className="flex gap-5 h-16 shrink-0 items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Image
-                      loading="lazy"
+                        loading="lazy"
                         width={1000}
                         height={1000}
                         className="h-12 w-auto"
@@ -179,45 +177,55 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                       <li>
                         <ul role="list" className="-mx-2 space-y-1 border-b">
                           <li className="px-2">
-                            <h4 className="font-semibold text-icon">Categories</h4>
+                            <h4 className="font-semibold text-icon">
+                              Categories
+                            </h4>
                           </li>
-                          {
-                            main_categories.map((main_category) => (
-                              <Disclosure as="li" key={main_category.id}>
-                                {({ open }) => (
-                                  <>
-                                    <DisclosureButton className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
-                                      <div className="flex items-center gap-x-3">
-                                        <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-gray-100 flex items-center justify-center rounded-full p-1 shrink-0" />
-                                        <h4>{main_category.name}</h4>
-                                      </div>
-                                    </DisclosureButton>
-                                    <DisclosurePanel transition className="ml-2 origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in">
-                                      {
-                                        main_category.secondary_category.map((secondary_cat) => (
-                                          <Link onClick={() => setMobileMenuOpen(false)} key={secondary_cat.id}
-                                            href={`/category/${secondary_cat.slug}`} className={`group pl-8 flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${open ? 'text-black' : 'text-black'}`}>
-                                            <div className="flex items-center gap-x-3">
-                                              <h4>{secondary_cat.name}</h4>
-                                            </div>
-                                            <ChevronRightIcon className="w-5 h-5 bg-gray-100 flex items-center justify-center rounded-full p-1 shrink-0" />
-                                          </Link>
-
-                                        ))
-                                      }
-                                    </DisclosurePanel>
-
-                                  </>
-                                )}
-                              </Disclosure>
-
-                            ))
-                          }
-
+                          {main_categories.map((main_category) => (
+                            <Disclosure as="li" key={main_category.id}>
+                              {({ open }) => (
+                                <>
+                                  <DisclosureButton
+                                    className={`group flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${
+                                      open ? "text-black" : "text-black"
+                                    }`}
+                                  >
+                                    <div className="flex items-center gap-x-3">
+                                      <ChevronRightIcon className="w-5 h-5 group-data-[open]:rotate-90 bg-gray-100 flex items-center justify-center rounded-full p-1 shrink-0" />
+                                      <h4>{main_category.name}</h4>
+                                    </div>
+                                  </DisclosureButton>
+                                  <DisclosurePanel
+                                    transition
+                                    className="ml-2 origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 data-[closed]:ease-in"
+                                  >
+                                    {main_category.secondary_category.map(
+                                      (secondary_cat) => (
+                                        <Link
+                                          onClick={() =>
+                                            setMobileMenuOpen(false)
+                                          }
+                                          key={secondary_cat.id}
+                                          href={`/category/${secondary_cat.slug}`}
+                                          className={`group pl-8 flex items-center justify-between rounded-md p-2 text-sm leading-6 font-semibold w-full ${
+                                            open ? "text-black" : "text-black"
+                                          }`}
+                                        >
+                                          <div className="flex items-center gap-x-3">
+                                            <h4>{secondary_cat.name}</h4>
+                                          </div>
+                                          <ChevronRightIcon className="w-5 h-5 bg-gray-100 flex items-center justify-center rounded-full p-1 shrink-0" />
+                                        </Link>
+                                      )
+                                    )}
+                                  </DisclosurePanel>
+                                </>
+                              )}
+                            </Disclosure>
+                          ))}
                         </ul>
                       </li>
                       <li>
-
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
                           {/* <li>
                             <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/about'}>
@@ -225,17 +233,29 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                             </Link>
                           </li> */}
                           <li>
-                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/contact'}>
+                            <Link
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                              href={"/contact"}
+                            >
                               Contact
                             </Link>
                           </li>
                           <li>
-                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/privacy-policy'}>
+                            <Link
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                              href={"/privacy-policy"}
+                            >
                               Privacy
                             </Link>
                           </li>
                           <li>
-                            <Link onClick={() => setMobileMenuOpen(false)} className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold" href={'/terms-and-conditions'}>
+                            <Link
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="text-black hover:text-textPrimary hover:bg-background group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                              href={"/terms-and-conditions"}
+                            >
                               Terms and Conditions
                             </Link>
                           </li>
@@ -248,7 +268,6 @@ const Header: React.FC<HeaderProps> = ({ main_categories }) => {
                             <item.icon className="h-6 w-6" aria-hidden="true" />
                           </a>
                         ))} */}
-
                       </div>
                     </ul>
                   </nav>

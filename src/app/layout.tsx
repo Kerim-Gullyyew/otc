@@ -8,7 +8,6 @@ import { getCategory } from "./components/utils/getCategory";
 import type { Viewport } from "next";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -29,7 +28,12 @@ export const metadata: Metadata = {
   description:
     "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
   applicationName: "",
-  authors: [{ name: "Online Tutoring Courses", url: "https://onlinetutoringcourses.com/" }],
+  authors: [
+    {
+      name: "Online Tutoring Courses",
+      url: "https://onlinetutoringcourses.com/",
+    },
+  ],
   generator: "Next.js",
   keywords:
     "online tutoring, online courses, online tutors, personalized tutoring, online learning, academic tutoring, virtual tutoring, subject-specific tutoring, tutoring for all grades, one-on-one tutoring, expert tutors, tutoring services online, e-learning courses, homework help online, math tutoring, science tutoring, english tutoring, test prep tutoring, affordable online tutoring, flexible online tutoring, interactive online tutoring, online education, customized learning plans, tutor matching service, online study help, 24/7 tutoring support, online classroom, digital tutoring platform, tutor-led courses, online academic coaching, sat prep tutoring, act prep tutoring, online tutoring for k-12, college-level tutoring, advanced placement tutoring, tutoring for standardized tests, online tutoring sessions, remote learning, virtual classroom assistance, online academic enrichment, online tutoring for homeschooling, stem tutoring online, language tutoring online, online tutoring for special needs, online tutoring for adults, international online tutoring, global online tutors, worldwide tutoring services, online tutoring for international students, cross-border tutoring, international education support, multilingual tutoring online, online tutoring for expats, global e-learning platform, online tutoring in multiple languages, international academic support, worldwide online education, international curriculum tutoring, online tutoring across time zones, global virtual classrooms, tutoring for international schools, online learning for global students, online tutoring in different languages, global academic coaching, international test prep tutoring, online tutoring for ib students, international student tutoring services, cross-cultural online tutoring, worldwide academic enrichment",
@@ -37,27 +41,31 @@ export const metadata: Metadata = {
   creator: "Online Tutoring Courses",
   publisher: "Online Tutoring Courses",
   robots: "index, follow",
-  alternates: { canonical: "https://onlinetutoringcourses.com/", },
+  alternates: { canonical: "https://onlinetutoringcourses.com/" },
   icons: "./icon.ico",
   manifest: "manifest",
   openGraph: {
     title: "Top Online Tutoring Courses",
-    description: "Boost your grades with personalized online tutoring. Expert tutors for all subjects & grades.",
+    description:
+      "Boost your grades with personalized online tutoring. Expert tutors for all subjects & grades.",
     url: "https://onlinetutoringcourses.com/",
     siteName: "Online Tutoring Courses",
-    images: [{
-      url: "https://onlinetutoringcourses.com/logo.png",
-      width: 1200,
-      height: 630,
-      alt: "Online Tutoring Courses",
-    }],
+    images: [
+      {
+        url: "https://onlinetutoringcourses.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Online Tutoring Courses",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     site: "@onlinetutoringcourses",
     creator: "@onlinetutoringcourses",
-    images: "https://pbs.twimg.com/profile_banners/1483361690519486469/1711116188/600x200",
+    images:
+      "https://pbs.twimg.com/profile_banners/1483361690519486469/1711116188/600x200",
   },
   verification: {
     google: "08jm9bLhghGJ1wdA_Xoq7Zec8ajJmsPFsCOfwkAsHBQ",
@@ -92,8 +100,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  const main_categories: MainCategoryInterface[] | { error: string } = await getCategory();
+  const main_categories: MainCategoryInterface[] | { error: string } =
+    await getCategory();
 
   return (
     <html lang="en" className={`${inter.variable}`}>
@@ -109,13 +117,11 @@ export default async function RootLayout({
       <GoogleAnalytics gaId="G-EXHS00LPQS" />
       <body className="">
         <header className="flex flex-col items-center">
-          {
-            (!('error' in main_categories)) && (
-              <Header main_categories={main_categories} />
-            )
-          }
+          {!("error" in main_categories) && (
+            <Header main_categories={main_categories} />
+          )}
         </header>
-        <main className="flex flex-col pt-[65px] w-full min-h-screen">
+        <main className="flex flex-col pt-[55px] w-full min-h-screen">
           {children}
         </main>
 
@@ -125,8 +131,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-
 }
-
-
-
