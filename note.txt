@@ -1,1 +1,17 @@
 enrichment -> otc
+
+
+For an online tutoring courses website, incorporating relevant schemas can significantly improve your search engine visibility and provide users with more informative search results. Here are some key schemas I recommend adding:
+
+Course Schema: This is essential for describing your individual courses.*
+Organization Schema: To represent your educational institution or tutoring company.*
+Person Schema: For instructors, tutors, or notable staff members.
+Review Schema: To showcase course or instructor reviews.  *
+FAQPage Schema: For frequently asked questions about your courses or services.*
+WebSite Schema: To provide overall information about your website. *
+BreadcrumbList Schema: To show the hierarchical structure of your site.
+VideoObject Schema: If you have video content related to courses.
+Event Schema: For any live online classes, webinars, or enrollment periods.
+Article Schema: For blog posts or informational content on your site.
+
+I can provide more details on implementing any of these schemas if you'd like. Would you like me to elaborate on how to structure one of these schemas, perhaps starting with the Course schema?
