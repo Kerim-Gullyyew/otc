@@ -13,6 +13,9 @@ import { faqSchema } from "./lib/schema/FaqSchema";
 import { organizationSchema } from "./lib/schema/OrganizationSchema";
 import { reviewSchema } from "./lib/schema/ReviewSchema";
 import { websiteSchema } from "./lib/schema/WebsiteSchema";
+import { courseSchema } from "./lib/schema/CourseSchema";
+import { personSchema } from "./lib/schema/PersonSchema";
+import { breadcrumbListSchema } from "./lib/schema/BreadcrumbListSchema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,6 +125,23 @@ export default async function RootLayout({
           id="school-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schoolSchema) }}
+        />
+        <Script
+          id="course-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+        />
+        <Script
+          id="person-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <Script
+          id="breadcrumbList-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbListSchema),
+          }}
         />
         <Script
           id="website-schema"

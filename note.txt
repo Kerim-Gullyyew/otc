@@ -5,11 +5,11 @@ For an online tutoring courses website, incorporating relevant schemas can signi
 
 Course Schema: This is essential for describing your individual courses.*
 Organization Schema: To represent your educational institution or tutoring company.*
-Person Schema: For instructors, tutors, or notable staff members.
+Person Schema: For instructors, tutors, or notable staff members. *
 Review Schema: To showcase course or instructor reviews.  *
 FAQPage Schema: For frequently asked questions about your courses or services.*
 WebSite Schema: To provide overall information about your website. *
-BreadcrumbList Schema: To show the hierarchical structure of your site.
+BreadcrumbList Schema: To show the hierarchical structure of your site. * 
 VideoObject Schema: If you have video content related to courses.
 Event Schema: For any live online classes, webinars, or enrollment periods.
 Article Schema: For blog posts or informational content on your site.
