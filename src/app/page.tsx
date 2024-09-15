@@ -1,11 +1,20 @@
 import Image from "next/image";
-import { ArrowUpRightIcon, EyeIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowUpRightIcon,
+  ChevronDownIcon,
+  EyeIcon,
+} from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { getPopularCourses } from "./components/utils/getPopularCourses";
 import Link from "next/link";
 import { getPopularCategories } from "./components/utils/getPopularCategories";
 import Card from "./components/ui/Card";
 import ButtonHome from "./components/ButtonHome";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 interface popularCourse {
   id: string;
   slug: string;
@@ -66,11 +75,10 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
       <div className="mt-20 lg:mt-32 container">
         <div className="space-y-14">
           <div className="flex-1">
-            <h1 className="font-bold">Comprehensive Curriculum</h1>
+            <h2 className="font-bold text-[2em]">Comprehensive Curriculum</h2>
           </div>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -121,12 +129,11 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
       <div className="mt-20 lg:mt-32 container">
-        <div className="gap-10 sm:gap-14 grid grid-cols-1 md:grid-cols-5 justify-between items-center">
-          <div className="flex flex-col justify-center md:col-span-3 items-start  h-full">
+        <div className="gap-20 sm:gap-14 flex flex-col md:flex-row md:justify-center md:items-center">
+          <div className="md:w-3/5">
             <div className="space-y-10 max-w-xl">
-              <h1 className="font-bold ">Why Choose Us</h1>
+              <h2 className="font-bold text-[2em]">Why Choose Us</h2>
               <p className="text-xl">
                 {
                   "Our courses cover all subjects from Kindergarten to 12th grade, providing a thorough understanding of core concepts across all grade levels. Whether it's math, science, language arts, or social studies, our curriculum is designed to meet educational standards and cater to the diverse learning needs of every student."
@@ -134,47 +141,66 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <div className=" md:col-span-2">
-            <Image
-              loading="lazy"
-              src={"/home/why.jpg"}
-              width={1000}
-              height={1000}
-              alt="student with book"
-              className=""
-            />
-          </div>
+          <Image
+            loading="lazy"
+            src={"/home/why.jpg"}
+            width={500}
+            height={500}
+            alt="student with book"
+            className=" object-contain w-full md:w-2/5"
+          />
         </div>
-        {/* <div className="space-y-14">
-            <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
-              <div className="flex-1">
-                <h1 className="font-bold">Why Choose Our Services</h1>
-              </div>
-              <div className="flex-1 max-w-lg">
-                <p>
-                  {
-                    "Our courses cover all subjects from Kindergarten to 12th grade, providing a thorough understanding of core concepts across all grade levels. Whether it's math, science, language arts, or social studies, our curriculum is designed to meet educational standards and cater to the diverse learning needs of every student."
-                  }
-                </p>
-              </div>
+      </div>
+      <div className="mt-20 lg:mt-32 container">
+        <div className="gap-20 sm:gap-14 flex flex-col md:flex-row-reverse md:justify-between md:items-center">
+          <div className="">
+            <div className="space-y-10 max-w-xl">
+              <h2 className="font-bold text-[2em]">Why Choose Us</h2>
+              <p className="text-xl">
+                {
+                  "Our courses cover all subjects from Kindergarten to 12th grade, providing a thorough understanding of core concepts across all grade levels. Whether it's math, science, language arts, or social studies, our curriculum is designed to meet educational standards and cater to the diverse learning needs of every student."
+                }
+              </p>
             </div>
-            <div className="w-full">
-              <Image
-                width={1000}
-                height={1000}
-                className="w-full h-96 object-cover"
-                alt="book"
-                src={"/home/book.webp"}
-              />
+          </div>
+          <Image
+            loading="lazy"
+            src={"/home/why.jpg"}
+            width={500}
+            height={500}
+            alt="student with book"
+            className=" object-contain w-full md:w-2/5"
+          />
+        </div>
+      </div>
+      <div className="mt-20 lg:mt-32 container">
+        <div className="gap-20 sm:gap-14 flex flex-col md:flex-row md:items-center">
+          <div className="md:w-3/5">
+            <div className="space-y-10 max-w-xl">
+              <h2 className="font-bold text-[2em]">Why Choose Us</h2>
+              <p className="text-xl">
+                {
+                  "Our courses cover all subjects from Kindergarten to 12th grade, providing a thorough understanding of core concepts across all grade levels. Whether it's math, science, language arts, or social studies, our curriculum is designed to meet educational standards and cater to the diverse learning needs of every student."
+                }
+              </p>
             </div>
-          </div> */}
+          </div>
+          <Image
+            loading="lazy"
+            src={"/home/why.jpg"}
+            width={500}
+            height={500}
+            alt="student with book"
+            className=" object-contain w-full md:w-2/5"
+          />
+        </div>
       </div>
 
       {popularCourses && !("error" in popularCourses) && (
         <div id="#popular" className="mt-20 lg:mt-32 container">
           <div className="space-y-6">
             <div className="flex flex-wrap gap-6 justify-between items-center">
-              <h1 className="font-bold">Popular Courses</h1>
+              <h2 className="font-bold text-[2em]">Popular Courses</h2>
             </div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -185,12 +211,13 @@ export default async function Home() {
           </div>
         </div>
       )}
-
       {popularCategories && !("error" in popularCategories) && (
         <div id="popular-courses" className="mt-20 lg:mt-32 container">
           <div className="flex justify-center flex-col items-center gap-8">
             <div className="space-y-3">
-              <h1 className="font-bold text-center">Select your Categories</h1>
+              <h2 className="font-bold text-center text-[2em]">
+                Select your Categories
+              </h2>
             </div>
             <div className="max-w-lg">
               <p className="text-center">
@@ -224,11 +251,12 @@ export default async function Home() {
           </div>
         </div>
       )}
-
       <div className="mt-20 lg:mt-32 container">
         <div className="flex justify-center flex-col items-center gap-8">
           <div className="space-y-3">
-            <h1 className="font-bold text-center">Read Our Reviews</h1>
+            <h2 className="font-bold text-[2em] text-center">
+              Read Our Reviews
+            </h2>
           </div>
           <div className="max-w-lg">
             <p className="text-center">
@@ -347,6 +375,96 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="mt-20 lg:mt-32 container max-w-4xl">
+        <h2 className="text-center text-5xl text-pretty font-[600]">
+          Frequently <span className="text-5xl text-blue-600">Aksed</span>{" "}
+          Questions
+        </h2>
+        <div className="mt-20">
+          <div className="h-[1px] bg-border w-full my-7" />
+          <Disclosure as="div" className="w-full">
+            <DisclosureButton className="w-full flex items-center justify-between">
+              <h3 className="text-2xl font-semibold">
+                Is team pricing available?
+              </h3>
+
+              <ChevronDownIcon className="w-5 h-5 text-black" />
+            </DisclosureButton>
+
+            <div className="overflow-hidden">
+              <DisclosurePanel
+                transition
+                className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 my-5 data-[closed]:opacity-0"
+              >
+                Yes! You can purchase a license that you can share with your
+                entire team.
+              </DisclosurePanel>
+            </div>
+          </Disclosure>
+          <div className="h-[1px] bg-border w-full my-7" />
+          <Disclosure as="div" className="w-full">
+            <DisclosureButton className="w-full flex items-center justify-between">
+              <h3 className="text-2xl font-semibold">
+                Is team pricing available?
+              </h3>
+
+              <ChevronDownIcon className="w-5 h-5 text-black" />
+            </DisclosureButton>
+
+            <div className="overflow-hidden">
+              <DisclosurePanel
+                transition
+                className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 my-5 data-[closed]:opacity-0"
+              >
+                Yes! You can purchase a license that you can share with your
+                entire team.
+              </DisclosurePanel>
+            </div>
+          </Disclosure>
+          <div className="h-[1px] bg-border w-full my-7" />
+          <Disclosure as="div" className="w-full">
+            <DisclosureButton className="w-full flex items-center justify-between">
+              <h3 className="text-2xl font-semibold">
+                Is team pricing available?
+              </h3>
+
+              <ChevronDownIcon className="w-5 h-5 text-black" />
+            </DisclosureButton>
+
+            <div className="overflow-hidden">
+              <DisclosurePanel
+                transition
+                className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 my-5 data-[closed]:opacity-0"
+              >
+                Yes! You can purchase a license that you can share with your
+                entire team.
+              </DisclosurePanel>
+            </div>
+          </Disclosure>
+          <div className="h-[1px] bg-border w-full my-7" />
+          <Disclosure as="div" className="w-full">
+            <DisclosureButton className="w-full flex items-center justify-between">
+              <h3 className="text-2xl font-semibold">
+                Is team pricing available?
+              </h3>
+
+              <ChevronDownIcon className="w-5 h-5 text-black" />
+            </DisclosureButton>
+
+            <div className="overflow-hidden">
+              <DisclosurePanel
+                transition
+                className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 my-5 data-[closed]:opacity-0"
+              >
+                Yes! You can purchase a license that you can share with your
+                entire team.
+              </DisclosurePanel>
+            </div>
+          </Disclosure>
+          <div className="h-[1px] bg-border w-full my-7" />
         </div>
       </div>
     </div>

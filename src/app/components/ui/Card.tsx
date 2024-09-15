@@ -1,7 +1,7 @@
 // components/card.tsx
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 interface CardProps {
   course: {
@@ -11,7 +11,7 @@ interface CardProps {
     name: string;
     duration: string;
     price: number;
-  }
+  };
 }
 
 const Card: React.FC<CardProps> = ({ course }) => {
@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ course }) => {
       className="flex flex-col h-full group overflow-hidden rounded-xl shadow hover:shadow-md transition-shadow duration-500"
     >
       <Image
-        className="object-cover min-h-48 h-48 xs:h-56 group-hover:scale-105 transition-transform duration-500"
+        className="object-cover min-h-48 h-48 xs:h-56 group-hover:scale-105 transition-transform duration-500 w-full"
         // placeholder='blur'
         loading="lazy"
         quality={40}
@@ -32,16 +32,16 @@ const Card: React.FC<CardProps> = ({ course }) => {
         alt="download"
       />
       <div className="flex flex-col justify-between border space-y-5 p-4 flex-grow">
-        <div className='space-y-1'>
-          <h3 className='font-semibold'>{course.name}</h3>
+        <div className="space-y-1">
+          <h3 className="font-semibold">{course.name}</h3>
           <div>
             <h4>Duration: {course.duration} months</h4>
           </div>
         </div>
-        <h4 className='font-medium'>${course.price}/monthly</h4>
+        <h4 className="font-medium">${course.price}/monthly</h4>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
