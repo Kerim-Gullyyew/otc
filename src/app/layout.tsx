@@ -30,9 +30,9 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://onlinetutoringcourses.com/"),
 
-  title: "Online Tutoring Courses | Expert Tutors for All Subjects & Grades",
+  title: "Online Tutoring Courses | Expert Tutors for All Subjects",
   description:
-    "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades, helping students achieve academic success from the comfort of their homes. Enroll now to boost your grades and confidence!",
+    "Discover personalized online tutoring courses tailored to your learning needs. Our expert tutors provide one-on-one instruction in all subjects and grades.",
   applicationName: "",
   authors: [
     {

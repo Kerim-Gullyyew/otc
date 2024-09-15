@@ -35,10 +35,10 @@ const Card: React.FC<CardProps> = ({ course }) => {
         <div className="space-y-1">
           <h3 className="font-semibold">{course.name}</h3>
           <div>
-            <h4>Duration: {course.duration} months</h4>
+            <p>Duration: {course.duration} months</p>
           </div>
         </div>
-        <h4 className="font-medium">${course.price}/monthly</h4>
+        <p className="font-medium">${course.price}/monthly</p>
       </div>
     </Link>
   );
