@@ -94,6 +94,8 @@ const HeaderCategory: React.FC<HeaderCategoryProps> = ({ main_categories, close 
               <ul className="space-y-0.5 mt-3">
                 {secondaryCategoryItem &&
                   secondaryCategoryItem.courses.map(
+
+                    
                     (third, index) => (
                       <div key={index} className='flex' >
                         <Link
